@@ -11,7 +11,7 @@
 * Payment（开发中）
 * AntDesignProTheme（开发中）
 
-#### 博客系统(基于这些基础设施开发的博客系统<a href="https://www.keepactive.cn" target="_blank">keepactive.cn</a>)
+#### 博客系统(<a href="https://www.keepactive.cn" target="_blank">keepactive.cn</a>)
 * Articles（等待提交）
 * Comments（等待提交）
 * CactusTheme（等待提交）
