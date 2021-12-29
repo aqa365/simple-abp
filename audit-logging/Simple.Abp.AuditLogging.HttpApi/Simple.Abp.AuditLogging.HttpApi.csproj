@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Simple.Abp.AuditLogging</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc" Version="5.0.0" />
+    <PackageReference Include="Volo.Abp.Http.Client" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Simple.Abp.AuditLogging.Application.Contracts\Simple.Abp.AuditLogging.Application.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>

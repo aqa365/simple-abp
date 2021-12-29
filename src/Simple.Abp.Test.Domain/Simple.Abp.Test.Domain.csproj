@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>$(MSBuildProjectName)</AssemblyName>
+    <RootNamespace>Simple.Abp.Test</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.AuditLogging.Domain" Version="5.0.0" />
+    <PackageReference Include="Volo.Abp.Identity.Domain" Version="5.0.0" />
+    <PackageReference Include="Volo.Abp.IdentityServer.Domain" Version="5.0.0" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.Domain.Identity" Version="5.0.0" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.Domain.IdentityServer" Version="5.0.0" />
+    <PackageReference Include="Volo.Abp.SettingManagement.Domain" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Simple.Abp.Test.Domain.Shared\Simple.Abp.Test.Domain.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

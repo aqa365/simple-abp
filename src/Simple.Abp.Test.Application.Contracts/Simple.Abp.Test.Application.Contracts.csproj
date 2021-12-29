@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Simple.Abp.Test</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\audit-logging\Simple.Abp.AuditLogging.Application.Contracts\Simple.Abp.AuditLogging.Application.Contracts.csproj" />
+    <ProjectReference Include="..\..\identity-server\Simple.Abp.IdentityServer.Application.Contracts\Simple.Abp.IdentityServer.Application.Contracts.csproj" />
+    <ProjectReference Include="..\..\identity\Simple.Abp.Identity.Application.Contracts\Simple.Abp.Identity.Application.Contracts.csproj" />
+    <ProjectReference Include="..\Simple.Abp.Test.Domain.Shared\Simple.Abp.Test.Domain.Shared.csproj" />
+  </ItemGroup>
+
+</Project>
