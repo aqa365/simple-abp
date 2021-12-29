@@ -1,4 +1,5 @@
 ## simple-abp
+<img src="https://www.keepactive.cn/logo.png">
 #### 基础设施
 * <a href="https://github.com/aqa365/simple-abp/tree/master/audit-logging" target="_blank">AuditLogging</a>
 * <a href="https://github.com/aqa365/simple-abp/tree/master/identity" target="_blank">Identity</a>
