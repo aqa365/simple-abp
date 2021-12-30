@@ -179,7 +179,7 @@ namespace Simple.Abp.Test
             app.UseSwagger();
             app.UseAbpSwaggerUI(options =>
             {
-                options.SwaggerEndpoint("/swagger/v1/swagger.json", "KA API");
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "Simple Abp Test API");
                 var configuration = context.GetConfiguration();
 
                 if (env.IsDevelopment())

@@ -9,9 +9,9 @@
 
 	<ItemGroup>
 		<PackageReference Include="Volo.Abp.PermissionManagement.HttpApi" Version="5.0.0" />
-		<ProjectReference Include="..\..\audit-logging\Simple.Abp.AuditLogging.HttpApi\Simple.Abp.AuditLogging.HttpApi.csproj" />
-		<ProjectReference Include="..\..\identity-server\Simple.Abp.IdentityServer.HttpApi\Simple.Abp.IdentityServer.HttpApi.csproj" />
-		<ProjectReference Include="..\..\identity\Simple.Abp.Identity.HttpApi\Simple.Abp.Identity.HttpApi.csproj" />
+		<ProjectReference Include="..\..\modules\audit-logging\Simple.Abp.AuditLogging.HttpApi\Simple.Abp.AuditLogging.HttpApi.csproj" />
+		<ProjectReference Include="..\..\modules\identity-server\Simple.Abp.IdentityServer.HttpApi\Simple.Abp.IdentityServer.HttpApi.csproj" />
+		<ProjectReference Include="..\..\modules\identity\Simple.Abp.Identity.HttpApi\Simple.Abp.Identity.HttpApi.csproj" />
 		<ProjectReference Include="..\Simple.Abp.Test.Application.Contracts\Simple.Abp.Test.Application.Contracts.csproj" />
 	</ItemGroup>
 

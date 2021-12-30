@@ -9,9 +9,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\audit-logging\Simple.Abp.AuditLogging.HttpApi.Client\Simple.Abp.AuditLogging.HttpApi.Client.csproj" />
-    <ProjectReference Include="..\..\identity-server\Simple.Abp.IdentityServer.HttpApi.Client\Simple.Abp.IdentityServer.HttpApi.Client.csproj" />
-    <ProjectReference Include="..\..\identity\Simple.Abp.Identity.HttpApi.Client\Simple.Abp.Identity.HttpApi.Client.csproj" />
+    <ProjectReference Include="..\..\modules\audit-logging\Simple.Abp.AuditLogging.HttpApi.Client\Simple.Abp.AuditLogging.HttpApi.Client.csproj" />
+    <ProjectReference Include="..\..\modules\identity-server\Simple.Abp.IdentityServer.HttpApi.Client\Simple.Abp.IdentityServer.HttpApi.Client.csproj" />
+    <ProjectReference Include="..\..\modules\identity\Simple.Abp.Identity.HttpApi.Client\Simple.Abp.Identity.HttpApi.Client.csproj" />
     <ProjectReference Include="..\Simple.Abp.Test.Application.Contracts\Simple.Abp.Test.Application.Contracts.csproj" />
   </ItemGroup>
 

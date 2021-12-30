@@ -7,13 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.Test.Host", "src
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AuditLogging", "AuditLogging", "{23B2F40F-3B5C-478D-88D6-94F19C6BC84A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.AuditLogging.Application.Contracts", "audit-logging\Simple.Abp.AuditLogging.Application.Contracts\Simple.Abp.AuditLogging.Application.Contracts.csproj", "{B225969A-78DA-489F-8A2B-06B58402342F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.AuditLogging.Application.Contracts", "modules\audit-logging\Simple.Abp.AuditLogging.Application.Contracts\Simple.Abp.AuditLogging.Application.Contracts.csproj", "{B225969A-78DA-489F-8A2B-06B58402342F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.AuditLogging.Application", "audit-logging\Simple.Abp.AuditLogging.Application\Simple.Abp.AuditLogging.Application.csproj", "{B30793DF-7434-4F6C-B812-BDB792E34153}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.AuditLogging.Application", "modules\audit-logging\Simple.Abp.AuditLogging.Application\Simple.Abp.AuditLogging.Application.csproj", "{B30793DF-7434-4F6C-B812-BDB792E34153}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.AuditLogging.HttpApi", "audit-logging\Simple.Abp.AuditLogging.HttpApi\Simple.Abp.AuditLogging.HttpApi.csproj", "{F8C55E5D-CAE0-46C3-A9FA-841425FB9A1A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.AuditLogging.HttpApi", "modules\audit-logging\Simple.Abp.AuditLogging.HttpApi\Simple.Abp.AuditLogging.HttpApi.csproj", "{F8C55E5D-CAE0-46C3-A9FA-841425FB9A1A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.AuditLogging.HttpApi.Client", "audit-logging\Simple.Abp.AuditLogging.HttpApi.Client\Simple.Abp.AuditLogging.HttpApi.Client.csproj", "{8BA29F86-4A4F-40FA-ADAA-B61D19D1EDCF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.AuditLogging.HttpApi.Client", "modules\audit-logging\Simple.Abp.AuditLogging.HttpApi.Client\Simple.Abp.AuditLogging.HttpApi.Client.csproj", "{8BA29F86-4A4F-40FA-ADAA-B61D19D1EDCF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.Test.EntityFrameworkCore", "src\Simple.Abp.Test.EntityFrameworkCore\Simple.Abp.Test.EntityFrameworkCore.csproj", "{3A6D0BCF-F882-4959-9E23-4AC187AE73D4}"
 EndProject
@@ -35,25 +35,27 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.Test.DbMigrator"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{69D8FA2F-1938-41FE-8E8C-BE5D077A1DCE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.Identity.Application.Contracts", "identity\Simple.Abp.Identity.Application.Contracts\Simple.Abp.Identity.Application.Contracts.csproj", "{61E98B06-F95D-48F2-B23C-EDCB00802E7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.Identity.Application.Contracts", "modules\identity\Simple.Abp.Identity.Application.Contracts\Simple.Abp.Identity.Application.Contracts.csproj", "{61E98B06-F95D-48F2-B23C-EDCB00802E7B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.Identity.Application", "identity\Simple.Abp.Identity.Application\Simple.Abp.Identity.Application.csproj", "{12B25E10-791F-40A0-A432-E1517AF155BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.Identity.Application", "modules\identity\Simple.Abp.Identity.Application\Simple.Abp.Identity.Application.csproj", "{12B25E10-791F-40A0-A432-E1517AF155BE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.Identity.HttpApi", "identity\Simple.Abp.Identity.HttpApi\Simple.Abp.Identity.HttpApi.csproj", "{BEEF86CD-985C-48FF-B8A4-221283E59DA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.Identity.HttpApi", "modules\identity\Simple.Abp.Identity.HttpApi\Simple.Abp.Identity.HttpApi.csproj", "{BEEF86CD-985C-48FF-B8A4-221283E59DA4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.Identity.HttpApi.Client", "identity\Simple.Abp.Identity.HttpApi.Client\Simple.Abp.Identity.HttpApi.Client.csproj", "{40E6B84C-B46B-4CCC-B473-BA42F825142D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.Identity.HttpApi.Client", "modules\identity\Simple.Abp.Identity.HttpApi.Client\Simple.Abp.Identity.HttpApi.Client.csproj", "{40E6B84C-B46B-4CCC-B473-BA42F825142D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IdentityServer", "IdentityServer", "{ABD56D53-5529-44BC-A1E6-B6337EC7AF6A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.IdentityServer.Application.Contracts", "identity-server\Simple.Abp.IdentityServer.Application.Contracts\Simple.Abp.IdentityServer.Application.Contracts.csproj", "{BCC8206D-7155-4BBA-A849-141FEB9A1544}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.IdentityServer.Application.Contracts", "modules\identity-server\Simple.Abp.IdentityServer.Application.Contracts\Simple.Abp.IdentityServer.Application.Contracts.csproj", "{BCC8206D-7155-4BBA-A849-141FEB9A1544}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.IdentityServer.Application", "identity-server\Simple.Abp.IdentityServer.Application\Simple.Abp.IdentityServer.Application.csproj", "{60F0C96E-3489-42F1-85C1-2DEE6F73AE90}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.IdentityServer.Application", "modules\identity-server\Simple.Abp.IdentityServer.Application\Simple.Abp.IdentityServer.Application.csproj", "{60F0C96E-3489-42F1-85C1-2DEE6F73AE90}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.IdentityServer.HttpApi", "identity-server\Simple.Abp.IdentityServer.HttpApi\Simple.Abp.IdentityServer.HttpApi.csproj", "{DE3C5733-891B-4209-92B5-516DC476A5CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.IdentityServer.HttpApi", "modules\identity-server\Simple.Abp.IdentityServer.HttpApi\Simple.Abp.IdentityServer.HttpApi.csproj", "{DE3C5733-891B-4209-92B5-516DC476A5CA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.IdentityServer.HttpApi.Client", "identity-server\Simple.Abp.IdentityServer.HttpApi.Client\Simple.Abp.IdentityServer.HttpApi.Client.csproj", "{8B9BB6F7-3AD3-4B5F-B34F-E4E16C93793B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.IdentityServer.HttpApi.Client", "modules\identity-server\Simple.Abp.IdentityServer.HttpApi.Client\Simple.Abp.IdentityServer.HttpApi.Client.csproj", "{8B9BB6F7-3AD3-4B5F-B34F-E4E16C93793B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{6E94AA33-98D6-497A-A482-CD73AC209B07}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{D39DB157-1C7C-4A10-8E63-90DD9CC160F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -155,6 +157,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{14C184F6-0040-4E12-B69E-BE419E259D82} = {6E94AA33-98D6-497A-A482-CD73AC209B07}
+		{23B2F40F-3B5C-478D-88D6-94F19C6BC84A} = {D39DB157-1C7C-4A10-8E63-90DD9CC160F4}
 		{B225969A-78DA-489F-8A2B-06B58402342F} = {23B2F40F-3B5C-478D-88D6-94F19C6BC84A}
 		{B30793DF-7434-4F6C-B812-BDB792E34153} = {23B2F40F-3B5C-478D-88D6-94F19C6BC84A}
 		{F8C55E5D-CAE0-46C3-A9FA-841425FB9A1A} = {23B2F40F-3B5C-478D-88D6-94F19C6BC84A}
@@ -168,10 +171,12 @@ Global
 		{F02FCFED-CF09-4C8C-9582-5B41F1E04D49} = {6E94AA33-98D6-497A-A482-CD73AC209B07}
 		{2B1E2815-9AC3-4A32-89F1-A5B8538018A4} = {6E94AA33-98D6-497A-A482-CD73AC209B07}
 		{EC232048-31C5-4851-8C9F-A24C60676337} = {6E94AA33-98D6-497A-A482-CD73AC209B07}
+		{69D8FA2F-1938-41FE-8E8C-BE5D077A1DCE} = {D39DB157-1C7C-4A10-8E63-90DD9CC160F4}
 		{61E98B06-F95D-48F2-B23C-EDCB00802E7B} = {69D8FA2F-1938-41FE-8E8C-BE5D077A1DCE}
 		{12B25E10-791F-40A0-A432-E1517AF155BE} = {69D8FA2F-1938-41FE-8E8C-BE5D077A1DCE}
 		{BEEF86CD-985C-48FF-B8A4-221283E59DA4} = {69D8FA2F-1938-41FE-8E8C-BE5D077A1DCE}
 		{40E6B84C-B46B-4CCC-B473-BA42F825142D} = {69D8FA2F-1938-41FE-8E8C-BE5D077A1DCE}
+		{ABD56D53-5529-44BC-A1E6-B6337EC7AF6A} = {D39DB157-1C7C-4A10-8E63-90DD9CC160F4}
 		{BCC8206D-7155-4BBA-A849-141FEB9A1544} = {ABD56D53-5529-44BC-A1E6-B6337EC7AF6A}
 		{60F0C96E-3489-42F1-85C1-2DEE6F73AE90} = {ABD56D53-5529-44BC-A1E6-B6337EC7AF6A}
 		{DE3C5733-891B-4209-92B5-516DC476A5CA} = {ABD56D53-5529-44BC-A1E6-B6337EC7AF6A}
