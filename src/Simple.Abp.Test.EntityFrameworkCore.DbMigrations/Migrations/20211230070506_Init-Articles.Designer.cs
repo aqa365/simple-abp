@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Simple.Abp.Test.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore;
@@ -11,9 +12,10 @@ using Volo.Abp.EntityFrameworkCore;
 namespace Simple.Abp.Test.EntityFrameworkCore.Migrations
 {
     [DbContext(typeof(SimpleTestMigrationsDbContext))]
-    partial class SimpleTestMigrationsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211230070506_Init-Articles")]
+    partial class InitArticles
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

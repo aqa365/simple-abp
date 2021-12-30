@@ -10,7 +10,7 @@ namespace Simple.Abp.Articles
         typeof(AbpAspNetCoreMvcModule),
         typeof(AbpArticlesApplicationContractsModule)
     )]
-    public class ArticlesHttpApiModule:AbpModule
+    public class AbpArticlesHttpApiModule:AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
         {

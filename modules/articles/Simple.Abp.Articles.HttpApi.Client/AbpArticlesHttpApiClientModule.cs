@@ -8,7 +8,7 @@ namespace Simple.Abp.Articles
        typeof(AbpHttpClientModule),
        typeof(AbpArticlesApplicationContractsModule)
     )]
-    public class ArticlesHttpApiClientModule:AbpModule
+    public class AbpArticlesHttpApiClientModule:AbpModule
     {
         public const string RemoteServiceName = "Default";
 

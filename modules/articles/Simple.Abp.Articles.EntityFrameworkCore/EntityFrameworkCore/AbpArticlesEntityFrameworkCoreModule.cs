@@ -9,7 +9,7 @@ namespace Simple.Abp.Articles.EntityFrameworkCore
        typeof(AbpArticlesDomainModule),
        typeof(AbpEntityFrameworkCoreModule)
     )]
-    public class ArticlesEntityFrameworkCoreModule:AbpModule
+    public class AbpArticlesEntityFrameworkCoreModule:AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
         {

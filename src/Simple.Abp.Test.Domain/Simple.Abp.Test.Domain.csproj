@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\modules\articles\Simple.Abp.Articles.Domain\Simple.Abp.Articles.Domain.csproj" />
     <ProjectReference Include="..\Simple.Abp.Test.Domain.Shared\Simple.Abp.Test.Domain.Shared.csproj" />
   </ItemGroup>
 

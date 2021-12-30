@@ -1,4 +1,5 @@
 ﻿using Simple.Abp.Account;
+using Simple.Abp.Articles;
 using Simple.Abp.AuditLogging;
 using Simple.Abp.Identity;
 using Simple.Abp.IdentityServer;
@@ -19,7 +20,8 @@ namespace Simple.Abp.Test
         typeof(AbpIdentityServerApplicationModule),
         typeof(AbpAuditLoggingApplicationModule),
         typeof(AbpAccountAdminApplicationContractsModule),
-        typeof(AbpAccountPublicApplicationContractsModule)
+        typeof(AbpAccountPublicApplicationContractsModule),
+        typeof(AbpArticlesApplicationModule)
     )]
     public class SimpleTestApplicationModule:AbpModule
     {

@@ -8,13 +8,13 @@ namespace Simple.Abp.Articles
         typeof(AbpArticlesDomainModule),
         typeof(AbpArticlesApplicationContractsModule)
     )]
-    public class KaApplicationModule : AbpModule
+    public class AbpArticlesApplicationModule : AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
             Configure<AbpAutoMapperOptions>(options =>
             {
-                options.AddMaps<KaApplicationModule>();
+                options.AddMaps<AbpArticlesApplicationModule>();
             });
         }
     }

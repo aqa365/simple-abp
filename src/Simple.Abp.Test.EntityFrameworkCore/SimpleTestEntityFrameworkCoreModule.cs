@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Simple.Abp.Articles.EntityFrameworkCore;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore.MySQL;
@@ -16,7 +17,8 @@ namespace Simple.Abp.Test.EntityFrameworkCore
         typeof(AbpIdentityServerEntityFrameworkCoreModule),
         typeof(AbpPermissionManagementEntityFrameworkCoreModule),
         typeof(AbpSettingManagementEntityFrameworkCoreModule),
-        typeof(AbpAuditLoggingEntityFrameworkCoreModule)
+        typeof(AbpAuditLoggingEntityFrameworkCoreModule),
+        typeof(AbpArticlesEntityFrameworkCoreModule)
     )]
     public class SimpleTestEntityFrameworkCoreModule : AbpModule
     {

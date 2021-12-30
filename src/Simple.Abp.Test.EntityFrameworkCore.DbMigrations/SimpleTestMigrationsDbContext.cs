@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Simple.Abp.Articles.EntityFrameworkCore;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
@@ -33,6 +34,7 @@ namespace Simple.Abp.Test.EntityFrameworkCore
             builder.ConfigureIdentity();
             builder.ConfigureSettingManagement();
             builder.ConfigureIdentityServer();
+            builder.ConfigureArticles();
 
             /* Configure your own tables/entities inside the ConfigureBlog method */
             builder.ConfigureSimpleTest();

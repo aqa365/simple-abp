@@ -1,4 +1,5 @@
-﻿using Volo.Abp.AuditLogging;
+﻿using Simple.Abp.Articles;
+using Volo.Abp.AuditLogging;
 using Volo.Abp.Identity;
 using Volo.Abp.IdentityServer;
 using Volo.Abp.Localization;
@@ -16,7 +17,8 @@ namespace Simple.Abp.Test
         typeof(AbpIdentityServerDomainSharedModule),
         typeof(AbpPermissionManagementDomainSharedModule),
         typeof(AbpSettingManagementDomainSharedModule),
-        typeof(AbpAuditLoggingDomainSharedModule)
+        typeof(AbpAuditLoggingDomainSharedModule),
+        typeof(AbpArticlesDomainSharedModule)
     )]
     public class SimpleTestDomainSharedModule : AbpModule
     {

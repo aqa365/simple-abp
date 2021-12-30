@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\modules\articles\Simple.Abp.Articles.EntityFrameworkCore\Simple.Abp.Articles.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\Simple.Abp.Test.Domain\Simple.Abp.Test.Domain.csproj" />
   </ItemGroup>
 

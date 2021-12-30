@@ -3,9 +3,9 @@ using Simple.Abp.Articles.Dtos;
 
 namespace Simple.Abp.Articles
 {
-    public class KaApplicationAutoMapperProfile : Profile
+    public class ArticlesApplicationAutoMapperProfile : Profile
     {
-        public KaApplicationAutoMapperProfile()
+        public ArticlesApplicationAutoMapperProfile()
         {
             /* You can configure your AutoMapper mapping configuration here.
              * Alternatively, you can split your mapping configurations

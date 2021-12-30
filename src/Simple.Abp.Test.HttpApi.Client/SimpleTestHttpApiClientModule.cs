@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Simple.Abp.Account;
+using Simple.Abp.Articles;
 using Simple.Abp.AuditLogging;
 using Simple.Abp.Identity;
 using Simple.Abp.IdentityServer;
@@ -13,7 +14,8 @@ namespace Simple.Abp.Test
         typeof(AbpIdentityServerHttpApiClientModule),
         typeof(AbpAuditLoggingHttpApiClientModule),
         typeof(AbpAccountAdminHttpApiClientModule),
-        typeof(AbpAccountPublicHttpApiClientModule)
+        typeof(AbpAccountPublicHttpApiClientModule),
+        typeof(AbpArticlesHttpApiClientModule)
     )]
     public class SimpleTestHttpApiClientModule:AbpModule
     {

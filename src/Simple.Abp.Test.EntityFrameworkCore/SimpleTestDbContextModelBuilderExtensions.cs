@@ -1,5 +1,6 @@
 ﻿using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore;
+using Simple.Abp.Articles.EntityFrameworkCore;
 using Simple.Abp.Test;
 using System;
 using Volo.Abp;
@@ -20,8 +21,6 @@ namespace Simple.Abp.Test.EntityFrameworkCore
             );
 
             optionsAction?.Invoke(options);
-
-            //builder.ConfigureBlog();
         }
     }
 }

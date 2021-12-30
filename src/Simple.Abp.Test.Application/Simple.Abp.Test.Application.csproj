@@ -10,6 +10,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\modules\account\admin\Simple.Abp.Account.Admin.Application\Simple.Abp.Account.Admin.Application.csproj" />
     <ProjectReference Include="..\..\modules\account\public\Simple.Abp.Account.Public.Application\Simple.Abp.Account.Public.Application.csproj" />
+    <ProjectReference Include="..\..\modules\articles\Simple.Abp.Articles.Application\Simple.Abp.Articles.Application.csproj" />
     <ProjectReference Include="..\..\modules\audit-logging\Simple.Abp.AuditLogging.Application\Simple.Abp.AuditLogging.Application.csproj" />
     <ProjectReference Include="..\..\modules\identity-server\Simple.Abp.IdentityServer.Application\Simple.Abp.IdentityServer.Application.csproj" />
     <ProjectReference Include="..\..\modules\identity\Simple.Abp.Identity.Application\Simple.Abp.Identity.Application.csproj" />
