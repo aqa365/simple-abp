@@ -6,7 +6,7 @@
 * <a href="https://github.com/aqa365/simple-abp/tree/master/audit-logging" target="_blank">AuditLogging</a>
 * <a href="https://github.com/aqa365/simple-abp/tree/master/identity" target="_blank">Identity</a>
 * <a href="https://github.com/aqa365/simple-abp/tree/master/identity-server" target="_blank">IdentityServer</a>
-* Account（开发中）
+* <a href="https://github.com/aqa365/simple-abp/tree/master/account" target="_blank">Account</a>
 * Language Management（开发中）
 * Payment（开发中）
 * AntDesignProTheme（开发中）
