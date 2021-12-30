@@ -110,7 +110,7 @@ namespace Simple.Abp.Test
                 {
                     options.Authority = configuration["AuthServer:Authority"];
                     options.RequireHttpsMetadata = Convert.ToBoolean(configuration["AuthServer:RequireHttpsMetadata"]);
-                    options.Audience = "ka_api";
+                    options.Audience = "test_api";
                 });
         }
 
@@ -121,11 +121,11 @@ namespace Simple.Abp.Test
                 configuration["AuthServer:Authority"],
                 new Dictionary<string, string>
                 {
-                    {"ka_api", "KA API"}
+                    {"test_api", "Simple Abp Test API"}
                 },
                 options =>
                 {
-                    options.SwaggerDoc("v1", new OpenApiInfo { Title = "KA API", Version = "v1" });
+                    options.SwaggerDoc("v1", new OpenApiInfo { Title = "Simple Abp Test API", Version = "v1" });
                     options.DocInclusionPredicate((docName, description) => true);
                     //options.OperationFilter<SwaggerFileUploadFilter>();
                 });

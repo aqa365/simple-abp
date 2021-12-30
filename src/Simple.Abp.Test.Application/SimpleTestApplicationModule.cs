@@ -1,4 +1,5 @@
-﻿using Simple.Abp.AuditLogging;
+﻿using Simple.Abp.Account;
+using Simple.Abp.AuditLogging;
 using Simple.Abp.Identity;
 using Simple.Abp.IdentityServer;
 using System;
@@ -12,11 +13,13 @@ using Volo.Abp.Modularity;
 namespace Simple.Abp.Test
 {
     [DependsOn(
-         typeof(SimpleTestDomainModule),
-         typeof(SimpleTestApplicationContractsModule),
-         typeof(AbpIdentityApplicationModule),
-         typeof(AbpIdentityServerApplicationModule),
-         typeof(AbpAuditLoggingApplicationModule)
+        typeof(SimpleTestDomainModule),
+        typeof(SimpleTestApplicationContractsModule),
+        typeof(AbpIdentityApplicationModule),
+        typeof(AbpIdentityServerApplicationModule),
+        typeof(AbpAuditLoggingApplicationModule),
+        typeof(AbpAccountAdminApplicationContractsModule),
+        typeof(AbpAccountPublicApplicationContractsModule)
     )]
     public class SimpleTestApplicationModule:AbpModule
     {

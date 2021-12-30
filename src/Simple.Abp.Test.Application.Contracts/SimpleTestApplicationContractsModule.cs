@@ -1,4 +1,5 @@
-﻿using Simple.Abp.AuditLogging;
+﻿using Simple.Abp.Account;
+using Simple.Abp.AuditLogging;
 using Simple.Abp.Identity;
 using Simple.Abp.IdentityServer;
 using Volo.Abp.Modularity;
@@ -12,6 +13,8 @@ namespace Simple.Abp.Test
         typeof(AbpIdentityApplicationContractsModule),
         typeof(AbpIdentityServerApplicationContractsModule),
         typeof(AbpAuditLoggingApplicationContractsModule),
+        typeof(AbpAccountAdminApplicationContractsModule),
+        typeof(AbpAccountPublicApplicationContractsModule),
         typeof(AbpObjectExtendingModule)
     )]
     public class SimpleTestApplicationContractsModule:AbpModule
