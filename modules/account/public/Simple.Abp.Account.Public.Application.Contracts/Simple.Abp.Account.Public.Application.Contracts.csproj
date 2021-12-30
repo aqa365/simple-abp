@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Simple.Abp.Account.Shared.Application.Contracts\Simple.Abp.Account.Shared.Application.Contracts.csproj" />
+  </ItemGroup>
+
 </Project>

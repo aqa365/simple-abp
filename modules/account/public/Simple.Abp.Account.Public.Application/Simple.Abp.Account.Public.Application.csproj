@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.Sms" Version="5.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Simple.Abp.Account.Shared.Application\Simple.Abp.Account.Shared.Application.csproj" />
+    <ProjectReference Include="..\Simple.Abp.Account.Public.Application.Contracts\Simple.Abp.Account.Public.Application.Contracts.csproj" />
+  </ItemGroup>
+
 </Project>

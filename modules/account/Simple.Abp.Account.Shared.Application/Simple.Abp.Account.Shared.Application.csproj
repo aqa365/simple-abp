@@ -4,6 +4,17 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <RootNamespace>Simple.Abp.Account</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.Emailing" Version="5.0.1" />
+    <PackageReference Include="Volo.Abp.UI.Navigation" Version="5.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\identity\Simple.Abp.Identity.Application\Simple.Abp.Identity.Application.csproj" />
+    <ProjectReference Include="..\Simple.Abp.Account.Shared.Application.Contracts\Simple.Abp.Account.Shared.Application.Contracts.csproj" />
+  </ItemGroup>
 
 </Project>

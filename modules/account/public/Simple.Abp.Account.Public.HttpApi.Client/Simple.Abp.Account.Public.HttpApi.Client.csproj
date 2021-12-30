@@ -6,4 +6,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.Http.Client" Version="5.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Simple.Abp.Account.Public.Application.Contracts\Simple.Abp.Account.Public.Application.Contracts.csproj" />
+  </ItemGroup>
+
 </Project>
