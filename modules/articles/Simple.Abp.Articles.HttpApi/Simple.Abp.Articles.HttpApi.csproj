@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<RootNamespace>Simple.Abp.Article</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Volo.Abp.AspNetCore.Mvc" Version="5.0.0" />
+		<ProjectReference Include="..\Simple.Abp.Articles.Application.Contracts\Simple.Abp.Articles.Application.Contracts.csproj" />
+	</ItemGroup>
+
+</Project>
