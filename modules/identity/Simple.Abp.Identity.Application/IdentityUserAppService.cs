@@ -92,7 +92,7 @@ namespace Simple.Abp.Identity
 			return ObjectMapper.Map<IdentityUser, IdentityUserDto>(user);
 		}
 
-		[Authorize(IdentityPermissions.Users.Update)]
+		//[Authorize(IdentityPermissions.Users.Update)]
 		public virtual async Task<IdentityUserDto> UpdateAsync(Guid id, IdentityUserUpdateDto input)
 		{
 			var user = await UserManager.GetByIdAsync(id);
@@ -110,7 +110,7 @@ namespace Simple.Abp.Identity
 			return ObjectMapper.Map<IdentityUser, IdentityUserDto>(user);
 		}
 
-		[Authorize(IdentityPermissions.Users.Delete)]
+		//[Authorize(IdentityPermissions.Users.Delete)]
 		public virtual async Task DeleteAsync(Guid id)
 		{
 			if (CurrentUser.Id == id)
@@ -135,7 +135,7 @@ namespace Simple.Abp.Identity
 			await UserRepository.UpdateAsync(user);
 		}
 
-		[Authorize(IdentityPermissions.Users.Update)]
+		//[Authorize(IdentityPermissions.Users.Update)]
 		public virtual async Task UpdateClaimsAsync(Guid id, List<IdentityUserClaimDto> input)
 		{
 			var user = await this.UserRepository.GetAsync(id);
@@ -157,14 +157,14 @@ namespace Simple.Abp.Identity
 			}
 		}
 
-		[Authorize(IdentityPermissions.Users.Update)]
+		//[Authorize(IdentityPermissions.Users.Update)]
 		public virtual async Task UnlockAsync(Guid id)
 		{
 			IdentityUser user = await this.UserManager.GetByIdAsync(id);
 			await this.UserManager.SetLockoutEndDateAsync(user, null);
 		}
 
-		[Authorize(IdentityPermissions.Users.Update)]
+		//[Authorize(IdentityPermissions.Users.Update)]
 		public virtual async Task UpdatePasswordAsync(Guid id, IdentityUserUpdatePasswordInput input)
 		{
 			var user = await UserManager.GetByIdAsync(id);
