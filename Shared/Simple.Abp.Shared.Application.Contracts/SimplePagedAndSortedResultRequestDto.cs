@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Volo.Abp.Application.Dtos;
 
-namespace Simple.Abp.Articles
+namespace Simple.Abp.Shared
 {
-    public class ArticlesPageRequestDto: PagedAndSortedResultRequestDto
+    public class SimplePagedAndSortedResultRequestDto: PagedAndSortedResultRequestDto
     {
         [StringLength(20)]
         public string? Filter { get; set; }

@@ -99,6 +99,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.Articles.HttpApi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.Articles.HttpApi.Client", "modules\articles\Simple.Abp.Articles.HttpApi.Client\Simple.Abp.Articles.HttpApi.Client.csproj", "{C89B99B9-C07E-4182-882F-3DC38C55F29D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{71F845E3-37DC-4262-A034-FE28EDB42099}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simple.Abp.Shared.Application.Contracts", "Shared\Simple.Abp.Shared.Application.Contracts\Simple.Abp.Shared.Application.Contracts.csproj", "{C3653ED3-B783-4F64-AC3D-CA5CCDBB7534}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -261,6 +265,10 @@ Global
 		{C89B99B9-C07E-4182-882F-3DC38C55F29D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C89B99B9-C07E-4182-882F-3DC38C55F29D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C89B99B9-C07E-4182-882F-3DC38C55F29D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3653ED3-B783-4F64-AC3D-CA5CCDBB7534}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3653ED3-B783-4F64-AC3D-CA5CCDBB7534}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3653ED3-B783-4F64-AC3D-CA5CCDBB7534}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3653ED3-B783-4F64-AC3D-CA5CCDBB7534}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -312,6 +320,7 @@ Global
 		{6EDB4E38-75CB-48D4-86D7-3B1A2DEE262B} = {8293C2A9-363C-4ED8-9D38-C04125B6585B}
 		{78D5D8B6-8F82-49DF-B2B3-22836D1BCA3A} = {8293C2A9-363C-4ED8-9D38-C04125B6585B}
 		{C89B99B9-C07E-4182-882F-3DC38C55F29D} = {8293C2A9-363C-4ED8-9D38-C04125B6585B}
+		{C3653ED3-B783-4F64-AC3D-CA5CCDBB7534} = {71F845E3-37DC-4262-A034-FE28EDB42099}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B358507C-4C9F-4B14-BB31-B77B1CA84670}

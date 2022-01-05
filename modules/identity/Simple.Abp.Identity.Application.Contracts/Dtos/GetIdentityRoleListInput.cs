@@ -1,9 +1,9 @@
-﻿using Volo.Abp.Application.Dtos;
+﻿using Simple.Abp.Shared;
+using Volo.Abp.Application.Dtos;
 
 namespace Simple.Abp.Identity
 {
-	public class GetIdentityRoleListInput : PagedAndSortedResultRequestDto
+	public class GetIdentityRoleListInput : SimplePagedAndSortedResultRequestDto
 	{
-		public string Filter { get; set; }
 	}
 }

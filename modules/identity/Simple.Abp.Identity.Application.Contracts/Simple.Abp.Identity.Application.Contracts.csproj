@@ -14,4 +14,8 @@
     <PackageReference Include="Volo.Abp.Users.Abstractions" Version="5.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\Simple.Abp.Shared.Application.Contracts\Simple.Abp.Shared.Application.Contracts.csproj" />
+  </ItemGroup>
+
 </Project>
