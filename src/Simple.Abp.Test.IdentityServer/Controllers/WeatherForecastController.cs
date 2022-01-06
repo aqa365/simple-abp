@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Simple.Abp.Test.Controllers
+namespace Simple.Abp.Test.IdentityServer.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -9,7 +9,7 @@ namespace Simple.Abp.Test.Controllers
         private static readonly string[] Summaries = new[]
         {
         "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
+    };
 
         private readonly ILogger<WeatherForecastController> _logger;
 

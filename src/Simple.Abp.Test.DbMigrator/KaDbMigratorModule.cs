@@ -6,10 +6,10 @@ namespace Simple.Abp.Test.DbMigrator
 {
     [DependsOn(
         typeof(AbpAutofacModule),
-        typeof(SimpleTestEntityFrameworkCoreDbMigrationsModule),
+        typeof(SimpleTestEntityFrameworkCoreModule),
         typeof(SimpleTestApplicationContractsModule)
         )]
-    public class KaDbMigratorModule : AbpModule
+    public class SimpleTestDbMigratorModule : AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
         {

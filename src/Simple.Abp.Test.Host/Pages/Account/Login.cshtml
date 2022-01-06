@@ -1,0 +1,93 @@
+﻿@page
+@using Volo.Abp.AspNetCore.Mvc.UI.Theming
+@using Microsoft.Extensions.Options;
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Volo.Abp.Account.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Alerts;
+@inject ITheme Theme
+@inject IHtmlLocalizer<AccountResource> L
+@inject IAlertManager AlertManager
+
+@model Volo.Abp.Account.Web.Pages.Account.LoginModel
+
+@{
+    ViewBag.PageTitle = "KeepActive";
+    Layout = Theme.GetAccountLayout();
+}
+<div class="logo-wrapper">
+    <img class="logo" alt="Logo" src="/logo.png" width="32" />
+</div>
+
+<div class="content-body">
+    <div class="form-wrapper">
+        <form method="post">
+            <input asp-for="ReturnUrl" />
+            <input asp-for="ReturnUrlHash" />
+
+            <h1 class="text-title">请输入您的帐户</h1>
+            <div class="text-register">还没有账户? <a href="#register">点击注册</a></div>
+
+            <div class="field-group">
+                @if (AlertManager.Alerts != null)
+                {
+                    @foreach (var alertMessage in AlertManager.Alerts)
+                    {
+                        <span class="fv-help-block field-validation-error">
+                            ❌ @alertMessage.Text
+                        </span>
+                    }
+                }
+                <input class="input" type="text" asp-for="LoginInput.UserNameOrEmailAddress" placeholder="用户名/邮箱" />
+                <div class="fv-plugins-message-container">
+                    <span asp-validation-for="LoginInput.UserNameOrEmailAddress" class="fv-help-block"></span>
+                </div>
+                <input class="input" type="password" asp-for="LoginInput.Password" placeholder="密码" />
+                <div class="fv-plugins-message-container">
+                    <span asp-validation-for="LoginInput.Password" class="fv-help-block"></span>
+                </div>
+            </div>
+
+            <div class="field-group-inline">
+                <label asp-for="LoginInput.RememberMe">
+                    <input class="checkbox" type="checkbox" asp-for="LoginInput.RememberMe" />
+                    记住我
+                </label>
+                <a href="#forget-password">
+                    忘记密码？
+                </a>
+            </div>
+
+            <div class="field-group">
+                <input class="btn-submit" type="submit" value="登录" />
+            </div>
+
+            <div class="separator-wrapper">
+                <div class="separator">
+                    <span>
+                     @*   @Options.Value.WebsiteFiling
+                        @Html.Raw(Options.Value.WebInfo)*@
+                    </span>
+                </div>
+            </div>
+
+
+            @*<div class="footnote-wrapper">
+                    <div class="footnote footnote-left">
+                        Belum punya akun?
+                        <br />
+                        <a href="#register">Daftar sekarang</a>
+                    </div>
+                    <div class="footnote footnote-right">
+                        User belum aktif?
+                        <br />
+                        <a href="#resend-verification">
+                            Kirim ulang email aktivasi
+                        </a>
+                    </div>
+                </div>*@
+        </form>
+    </div>
+</div>
+<abp-script src="/libs/jquery/jquery.js" />
+<abp-script src="/libs/jquery/jquery-validation/jquery.validate.js" />
+<abp-script src="/libs/jquery/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js" />

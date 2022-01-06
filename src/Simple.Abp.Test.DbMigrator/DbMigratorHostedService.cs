@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Threading;
+using System.Threading.Tasks;
 using Volo.Abp;
 
 namespace Simple.Abp.Test.DbMigrator
@@ -15,17 +17,17 @@ namespace Simple.Abp.Test.DbMigrator
 
         public async Task StartAsync(CancellationToken cancellationToken)
         {
-            using (var application = AbpApplicationFactory.Create<KaDbMigratorModule>(options =>
+            using (var application = AbpApplicationFactory.Create<SimpleTestDbMigratorModule>(options =>
             {
                 options.UseAutofac();
             }))
             {
                 application.Initialize();
 
-                await application
-                    .ServiceProvider
-                    .GetRequiredService<SimpleTestDbMigrationService>()
-                    .MigrateAsync();
+                var dbMigrationService = 
+                    application.ServiceProvider.GetRequiredService<SimpleTestDbMigrationService>();
+
+                await dbMigrationService.MigrateAsync();
 
                 application.Shutdown();
 

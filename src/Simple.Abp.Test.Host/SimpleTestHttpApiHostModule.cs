@@ -1,13 +1,20 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using IdentityServer4.Configuration;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.OpenApi.Models;
 using Simple.Abp.Test.EntityFrameworkCore;
 using Volo.Abp;
+using Volo.Abp.Account.Web;
+using Volo.Abp.AspNetCore.Authentication.JwtBearer;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Mvc.AntiForgery;
+using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
+using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared;
 using Volo.Abp.Auditing;
 using Volo.Abp.Autofac;
+using Volo.Abp.Identity.AspNetCore;
+using Volo.Abp.Identity.Web;
 using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Volo.Abp.Swashbuckle;
@@ -20,11 +27,26 @@ namespace Simple.Abp.Test
         typeof(SimpleTestApplicationModule),
         typeof(SimpleTestEntityFrameworkCoreModule),
         typeof(AbpAutofacModule),
-        typeof(AbpSwashbuckleModule)
+        typeof(AbpSwashbuckleModule),
+        typeof(AbpAspNetCoreAuthenticationJwtBearerModule),
+        typeof(AbpAccountWebIdentityServerModule),
+        typeof(AbpAspNetCoreMvcUiThemeSharedModule)
     )]
     public class SimpleTestHttpApiHostModule : AbpModule
     {
         private const string DefaultCorsPolicyName = "Default";
+        public override void PreConfigureServices(ServiceConfigurationContext context)
+        {
+            var configuration = context.Services.GetConfiguration();
+
+            context.Services.PreConfigure<AbpIdentityAspNetCoreOptions>(options =>
+            {
+                options.ConfigureAuthentication = false;
+            });
+
+            //PreConfigureCertificates(configuration);
+        }
+
 
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
@@ -42,6 +64,22 @@ namespace Simple.Abp.Test
                 options.TokenCookie.SameSite = Microsoft.AspNetCore.Http.SameSiteMode.Lax;
                 options.TokenCookie.Expiration = TimeSpan.FromDays(365);
                 //options.AutoValidateIgnoredHttpMethods.Add("POST");
+            });
+
+
+            Configure<IdentityServerOptions>(options =>
+            {
+                options.UserInteraction = new UserInteractionOptions()
+                {
+                    LogoutUrl = "/account/logout",
+                    LoginUrl = "/account/login",
+                    LoginReturnUrlParameter = "returnUrl"
+                };
+            });
+
+            Configure<AbpAuditingOptions>(options =>
+            {
+                options.IsEnabledForGetRequests = true;
             });
 
             Configure<AbpAuditingOptions>(options =>
@@ -106,13 +144,13 @@ namespace Simple.Abp.Test
 
         private void ConfigureAuthentication(ServiceConfigurationContext context, IConfiguration configuration)
         {
-            //context.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            //    .AddJwtBearer(options =>
-            //    {
-            //        options.Authority = configuration["AuthServer:Authority"];
-            //        options.RequireHttpsMetadata = Convert.ToBoolean(configuration["AuthServer:RequireHttpsMetadata"]);
-            //        options.Audience = "test_api";
-            //    });
+            context.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.Authority = configuration["AuthServer:Authority"];
+                    options.RequireHttpsMetadata = Convert.ToBoolean(configuration["AuthServer:RequireHttpsMetadata"]);
+                    options.Audience = "ka_api";
+                });
         }
 
         private static void ConfigureSwaggerServices(ServiceConfigurationContext context, IConfiguration configuration)
@@ -122,7 +160,7 @@ namespace Simple.Abp.Test
                 configuration["AuthServer:Authority"],
                 new Dictionary<string, string>
                 {
-                    {"test_api", "Simple Abp Test API"}
+                    {"ka_api", "Simple Abp Test API"}
                 },
                 options =>
                 {
@@ -173,8 +211,10 @@ namespace Simple.Abp.Test
             app.UseStaticFiles();
             app.UseRouting();
             app.UseCors(DefaultCorsPolicyName);
-            app.UseAuthentication();
 
+            app.UseAuthentication();
+            app.UseJwtTokenMiddleware();
+            app.UseIdentityServer();
             app.UseAuthorization();
 
             app.UseSwagger();

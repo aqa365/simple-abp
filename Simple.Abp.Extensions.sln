@@ -101,7 +101,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.Articles.HttpApi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{71F845E3-37DC-4262-A034-FE28EDB42099}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simple.Abp.Shared.Application.Contracts", "Shared\Simple.Abp.Shared.Application.Contracts\Simple.Abp.Shared.Application.Contracts.csproj", "{C3653ED3-B783-4F64-AC3D-CA5CCDBB7534}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.Shared.Application.Contracts", "Shared\Simple.Abp.Shared.Application.Contracts\Simple.Abp.Shared.Application.Contracts.csproj", "{C3653ED3-B783-4F64-AC3D-CA5CCDBB7534}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

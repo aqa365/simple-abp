@@ -19,8 +19,8 @@ namespace Simple.Abp.Test
         typeof(AbpIdentityApplicationModule),
         typeof(AbpIdentityServerApplicationModule),
         typeof(AbpAuditLoggingApplicationModule),
-        typeof(AbpAccountAdminApplicationContractsModule),
-        typeof(AbpAccountPublicApplicationContractsModule),
+        typeof(AbpAccountAdminApplicationModule),
+        typeof(AbpAccountPublicApplicationModule),
         typeof(AbpArticlesApplicationModule)
     )]
     public class SimpleTestApplicationModule:AbpModule

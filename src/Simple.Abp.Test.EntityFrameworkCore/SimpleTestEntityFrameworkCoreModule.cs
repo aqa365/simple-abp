@@ -12,6 +12,7 @@ using Volo.Abp.SettingManagement.EntityFrameworkCore;
 namespace Simple.Abp.Test.EntityFrameworkCore
 {
     [DependsOn(
+        typeof(SimpleTestDomainModule),
         typeof(AbpEntityFrameworkCoreMySQLModule),
         typeof(AbpIdentityEntityFrameworkCoreModule),
         typeof(AbpIdentityServerEntityFrameworkCoreModule),
