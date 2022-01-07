@@ -1,18 +1,26 @@
 ﻿@page
-@using Volo.Abp.AspNetCore.Mvc.UI.Theming
-@using Microsoft.Extensions.Options;
 @using Microsoft.AspNetCore.Mvc.Localization
-@using Volo.Abp.Account.Localization
-@using Volo.Abp.AspNetCore.Mvc.UI.Alerts;
+@using Microsoft.Extensions.Options
+@using Simple.Abp.Account.Localization
+@using Simple.Abp.Account.Public.Web
+@using Simple.Abp.Account.Settings
+@using Simple.Abp.Account.Public.Web.Pages.Account
+@using Volo.Abp.AspNetCore.Mvc.UI.Alerts
+@using Volo.Abp.AspNetCore.Mvc.UI.Theming
+@using Volo.Abp.Settings
+@model LoginModel
+@inject IHtmlLocalizer<AccountResource> L
+@inject Volo.Abp.Settings.ISettingProvider SettingProvider
 @inject ITheme Theme
+@inject IOptions<SimpleAccountPublicWebOptions> Options
 @inject IHtmlLocalizer<AccountResource> L
 @inject IAlertManager AlertManager
 
-@model Volo.Abp.Account.Web.Pages.Account.LoginModel
 
 @{
+    var httpContext = HttpContext.User.Identity;
     ViewBag.PageTitle = "KeepActive";
-    Layout = Theme.GetAccountLayout();
+    
 }
 <div class="logo-wrapper">
     <img class="logo" alt="Logo" src="/logo.png" width="32" />
@@ -64,8 +72,8 @@
             <div class="separator-wrapper">
                 <div class="separator">
                     <span>
-                     @*   @Options.Value.WebsiteFiling
-                        @Html.Raw(Options.Value.WebInfo)*@
+                        @Options.Value.WebsiteFiling
+                        @Html.Raw(Options.Value.WebInfo)
                     </span>
                 </div>
             </div>

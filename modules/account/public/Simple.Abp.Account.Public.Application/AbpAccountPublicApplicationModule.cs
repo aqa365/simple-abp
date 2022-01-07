@@ -1,13 +1,21 @@
-﻿using Volo.Abp.Modularity;
+﻿using Simple.Abp.Identity;
+using Volo.Abp.Emailing;
+using Volo.Abp.Modularity;
 using Volo.Abp.Sms;
+using Volo.Abp.UI.Navigation;
 using Volo.Abp.UI.Navigation.Urls;
 using Volo.Abp.VirtualFileSystem;
 
 namespace Simple.Abp.Account
 {
+
 	[DependsOn(
 		typeof(AbpAccountSharedApplicationModule),
-		typeof(AbpSmsModule)
+		typeof(AbpAccountPublicApplicationContractsModule),
+		typeof(AbpSmsModule),
+		typeof(AbpIdentityApplicationModule),
+		typeof(AbpUiNavigationModule),
+		typeof(AbpEmailingModule)
 	)]
 	public class AbpAccountPublicApplicationModule : AbpModule
 	{

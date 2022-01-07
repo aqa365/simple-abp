@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\identity\Simple.Abp.Identity.Application\Simple.Abp.Identity.Application.csproj" />
     <ProjectReference Include="..\..\Simple.Abp.Account.Shared.Application\Simple.Abp.Account.Shared.Application.csproj" />
     <ProjectReference Include="..\Simple.Abp.Account.Public.Application.Contracts\Simple.Abp.Account.Public.Application.Contracts.csproj" />
   </ItemGroup>

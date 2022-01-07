@@ -1,16 +1,14 @@
-﻿using IdentityServer4.Configuration;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.OpenApi.Models;
+using Simple.Abp.Account.Public.Web;
 using Simple.Abp.Test.EntityFrameworkCore;
 using Volo.Abp;
-using Volo.Abp.Account.Web;
 using Volo.Abp.AspNetCore.Authentication.JwtBearer;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Mvc.AntiForgery;
-using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
-using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared;
+using Volo.Abp.AspNetCore.Serilog;
 using Volo.Abp.Auditing;
 using Volo.Abp.Autofac;
 using Volo.Abp.Identity.AspNetCore;
@@ -18,6 +16,7 @@ using Volo.Abp.Identity.Web;
 using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Volo.Abp.Swashbuckle;
+using Volo.Abp.UI.Navigation.Urls;
 using Volo.Abp.VirtualFileSystem;
 
 namespace Simple.Abp.Test
@@ -27,10 +26,11 @@ namespace Simple.Abp.Test
         typeof(SimpleTestApplicationModule),
         typeof(SimpleTestEntityFrameworkCoreModule),
         typeof(AbpAutofacModule),
-        typeof(AbpSwashbuckleModule),
         typeof(AbpAspNetCoreAuthenticationJwtBearerModule),
-        typeof(AbpAccountWebIdentityServerModule),
-        typeof(AbpAspNetCoreMvcUiThemeSharedModule)
+        typeof(AbpAspNetCoreSerilogModule),
+        typeof(AbpSwashbuckleModule),
+        //typeof(AbpIdentityWebModule),
+        typeof(SimpleAccountPublicWebModule)
     )]
     public class SimpleTestHttpApiHostModule : AbpModule
     {
@@ -67,24 +67,24 @@ namespace Simple.Abp.Test
             });
 
 
-            Configure<IdentityServerOptions>(options =>
-            {
-                options.UserInteraction = new UserInteractionOptions()
-                {
-                    LogoutUrl = "/account/logout",
-                    LoginUrl = "/account/login",
-                    LoginReturnUrlParameter = "returnUrl"
-                };
-            });
+            //Configure<IdentityServerOptions>(options =>
+            //{
+            //    options.UserInteraction = new UserInteractionOptions()
+            //    {
+            //        LogoutUrl = "/account/logout",
+            //        LoginUrl = "/account/login",
+            //        LoginReturnUrlParameter = "returnUrl"
+            //    };
+            //});
 
             Configure<AbpAuditingOptions>(options =>
             {
                 options.IsEnabledForGetRequests = true;
             });
 
-            Configure<AbpAuditingOptions>(options =>
+            Configure<AppUrlOptions>(options =>
             {
-                options.IsEnabledForGetRequests = true;
+                options.Applications["MVC"].RootUrl = configuration["App:SelfUrl"];
             });
 
             context.Services.AddCors(options =>
@@ -144,7 +144,7 @@ namespace Simple.Abp.Test
 
         private void ConfigureAuthentication(ServiceConfigurationContext context, IConfiguration configuration)
         {
-            context.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            context.Services.AddAuthentication()
                 .AddJwtBearer(options =>
                 {
                     options.Authority = configuration["AuthServer:Authority"];
@@ -209,14 +209,14 @@ namespace Simple.Abp.Test
 
             app.UseCorrelationId();
             app.UseStaticFiles();
-            app.UseRouting();
             app.UseCors(DefaultCorsPolicyName);
 
+            app.UseRouting();
             app.UseAuthentication();
             app.UseJwtTokenMiddleware();
             app.UseIdentityServer();
             app.UseAuthorization();
-
+            app.UseUnitOfWork();
             app.UseSwagger();
             app.UseAbpSwaggerUI(options =>
             {

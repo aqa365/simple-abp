@@ -1,7 +1,7 @@
 ﻿@page
-@using Microsoft.AspNetCore.Authorization 
-@attribute [Authorize]
-@model Ka.Pages.IndexModel
+@model Simple.Abp.Test.Pages.IndexModel
 @{
 }
-<h1>Index</h1>
+
+@HttpContext.User.Identity?.IsAuthenticated
+@HttpContext.User.Identity?.Name
