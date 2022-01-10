@@ -5,6 +5,7 @@ using Simple.Abp.AuditLogging;
 using Simple.Abp.Identity;
 using Simple.Abp.IdentityServer;
 using Volo.Abp.Modularity;
+using Volo.Abp.PermissionManagement;
 
 namespace Simple.Abp.Test
 {
@@ -15,7 +16,8 @@ namespace Simple.Abp.Test
         typeof(AbpAuditLoggingHttpApiClientModule),
         typeof(AbpAccountAdminHttpApiClientModule),
         typeof(AbpAccountPublicHttpApiClientModule),
-        typeof(AbpArticlesHttpApiClientModule)
+        typeof(AbpArticlesHttpApiClientModule),
+        typeof(AbpPermissionManagementHttpApiClientModule)
     )]
     public class SimpleTestHttpApiClientModule:AbpModule
     {

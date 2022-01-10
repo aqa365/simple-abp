@@ -18,12 +18,12 @@
 
 
 @{
-    var httpContext = HttpContext.User.Identity;
-    ViewBag.PageTitle = "KeepActive";
-    
+    var webOptions = Options.Value;
+    ViewBag.Title = webOptions.LoginPageOptions.PageTitle;
+
 }
 <div class="logo-wrapper">
-    <img class="logo" alt="Logo" src="/logo.png" width="32" />
+    <img class="logo" alt="Logo" src="@webOptions.LoginPageOptions.LogoUrl" width="44" />
 </div>
 
 <div class="content-body">
@@ -32,7 +32,7 @@
             <input asp-for="ReturnUrl" />
             <input asp-for="ReturnUrlHash" />
 
-            <h1 class="text-title">请输入您的帐户</h1>
+            <h1 class="text-title">@webOptions.LoginPageOptions.MainTitle</h1>
             <div class="text-register">还没有账户? <a href="#register">点击注册</a></div>
 
             <div class="field-group">
@@ -72,8 +72,8 @@
             <div class="separator-wrapper">
                 <div class="separator">
                     <span>
-                        @Options.Value.WebsiteFiling
-                        @Html.Raw(Options.Value.WebInfo)
+                        @webOptions.WebsiteFiling
+                        @Html.Raw(webOptions.WebInfo)
                     </span>
                 </div>
             </div>

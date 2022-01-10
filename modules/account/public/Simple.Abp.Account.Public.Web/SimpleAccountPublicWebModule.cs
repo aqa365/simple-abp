@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity1;
 using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared;
 using Volo.Abp.AspNetCore.Mvc.UI.Theming;
@@ -7,7 +6,6 @@ using Volo.Abp.AutoMapper;
 using Volo.Abp.Identity.AspNetCore;
 using Volo.Abp.Modularity;
 using Volo.Abp.VirtualFileSystem;
-using IdentityUser = Volo.Abp.Identity.IdentityUser;
 
 namespace Simple.Abp.Account.Public.Web
 {
@@ -26,7 +24,8 @@ namespace Simple.Abp.Account.Public.Web
                 mvcBuilder.AddApplicationPartIfNotExists(
                     typeof(SimpleAccountPublicWebModule).Assembly);
             });
-            context.Services.AddScoped(typeof(Microsoft.AspNetCore.Identity1.SignInManager<IdentityUser>));
+
+            // TODO 临时处理 需要挪到identityserverweb项目下
             context.Services
                .AddAuthentication(o =>
                {
@@ -44,6 +43,20 @@ namespace Simple.Abp.Account.Public.Web
                 options.DefaultThemeName = SimpleAccountPublicTheme.Name;
             });
 
+
+            Configure<SimpleAccountPublicWebOptions>(options =>
+            {
+                options.WebsiteFiling = "Simple Abp";
+                options.WebsiteFilingUrl = "http://beian.miit.gov.cn";
+                options.WebInfo = "Copyright &copy; 2019-2022";
+
+                options.LoginPageOptions = new LoginPageOptions
+                {
+                    LogoUrl = "/logo.png",
+                    PageTitle = "Simple Abp",
+                    MainTitle = "Simple Abp"
+                };
+            });
 
 
             Configure<AbpVirtualFileSystemOptions>(options =>

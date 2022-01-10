@@ -14,7 +14,7 @@ namespace Simple.Abp.Account.Public.Web.Pages.Account
 {
     public abstract class AccountPageModel : AbpPageModel
     {
-        public Microsoft.AspNetCore.Identity1.SignInManager<IdentityUser> SignInManager { get; set; }
+        public SignInManager<IdentityUser> SignInManager { get; set; }
         public IdentityUserManager UserManager { get; set; }
         public IdentitySecurityLogManager IdentitySecurityLogManager { get; set; }
 

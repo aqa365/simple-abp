@@ -3,13 +3,9 @@ using Simple.Abp.Articles;
 using Simple.Abp.AuditLogging;
 using Simple.Abp.Identity;
 using Simple.Abp.IdentityServer;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.Modularity;
+using Volo.Abp.PermissionManagement;
 
 namespace Simple.Abp.Test
 {
@@ -21,9 +17,10 @@ namespace Simple.Abp.Test
         typeof(AbpAuditLoggingApplicationModule),
         typeof(AbpAccountAdminApplicationModule),
         typeof(AbpAccountPublicApplicationModule),
-        typeof(AbpArticlesApplicationModule)
+        typeof(AbpArticlesApplicationModule),
+        typeof(AbpPermissionManagementApplicationModule)
     )]
-    public class SimpleTestApplicationModule:AbpModule
+    public class SimpleTestApplicationModule : AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
         {

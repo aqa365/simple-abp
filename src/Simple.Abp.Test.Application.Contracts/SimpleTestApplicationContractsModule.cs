@@ -5,6 +5,7 @@ using Simple.Abp.Identity;
 using Simple.Abp.IdentityServer;
 using Volo.Abp.Modularity;
 using Volo.Abp.ObjectExtending;
+using Volo.Abp.PermissionManagement;
 
 namespace Simple.Abp.Test
 {
@@ -16,6 +17,7 @@ namespace Simple.Abp.Test
         typeof(AbpAuditLoggingApplicationContractsModule),
         typeof(AbpAccountAdminApplicationContractsModule),
         typeof(AbpAccountPublicApplicationContractsModule),
+        typeof(AbpPermissionManagementApplicationContractsModule),
         typeof(AbpArticlesApplicationContractsModule),
         typeof(AbpObjectExtendingModule)
     )]

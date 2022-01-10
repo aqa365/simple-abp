@@ -20,7 +20,9 @@ namespace Simple.Abp.Account.Public.Web
 
     public class LoginPageOptions
     {
-        public string Title { get; set; }
+        public string PageTitle { get; set; }
+
+        public string MainTitle { get; set; }
 
         public string LogoUrl { get; set; }
 
