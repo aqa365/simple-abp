@@ -29,7 +29,7 @@ namespace Simple.Abp.Identity
 			UserRepository = userRepository;
 		}
 
-		//[Authorize(IdentityPermissions.Users.Default)]
+		[Authorize(IdentityPermissions.Users.Default)]
 		public virtual async Task<IdentityUserDto> GetAsync(Guid id)
 		{
 			IdentityUser source = await this.UserManager.GetByIdAsync(id);
@@ -37,7 +37,7 @@ namespace Simple.Abp.Identity
 			return result;
 		}
 
-		//[Authorize(IdentityPermissions.Users.Default)]
+		[Authorize(IdentityPermissions.Users.Default)]
 		public virtual async Task<PagedResultDto<IdentityUserDto>> GetListAsync(GetIdentityUsersInput input)
 		{
 			var count = await UserRepository.GetCountAsync(input.Filter);
@@ -72,7 +72,7 @@ namespace Simple.Abp.Identity
 			return new List<OrganizationUnitDto>(ObjectMapper.Map<List<OrganizationUnit>, List<OrganizationUnitDto>>(source));
 		}
 
-		//[Authorize(IdentityPermissions.Users.Create)]
+		[Authorize(IdentityPermissions.Users.Create)]
 		public virtual async Task<IdentityUserDto> CreateAsync(IdentityUserCreateDto input)
 		{
 			var user = new IdentityUser(
@@ -92,7 +92,7 @@ namespace Simple.Abp.Identity
 			return ObjectMapper.Map<IdentityUser, IdentityUserDto>(user);
 		}
 
-		//[Authorize(IdentityPermissions.Users.Update)]
+		[Authorize(IdentityPermissions.Users.Update)]
 		public virtual async Task<IdentityUserDto> UpdateAsync(Guid id, IdentityUserUpdateDto input)
 		{
 			var user = await UserManager.GetByIdAsync(id);
@@ -110,7 +110,7 @@ namespace Simple.Abp.Identity
 			return ObjectMapper.Map<IdentityUser, IdentityUserDto>(user);
 		}
 
-		//[Authorize(IdentityPermissions.Users.Delete)]
+		[Authorize(IdentityPermissions.Users.Delete)]
 		public virtual async Task DeleteAsync(Guid id)
 		{
 			if (CurrentUser.Id == id)
@@ -127,7 +127,7 @@ namespace Simple.Abp.Identity
 			(await UserManager.DeleteAsync(user)).CheckErrors();
 		}
 
-		//[Authorize(IdentityPermissions.Users.Update)]
+		[Authorize(IdentityPermissions.Users.Update)]
 		public virtual async Task UpdateRolesAsync(Guid id, IdentityUserUpdateRolesDto input)
 		{
 			var user = await UserManager.GetByIdAsync(id);
@@ -135,7 +135,7 @@ namespace Simple.Abp.Identity
 			await UserRepository.UpdateAsync(user);
 		}
 
-		//[Authorize(IdentityPermissions.Users.Update)]
+		[Authorize(IdentityPermissions.Users.Update)]
 		public virtual async Task UpdateClaimsAsync(Guid id, List<IdentityUserClaimDto> input)
 		{
 			var user = await this.UserRepository.GetAsync(id);
@@ -157,14 +157,14 @@ namespace Simple.Abp.Identity
 			}
 		}
 
-		//[Authorize(IdentityPermissions.Users.Update)]
+		[Authorize(IdentityPermissions.Users.Update)]
 		public virtual async Task UnlockAsync(Guid id)
 		{
 			IdentityUser user = await this.UserManager.GetByIdAsync(id);
 			await this.UserManager.SetLockoutEndDateAsync(user, null);
 		}
 
-		//[Authorize(IdentityPermissions.Users.Update)]
+		[Authorize(IdentityPermissions.Users.Update)]
 		public virtual async Task UpdatePasswordAsync(Guid id, IdentityUserUpdatePasswordInput input)
 		{
 			var user = await UserManager.GetByIdAsync(id);
@@ -178,7 +178,7 @@ namespace Simple.Abp.Identity
 			await CurrentUnitOfWork.SaveChangesAsync();
 		}
 
-		//[Authorize(IdentityPermissions.Users.Default)]
+		[Authorize(IdentityPermissions.Users.Default)]
 		public virtual async Task<IdentityUserDto> FindByUsernameAsync(string username)
 		{
 			IdentityUser source = await this.UserManager.FindByNameAsync(username);
@@ -186,7 +186,7 @@ namespace Simple.Abp.Identity
 			return result;
 		}
 
-		//[Authorize(IdentityPermissions.Users.Default)]
+		[Authorize(IdentityPermissions.Users.Default)]
 		public virtual async Task<IdentityUserDto> FindByEmailAsync(string email)
 		{
 			IdentityUser source = await this.UserManager.FindByEmailAsync(email);

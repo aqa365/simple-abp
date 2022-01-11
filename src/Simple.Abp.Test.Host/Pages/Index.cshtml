@@ -3,9 +3,9 @@
 @using Volo.Abp.Localization
 @model Simple.Abp.Test.Pages.IndexModel
 @{
+        Layout = "Account";
 
     LocalizableString localizableString = LocalizableString.Create<SimpleTestResource>("Permission:English");
-    int a = 1;
 }
 
 @HttpContext.User.Identity?.IsAuthenticated

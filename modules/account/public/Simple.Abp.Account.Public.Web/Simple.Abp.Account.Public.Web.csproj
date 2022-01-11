@@ -5,165 +5,30 @@
 		<OutputType>Library</OutputType>
 		<GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
 	</PropertyGroup>
-
+	
 	<ItemGroup>
-		<Content Remove="wwwroot\favicon.ico" />
-		<Content Remove="wwwroot\libs\css\account.css" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\jquery.validate.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_ar.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_az.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_bg.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_bn_BD.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_ca.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_cs.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_da.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_de.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_el.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_es.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_es_AR.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_es_PE.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_et.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_eu.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_fa.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_fi.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_fr.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_ge.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_gl.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_he.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_hr.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_hu.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_hy_AM.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_id.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_is.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_it.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_ja.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_ka.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_kk.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_ko.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_lt.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_lv.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_mk.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_my.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_nl.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_no.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_pl.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_pt_BR.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_pt_PT.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_ro.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_ru.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_sd.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_si.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_sk.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_sl.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_sr.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_sr_lat.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_sv.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_th.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_tj.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_tr.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_uk.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_ur.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_vi.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_zh.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\messages_zh_TW.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\methods_de.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\methods_es_CL.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\methods_fi.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\methods_it.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\methods_nl.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery-validation\localization\methods_pt.js" />
-		<Content Remove="wwwroot\libs\jquery\jquery.js" />
-		<Content Remove="wwwroot\logo.png" />
+		<EmbeddedResource Include="wwwroot\**\*.*" />
+	
 	</ItemGroup>
 
 	<ItemGroup>
-		<EmbeddedResource Include="wwwroot\favicon.ico" />
-		<EmbeddedResource Include="wwwroot\libs\css\account.css" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\jquery.validate.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_ar.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_az.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_bg.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_bn_BD.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_ca.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_cs.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_da.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_de.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_el.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_es.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_es_AR.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_es_PE.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_et.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_eu.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_fa.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_fi.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_fr.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_ge.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_gl.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_he.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_hr.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_hu.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_hy_AM.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_id.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_is.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_it.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_ja.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_ka.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_kk.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_ko.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_lt.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_lv.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_mk.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_my.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_nl.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_no.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_pl.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_pt_BR.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_pt_PT.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_ro.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_ru.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_sd.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_si.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_sk.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_sl.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_sr.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_sr_lat.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_sv.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_th.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_tj.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_tr.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_uk.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_ur.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_vi.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_zh.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\messages_zh_TW.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\methods_de.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\methods_es_CL.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\methods_fi.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\methods_it.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\methods_nl.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery-validation\localization\methods_pt.js" />
-		<EmbeddedResource Include="wwwroot\libs\jquery\jquery.js" />
-		<EmbeddedResource Include="wwwroot\logo.png" />
+		<Content Remove="wwwroot\**\*.*" />
+		<Content Remove="Pages\**\*.js" />
+		<Content Remove="Pages\**\*.css" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Include="Pages\Account\LoggedOut.cshtml" />
-	  <None Include="Pages\Account\Login.cshtml" />
-	  <None Include="Pages\Account\Logout.cshtml" />
-	  <None Include="Pages\Account\Register.cshtml" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="6.0.1" />
 		<PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared" Version="5.0.1" />
 		<PackageReference Include="Volo.Abp.Identity.AspNetCore" Version="5.0.1" />
 		<PackageReference Include="Volo.Abp.AutoMapper" Version="5.0.1" />	
 	</ItemGroup>
-
+	
 	<ItemGroup>
-	  <ProjectReference Include="..\Simple.Abp.Account.Public.Application.Contracts\Simple.Abp.Account.Public.Application.Contracts.csproj" />
+		<PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="6.0.1" />
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <ProjectReference Include="..\Simple.Abp.Account.Public.HttpApi\Simple.Abp.Account.Public.HttpApi.csproj" />
 	</ItemGroup>
 
 </Project>

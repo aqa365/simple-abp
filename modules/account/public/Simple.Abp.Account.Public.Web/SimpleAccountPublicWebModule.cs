@@ -10,7 +10,7 @@ using Volo.Abp.VirtualFileSystem;
 namespace Simple.Abp.Account.Public.Web
 {
     [DependsOn(
-      typeof(AbpAccountPublicApplicationContractsModule),
+      typeof(AbpAccountPublicHttpApiModule),
       typeof(AbpIdentityAspNetCoreModule),
       typeof(AbpAutoMapperModule),
       typeof(AbpAspNetCoreMvcUiThemeSharedModule)
@@ -37,6 +37,11 @@ namespace Simple.Abp.Account.Public.Web
 
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
+            Configure<AbpVirtualFileSystemOptions>(options =>
+            {
+                options.FileSets.AddEmbedded<SimpleAccountPublicWebModule>("Simple.Abp.Account.Public.Web");
+            });
+
             Configure<AbpThemingOptions>(options =>
             {
                 options.Themes.Add<SimpleAccountPublicTheme>();
@@ -56,13 +61,6 @@ namespace Simple.Abp.Account.Public.Web
                     PageTitle = "Simple Abp",
                     MainTitle = "Simple Abp"
                 };
-            });
-
-
-            Configure<AbpVirtualFileSystemOptions>(options =>
-            {
-                options.FileSets.AddEmbedded<SimpleAccountPublicWebModule>
-                    ("Simple.Abp.Account.Public.Web");
             });
         }
     }

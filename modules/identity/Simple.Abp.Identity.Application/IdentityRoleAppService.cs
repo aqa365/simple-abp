@@ -13,7 +13,7 @@ using Volo.Abp.ObjectExtending;
 
 namespace Simple.Abp.Identity
 {
-	//[Authorize(IdentityPermissions.Roles.Default)]
+	[Authorize(IdentityPermissions.Roles.Default)]
 	public class IdentityRoleAppService : IdentityAppServiceBase, IIdentityRoleAppService, IApplicationService, IRemoteService
 	{
 		protected IdentityRoleManager RoleManager { get; }
@@ -49,7 +49,7 @@ namespace Simple.Abp.Identity
 				);
 		}
 
-		//[Authorize(IdentityPermissions.Roles.Update)]
+		[Authorize(IdentityPermissions.Roles.Update)]
 		public virtual async Task UpdateClaimsAsync(Guid id, List<IdentityRoleClaimDto> input)
 		{
 			var role = await this.RoleRepository.GetAsync(id);
@@ -71,14 +71,14 @@ namespace Simple.Abp.Identity
 			}
 		}
 
-		//[Authorize(IdentityPermissions.Roles.Default)]
+		[Authorize(IdentityPermissions.Roles.Default)]
 		public virtual async Task<List<IdentityRoleClaimDto>> GetClaimsAsync(Guid id)
 		{
 			IdentityRole identityRole = await this.RoleRepository.GetAsync(id);
 			return new List<IdentityRoleClaimDto>(base.ObjectMapper.Map<List<IdentityRoleClaim>, List<IdentityRoleClaimDto>>(identityRole.Claims.ToList<IdentityRoleClaim>()));
 		}
 
-		//[Authorize(IdentityPermissions.Roles.Create)]
+		[Authorize(IdentityPermissions.Roles.Create)]
 		public virtual async Task<IdentityRoleDto> CreateAsync(IdentityRoleCreateDto input)
 		{
 			var role = new IdentityRole(
@@ -99,7 +99,7 @@ namespace Simple.Abp.Identity
 			return ObjectMapper.Map<IdentityRole, IdentityRoleDto>(role);
 		}
 
-		//[Authorize(IdentityPermissions.Roles.Update)]
+		[Authorize(IdentityPermissions.Roles.Update)]
 		public virtual async Task<IdentityRoleDto> UpdateAsync(Guid id, IdentityRoleUpdateDto input)
 		{
 			var role = await RoleManager.GetByIdAsync(id);
@@ -118,7 +118,7 @@ namespace Simple.Abp.Identity
 			return ObjectMapper.Map<IdentityRole, IdentityRoleDto>(role);
 		}
 
-		//[Authorize(IdentityPermissions.Roles.Delete)]
+		[Authorize(IdentityPermissions.Roles.Delete)]
 		public virtual async Task DeleteAsync(Guid id)
 		{
 			IdentityRole identityRole = await this.RoleManager.FindByIdAsync(id.ToString());

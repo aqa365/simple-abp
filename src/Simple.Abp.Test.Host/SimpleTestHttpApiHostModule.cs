@@ -43,17 +43,17 @@ namespace Simple.Abp.Test
                 options.ConfigureAuthentication = false;
             });
 
-            context.Services.PreConfigure<AbpMvcDataAnnotationsLocalizationOptions>(options =>
-            {
-                options.AddAssemblyResource(
-                    typeof(SimpleTestResource),
-                    typeof(SimpleTestDomainModule).Assembly,
-                    typeof(SimpleTestDomainSharedModule).Assembly,
-                    typeof(SimpleTestApplicationModule).Assembly,
-                    typeof(SimpleTestApplicationContractsModule).Assembly,
-                    typeof(SimpleTestHttpApiHostModule).Assembly
-                );
-            });
+            //context.Services.PreConfigure<AbpMvcDataAnnotationsLocalizationOptions>(options =>
+            //{
+            //    options.AddAssemblyResource(
+            //        typeof(SimpleTestResource),
+            //        typeof(SimpleTestDomainModule).Assembly,
+            //        typeof(SimpleTestDomainSharedModule).Assembly,
+            //        typeof(SimpleTestApplicationModule).Assembly,
+            //        typeof(SimpleTestApplicationContractsModule).Assembly,
+            //        typeof(SimpleTestHttpApiHostModule).Assembly
+            //    );
+            //});
             //PreConfigureCertificates(configuration);
         }
 
