@@ -1,4 +1,4 @@
-﻿using Simple.Abp.Articles.Localization;
+﻿using Simple.Abp.Articles;
 using Volo.Abp.AspNetCore.Mvc;
 
 namespace Simple.Abp.Articles

@@ -1,10 +1,9 @@
-﻿using Simple.Abp.Account.Localization;
-using Volo.Abp.Localization;
+﻿using Volo.Abp.Localization;
 using Volo.Abp.TextTemplating;
 
 namespace Simple.Abp.Account.Emailing.Templates
 {
-	public class AccountEmailTemplateDefinitionProvider : TemplateDefinitionProvider
+    public class AccountEmailTemplateDefinitionProvider : TemplateDefinitionProvider
 	{
 		public override void Define(ITemplateDefinitionContext context)
 		{

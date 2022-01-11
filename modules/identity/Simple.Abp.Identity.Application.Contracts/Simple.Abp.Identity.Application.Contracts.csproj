@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -13,7 +13,10 @@
     <PackageReference Include="Volo.Abp.PermissionManagement.Application.Contracts" Version="5.0.0" />
     <PackageReference Include="Volo.Abp.Users.Abstractions" Version="5.0.0" />
   </ItemGroup>
-
+	<ItemGroup>
+		<EmbeddedResource Include="Localization\SimpleAbpIdentity\*.json" />
+		<Content Remove="Localization\SimpleAbpIdentity\*.json" />
+	</ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Shared\Simple.Abp.Shared.Application.Contracts\Simple.Abp.Shared.Application.Contracts.csproj" />
   </ItemGroup>

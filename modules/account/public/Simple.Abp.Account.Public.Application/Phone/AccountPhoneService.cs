@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.Localization;
-using Simple.Abp.Account.Localization;
 using Simple.Abp.Account.PhoneNumber;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.Identity;

@@ -1,13 +1,12 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Simple.Abp.Account.Emailing;
-using Simple.Abp.Account.Localization;
 using Simple.Abp.Account.PhoneNumber;
+using Simple.Abp.Identity;
+using Volo.Abp;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Identity;
 using Volo.Abp.Settings;
 using Volo.Abp.Users;
-using Volo.Abp;
-using Simple.Abp.Identity;
 
 namespace Simple.Abp.Account
 {

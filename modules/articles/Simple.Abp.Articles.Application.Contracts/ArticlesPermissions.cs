@@ -10,9 +10,6 @@ namespace Simple.Abp.Articles
     {
         public const string GroupName = "Articles";
 
-        //Add your own permission names. Example:
-        //public const string MyPermission1 = GroupName + ".MyPermission1";
-
         public class Articles
         {
             public const string Default = GroupName + ".Article";

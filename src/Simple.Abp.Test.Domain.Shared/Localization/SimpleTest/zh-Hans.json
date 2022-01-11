@@ -9,6 +9,13 @@
     "Permission:Blog": "Blog management",
     "Permission:Create": "创建",
     "Permission:Update": "编辑",
-    "Permission:Delete": "删除"
+    "Permission:Delete": "删除",
+
+    "Permission:ApiResources": "Api Resources",
+    "Permission:IdentityResources": "Identity Resources",
+    "Permission:Clients": "Clients",
+    "Permission:ManagePermissions": "Manage Permissions",
+    "Permission:IdentityServer": "Identity Server",
+    "Permission:ViewChangeHistory": "View change history"
   }
 }

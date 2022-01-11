@@ -8,68 +8,68 @@ using Volo.Abp.Modularity;
 using Volo.Abp.ObjectExtending.Modularity;
 using Volo.Abp.PermissionManagement;
 using Volo.Abp.Users;
-using Volo.Abp.Validation.Localization;
 using Volo.Abp.VirtualFileSystem;
 
 namespace Simple.Abp.Identity
 {
     [DependsOn(
-		typeof(AbpIdentityDomainSharedModule),
-		typeof(AbpUsersAbstractionModule),
-		typeof(AbpAuthorizationModule),
-		typeof(AbpDddApplicationModule),
-		typeof(AbpPermissionManagementApplicationContractsModule)
-	)]
-	public class AbpIdentityApplicationContractsModule : AbpModule
-	{
-		public override void ConfigureServices(ServiceConfigurationContext context)
-		{
-			Configure<AbpVirtualFileSystemOptions>(options => 
-				options.FileSets.AddEmbedded<AbpIdentityApplicationContractsModule>());
+        typeof(AbpIdentityDomainSharedModule),
+        typeof(AbpUsersAbstractionModule),
+        typeof(AbpAuthorizationModule),
+        typeof(AbpDddApplicationModule),
+        typeof(AbpPermissionManagementApplicationContractsModule)
+    )]
+    public class AbpIdentityApplicationContractsModule : AbpModule
+    {
+        public override void ConfigureServices(ServiceConfigurationContext context)
+        {
+            Configure<AbpVirtualFileSystemOptions>(options =>
+                options.FileSets.AddEmbedded<AbpIdentityApplicationContractsModule>("Simple.Abp.Identity"));
 
-			Configure<AbpLocalizationOptions>(options =>
-			{
-				options.Resources.Get<IdentityResource>().AddBaseTypes(new Type[]
-				{
-					typeof(AbpValidationResource)
-				}).AddVirtualJson("/Localization/ApplicationContracts");
-			});
+            Configure<AbpLocalizationOptions>(options =>
+            {
+                options.Resources
+                .Get<IdentityResource>()
+                .AddVirtualJson("/Localization/SimpleAbpIdentity");
+            });
 
-			Configure<AbpExceptionLocalizationOptions>(options => options.MapCodeNamespace("Simple.Abp.Identity", typeof(IdentityResource)));
-		}
 
-		public override void PostConfigureServices(ServiceConfigurationContext context)
-		{
-			ModuleExtensionConfigurationHelper.ApplyEntityConfigurationToApi("Identity", "User", new Type[]
-			{
-				typeof(IdentityUserDto)
-			}, new Type[]
-			{
-				typeof(IdentityUserCreateDto)
-			}, new Type[]
-			{
-				typeof(IdentityUserUpdateDto)
-			});
-			ModuleExtensionConfigurationHelper.ApplyEntityConfigurationToApi("Identity", "Role", new Type[]
-			{
-				typeof(IdentityRoleDto)
-			}, new Type[]
-			{
-				typeof(IdentityRoleCreateDto)
-			}, new Type[]
-			{
-				typeof(IdentityRoleUpdateDto)
-			});
-			ModuleExtensionConfigurationHelper.ApplyEntityConfigurationToApi("Identity", "ClaimType", new Type[]
-			{
-				typeof(ClaimTypeDto)
-			}, new Type[]
-			{
-				typeof(CreateClaimTypeDto)
-			}, new Type[]
-			{
-				typeof(UpdateClaimTypeDto)
-			});
-		}
-	}
+            Configure<AbpExceptionLocalizationOptions>(options =>
+                options.MapCodeNamespace("Simple.Abp.Identity", typeof(IdentityResource)));
+        }
+
+        public override void PostConfigureServices(ServiceConfigurationContext context)
+        {
+            ModuleExtensionConfigurationHelper.ApplyEntityConfigurationToApi("Identity", "User", new Type[]
+            {
+                typeof(IdentityUserDto)
+            }, new Type[]
+            {
+                typeof(IdentityUserCreateDto)
+            }, new Type[]
+            {
+                typeof(IdentityUserUpdateDto)
+            });
+            ModuleExtensionConfigurationHelper.ApplyEntityConfigurationToApi("Identity", "Role", new Type[]
+            {
+                typeof(IdentityRoleDto)
+            }, new Type[]
+            {
+                typeof(IdentityRoleCreateDto)
+            }, new Type[]
+            {
+                typeof(IdentityRoleUpdateDto)
+            });
+            ModuleExtensionConfigurationHelper.ApplyEntityConfigurationToApi("Identity", "ClaimType", new Type[]
+            {
+                typeof(ClaimTypeDto)
+            }, new Type[]
+            {
+                typeof(CreateClaimTypeDto)
+            }, new Type[]
+            {
+                typeof(UpdateClaimTypeDto)
+            });
+        }
+    }
 }

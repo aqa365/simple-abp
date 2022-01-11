@@ -1,4 +1,4 @@
-﻿using Simple.Abp.Account.Localization;
+﻿using Simple.Abp.Account;
 using Volo.Abp.Localization;
 using Volo.Abp.Settings;
 

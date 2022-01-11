@@ -163,7 +163,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Simple.Abp.Account.Public.HttpApi\Simple.Abp.Account.Public.HttpApi.csproj" />
+	  <ProjectReference Include="..\Simple.Abp.Account.Public.Application.Contracts\Simple.Abp.Account.Public.Application.Contracts.csproj" />
 	</ItemGroup>
 
 </Project>

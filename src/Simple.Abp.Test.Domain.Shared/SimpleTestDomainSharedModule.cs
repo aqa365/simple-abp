@@ -41,7 +41,7 @@ namespace Simple.Abp.Test
 
             Configure<AbpExceptionLocalizationOptions>(options =>
             {
-                options.MapCodeNamespace("SimpleTest.Localization", typeof(SimpleTestResource));
+                options.MapCodeNamespace("SimpleTest", typeof(SimpleTestResource));
             });
         }
     }

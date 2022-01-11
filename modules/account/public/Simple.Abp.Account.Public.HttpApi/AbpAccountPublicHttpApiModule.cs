@@ -1,14 +1,12 @@
 ﻿using Localization.Resources.AbpUi;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using Simple.Abp.Account.Localization;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 
 namespace Simple.Abp.Account
 {
-	[DependsOn(
+    [DependsOn(
 		typeof(AbpAccountPublicApplicationContractsModule),
 		typeof(AbpAspNetCoreMvcModule)
 	)]

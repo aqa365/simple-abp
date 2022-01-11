@@ -1,12 +1,11 @@
-﻿using System;
-using Volo.Abp.Authorization.Permissions;
+﻿using Volo.Abp.Authorization.Permissions;
 using Volo.Abp.IdentityServer.Localization;
 using Volo.Abp.Localization;
 using Volo.Abp.MultiTenancy;
 
 namespace Simple.Abp.IdentityServer
 {
-	public class AbpIdentityServerPermissionDefinitionProvider : PermissionDefinitionProvider
+    public class AbpIdentityServerPermissionDefinitionProvider : PermissionDefinitionProvider
 	{
 		public override void Define(IPermissionDefinitionContext context)
 		{
@@ -31,7 +30,9 @@ namespace Simple.Abp.IdentityServer
 
 		private static LocalizableString L(string name)
 		{
-			return LocalizableString.Create<AbpIdentityServerResource>(name);
+			LocalizableString localizableString =
+				LocalizableString.Create<AbpIdentityServerResource>(name);
+			return localizableString;
 		}
 	}
 }

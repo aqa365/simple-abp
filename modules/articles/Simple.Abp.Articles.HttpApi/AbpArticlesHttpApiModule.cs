@@ -1,5 +1,5 @@
 ﻿using Localization.Resources.AbpUi;
-using Simple.Abp.Articles.Localization;
+using Simple.Abp.Articles;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.Localization;
 using Volo.Abp.Modularity;

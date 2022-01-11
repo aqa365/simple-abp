@@ -1,7 +1,7 @@
 {
   "culture": "en",
   "texts": {
-    "Simple.Abp.Identity:010001": "You can not delete your own account!",
+    "Volo.Abp.Identity:010001": "You can not delete your own account!",
     "Permission:IdentityManagement": "Idetity management",
     "Permission:RoleManagement": "Role management",
     "Permission:ClaimManagement": "Claim management",

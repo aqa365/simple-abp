@@ -1,17 +1,20 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <RootNamespace>Simple.Abp.AuditLogging</RootNamespace>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Volo.Abp.AuditLogging.Domain.Shared" Version="5.0.0" />
-    <PackageReference Include="Volo.Abp.Authorization" Version="5.0.0" />
-    <PackageReference Include="Volo.Abp.Ddd.Application.Contracts" Version="5.0.0" />
-    <PackageReference Include="Volo.Abp.Validation" Version="5.0.0" />
-  </ItemGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<RootNamespace>Simple.Abp.AuditLogging</RootNamespace>
+	</PropertyGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="Localization\SimpleAbpAuditLogging\*.json" />
+		<Content Remove="Localization\SimpleAbpAuditLogging\*.json" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Volo.Abp.AuditLogging.Domain.Shared" Version="5.0.0" />
+		<PackageReference Include="Volo.Abp.Authorization" Version="5.0.0" />
+		<PackageReference Include="Volo.Abp.Ddd.Application.Contracts" Version="5.0.0" />
+		<PackageReference Include="Volo.Abp.Validation" Version="5.0.0" />
+	</ItemGroup>
 
 </Project>

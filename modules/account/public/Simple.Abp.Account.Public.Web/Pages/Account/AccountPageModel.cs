@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Simple.Abp.Account.Localization;
-using Simple.Abp.Account.Web;
 using System;
 using System.Collections.Generic;
 using System.Linq;

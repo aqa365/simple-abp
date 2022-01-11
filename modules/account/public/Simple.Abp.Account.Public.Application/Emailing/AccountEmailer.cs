@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Localization;
 using System.Text.Encodings.Web;
-using Simple.Abp.Account.Localization;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.Emailing;
 using Volo.Abp.Identity;
@@ -10,7 +9,7 @@ using Volo.Abp.UI.Navigation.Urls;
 
 namespace Simple.Abp.Account.Emailing
 {
-	public class AccountEmailer : IAccountEmailer, ITransientDependency
+    public class AccountEmailer : IAccountEmailer, ITransientDependency
 	{
 		protected ITemplateRenderer TemplateRenderer { get; }
 

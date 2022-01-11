@@ -7,6 +7,7 @@ using Volo.Abp;
 using Volo.Abp.AspNetCore.Authentication.JwtBearer;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Mvc.AntiForgery;
+using Volo.Abp.AspNetCore.Mvc.Localization;
 using Volo.Abp.AspNetCore.Serilog;
 using Volo.Abp.Auditing;
 using Volo.Abp.Autofac;
@@ -32,6 +33,7 @@ namespace Simple.Abp.Test
     public class SimpleTestHttpApiHostModule : AbpModule
     {
         private const string DefaultCorsPolicyName = "Default";
+
         public override void PreConfigureServices(ServiceConfigurationContext context)
         {
             var configuration = context.Services.GetConfiguration();
@@ -41,6 +43,17 @@ namespace Simple.Abp.Test
                 options.ConfigureAuthentication = false;
             });
 
+            context.Services.PreConfigure<AbpMvcDataAnnotationsLocalizationOptions>(options =>
+            {
+                options.AddAssemblyResource(
+                    typeof(SimpleTestResource),
+                    typeof(SimpleTestDomainModule).Assembly,
+                    typeof(SimpleTestDomainSharedModule).Assembly,
+                    typeof(SimpleTestApplicationModule).Assembly,
+                    typeof(SimpleTestApplicationContractsModule).Assembly,
+                    typeof(SimpleTestHttpApiHostModule).Assembly
+                );
+            });
             //PreConfigureCertificates(configuration);
         }
 

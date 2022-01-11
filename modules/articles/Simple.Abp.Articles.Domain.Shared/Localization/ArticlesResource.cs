@@ -1,8 +1,8 @@
 ﻿using Volo.Abp.Localization;
 
-namespace Simple.Abp.Articles.Localization
+namespace Simple.Abp.Articles
 {
-    [LocalizationResourceName("Articles")]
+    [LocalizationResourceName("SimpleAbpArticles")]
     public class ArticlesResource
     {
     }

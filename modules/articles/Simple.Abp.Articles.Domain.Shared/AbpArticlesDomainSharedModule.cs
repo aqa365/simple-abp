@@ -1,5 +1,4 @@
-﻿using Simple.Abp.Articles.Localization;
-using Volo.Abp.Localization;
+﻿using Volo.Abp.Localization;
 using Volo.Abp.Localization.ExceptionHandling;
 using Volo.Abp.Modularity;
 using Volo.Abp.Validation;
@@ -9,7 +8,6 @@ using Volo.Abp.VirtualFileSystem;
 namespace Simple.Abp.Articles
 {
     [DependsOn(
-        typeof(AbpLocalizationModule),
         typeof(AbpValidationModule)
     )]
     public class AbpArticlesDomainSharedModule : AbpModule
@@ -18,7 +16,7 @@ namespace Simple.Abp.Articles
         {
             Configure<AbpVirtualFileSystemOptions>(options =>
             {
-                options.FileSets.AddEmbedded<AbpArticlesDomainSharedModule>();
+                options.FileSets.AddEmbedded<AbpArticlesDomainSharedModule>("Simple.Abp.Articles");
             });
 
             Configure<AbpLocalizationOptions>(options =>
@@ -26,15 +24,11 @@ namespace Simple.Abp.Articles
                 options.Resources
                     .Add<ArticlesResource>("en")
                     .AddBaseTypes(typeof(AbpValidationResource))
-                    .AddVirtualJson("/Localization/Articles");
-
-                options.DefaultResourceType = typeof(ArticlesResource);
+                    .AddVirtualJson("Localization/SimpleAbpArticles");
             });
 
             Configure<AbpExceptionLocalizationOptions>(options =>
-            {
-                options.MapCodeNamespace("Simple.Abp.Articles.Localization", typeof(ArticlesResource));
-            });
+                options.MapCodeNamespace("Simple.Abp.Articles", typeof(ArticlesResource)));
         }
     }
 }

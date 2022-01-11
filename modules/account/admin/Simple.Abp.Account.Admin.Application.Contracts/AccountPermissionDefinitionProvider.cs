@@ -1,4 +1,4 @@
-﻿using Simple.Abp.Account.Localization;
+﻿using Simple.Abp.Account;
 using Volo.Abp.Authorization.Permissions;
 using Volo.Abp.Localization;
 using Volo.Abp.MultiTenancy;

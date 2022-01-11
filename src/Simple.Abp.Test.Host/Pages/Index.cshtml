@@ -1,6 +1,11 @@
 ﻿@page
+@using Simple.Abp.Test
+@using Volo.Abp.Localization
 @model Simple.Abp.Test.Pages.IndexModel
 @{
+
+    LocalizableString localizableString = LocalizableString.Create<SimpleTestResource>("Permission:English");
+    int a = 1;
 }
 
 @HttpContext.User.Identity?.IsAuthenticated

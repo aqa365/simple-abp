@@ -1,7 +1,7 @@
 {
   "culture": "zh-Hans",
   "texts": {
-    "Simple.Abp.Identity:010001": "您无法删除自己的帐户!",
+    "Volo.Abp.Identity:010001": "您无法删除自己的帐户!",
     "Permission:IdentityManagement": "身份标识管理",
     "Permission:RoleManagement": "角色管理",
     "Permission:ClaimManagement": "声明管理",
