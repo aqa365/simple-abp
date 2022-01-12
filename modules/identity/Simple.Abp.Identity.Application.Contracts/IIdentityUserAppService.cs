@@ -13,6 +13,8 @@ namespace Simple.Abp.Identity
 
 		Task<List<IdentityUserClaimDto>> GetClaimsAsync(Guid id);
 
+		Task<ListResultDto<IdentityRoleDto>> GetAssignableRolesAsync();
+
 		Task<List<OrganizationUnitDto>> GetOrganizationUnitsAsync(Guid id);
 
 		Task UpdateRolesAsync(Guid id, IdentityUserUpdateRolesDto input);

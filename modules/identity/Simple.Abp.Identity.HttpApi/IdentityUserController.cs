@@ -35,6 +35,13 @@ namespace Simple.Abp.Identity
 			return this.UserAppService.GetListAsync(input);
 		}
 
+		[HttpGet]
+		[Route("assignable-roles")]
+		public Task<ListResultDto<IdentityRoleDto>> GetAssignableRolesAsync()
+		{
+			return UserAppService.GetAssignableRolesAsync();
+		}
+
 		[HttpPost]
 		public virtual Task<IdentityUserDto> CreateAsync(IdentityUserCreateDto input)
 		{

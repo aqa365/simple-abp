@@ -23,10 +23,14 @@ namespace Simple.Abp.Identity
 
 		protected IIdentityUserRepository UserRepository { get; }
 
-		public IdentityUserAppService(IdentityUserManager userManager, IIdentityUserRepository userRepository)
+		public IIdentityRoleRepository RoleRepository { get; }
+
+		public IdentityUserAppService(IdentityUserManager userManager, IIdentityUserRepository userRepository
+			, IIdentityRoleRepository roleRepository)
 		{
 			UserManager = userManager;
 			UserRepository = userRepository;
+			RoleRepository = roleRepository;
 		}
 
 		[Authorize(IdentityPermissions.Users.Default)]
@@ -56,6 +60,14 @@ namespace Simple.Abp.Identity
 		{
 			var roles = await UserRepository.GetRolesAsync(id);
 			return new ListResultDto<IdentityRoleDto>(ObjectMapper.Map<List<IdentityRole>, List<IdentityRoleDto>>(roles));
+		}
+
+		[Authorize(IdentityPermissions.Users.Default)]
+		public virtual async Task<ListResultDto<IdentityRoleDto>> GetAssignableRolesAsync()
+		{
+			var list = await RoleRepository.GetListAsync();
+			return new ListResultDto<IdentityRoleDto>(
+				ObjectMapper.Map<List<IdentityRole>, List<IdentityRoleDto>>(list));
 		}
 
 		[Authorize(IdentityPermissions.Users.Default)]
