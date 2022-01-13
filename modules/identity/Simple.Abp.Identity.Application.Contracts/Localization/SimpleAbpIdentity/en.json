@@ -29,6 +29,8 @@
     "Roles": "Roles",
     "Roles{0}": "Roles ({0})",
     "Members": "Members",
+    "Query": "Query",
+    "Reset": "Reset",
     "OrganizationUnits": "Organization Units",
     "OrganizationUnits{0}": "Org. units ({0})",
     "OrganizationUnit:Parent{0}": "Parent: {0}",
@@ -107,6 +109,8 @@
     "ChangeHistory": "Change History",
     "NewOrganizationUnit": "New organization unit",
     "DisplayName": "Display name",
-    "OrganizationUnitMoveConfirmMessage": "Are you sure you want to move '{0}' under '{1}'?"
+    "OrganizationUnitMoveConfirmMessage": "Are you sure you want to move '{0}' under '{1}'?",
+    "TwoFactorVerification": "Two factor verification",
+    "PageEntries": "entries"
   }
 }
