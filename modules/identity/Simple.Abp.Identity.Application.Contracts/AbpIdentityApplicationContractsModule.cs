@@ -8,6 +8,7 @@ using Volo.Abp.Localization.ExceptionHandling;
 using Volo.Abp.Modularity;
 using Volo.Abp.ObjectExtending.Modularity;
 using Volo.Abp.PermissionManagement;
+using Volo.Abp.PermissionManagement.Localization;
 using Volo.Abp.Users;
 using Volo.Abp.VirtualFileSystem;
 
@@ -34,6 +35,10 @@ namespace Simple.Abp.Identity
                 .Get<IdentityResource>()
                 .AddBaseTypes(typeof(SimpleAbpShardResource))
                 .AddVirtualJson("/Localization/SimpleAbpIdentity");
+
+                options.Resources
+                .Get<AbpPermissionManagementResource>()
+                .AddBaseTypes(typeof(SimpleAbpShardResource));
             });
 
 
