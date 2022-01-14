@@ -1,6 +1,7 @@
 ﻿{
   "culture": "en",
   "texts": {
+    "Manager": "Manager",
     "Query": "Query",
     "Reset": "Reset",
     "Entries": "Entries",

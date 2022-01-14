@@ -1,6 +1,7 @@
 ﻿{
   "culture": "zh-Hans",
   "texts": {
+    "Manager": "管理",
     "Query": "查询",
     "Reset": "重置",
     "Entries": "条目",
