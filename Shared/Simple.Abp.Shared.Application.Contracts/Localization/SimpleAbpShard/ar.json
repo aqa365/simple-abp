@@ -1,0 +1,11 @@
+﻿{
+  "culture": "ar",
+  "texts": {
+    "Query": "شكك",
+    "Reset": "إعادة",
+    "Entries": "دخول .",
+    "Enter": "من فضلك أدخل",
+    "EnterFiled": "{0} من فضلك أدخل",
+    "EnterYourFiled": "{0} من فضلك أدخل"
+  }
+}

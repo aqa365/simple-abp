@@ -84,9 +84,6 @@
     "UserUnlocked": "用户解锁.",
     "AddClaim": "添加声明",
     "OrganizationUnits": "组织机构",
-    "Query": "查询",
-    "Reset": "重置",
-    "TwoFactorVerification": "双因素验证",
-    "PageEntries": "条数据"
+    "TwoFactorVerification": "双因素验证"
   }
 }

@@ -1,4 +1,5 @@
-﻿using Volo.Abp.Application;
+﻿using Simple.Abp.Shared;
+using Volo.Abp.Application;
 using Volo.Abp.AuditLogging;
 using Volo.Abp.AuditLogging.Localization;
 using Volo.Abp.Authorization;
@@ -12,8 +13,9 @@ namespace Simple.Abp.AuditLogging
     [DependsOn(
         typeof(AbpDddApplicationContractsModule),
         typeof(AbpAuthorizationModule),
-        typeof(AbpAuditLoggingDomainSharedModule)
-        )]
+        typeof(AbpAuditLoggingDomainSharedModule),
+        typeof(SimpleAbpSharedApplicationContractsModule)
+    )]
     public class AbpAuditLoggingApplicationContractsModule : AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
@@ -25,6 +27,7 @@ namespace Simple.Abp.AuditLogging
             {
                 options.Resources
                 .Get<AuditLoggingResource>()
+                .AddBaseTypes(typeof(SimpleAbpSharedApplicationContractsModule))
                 .AddVirtualJson("Localization/SimpleAbpAuditLogging");
             });
 

@@ -1,0 +1,11 @@
+﻿{
+  "culture": "en",
+  "texts": {
+    "Query": "Query",
+    "Reset": "Reset",
+    "Entries": "Entries",
+    "Enter": "Please enter",
+    "EnterFiled": "Please enter {0}.",
+    "EnterYourFiled": "Please enter your {0}."
+  }
+}

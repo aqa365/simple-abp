@@ -1,4 +1,5 @@
-﻿using Volo.Abp.Application;
+﻿using Simple.Abp.Shared;
+using Volo.Abp.Application;
 using Volo.Abp.Authorization;
 using Volo.Abp.Identity;
 using Volo.Abp.Identity.Localization;
@@ -17,7 +18,8 @@ namespace Simple.Abp.Identity
         typeof(AbpUsersAbstractionModule),
         typeof(AbpAuthorizationModule),
         typeof(AbpDddApplicationModule),
-        typeof(AbpPermissionManagementApplicationContractsModule)
+        typeof(AbpPermissionManagementApplicationContractsModule),
+        typeof(SimpleAbpSharedApplicationContractsModule)
     )]
     public class AbpIdentityApplicationContractsModule : AbpModule
     {
@@ -30,6 +32,7 @@ namespace Simple.Abp.Identity
             {
                 options.Resources
                 .Get<IdentityResource>()
+                .AddBaseTypes(typeof(SimpleAbpShardResource))
                 .AddVirtualJson("/Localization/SimpleAbpIdentity");
             });
 

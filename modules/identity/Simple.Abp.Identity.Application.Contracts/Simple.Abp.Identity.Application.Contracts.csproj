@@ -1,24 +1,29 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <RootNamespace>Simple.Abp.Identity</RootNamespace>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<RootNamespace>Simple.Abp.Identity</RootNamespace>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Volo.Abp.Ddd.Application" Version="5.0.0" />
-    <PackageReference Include="Volo.Abp.Identity.Domain.Shared" Version="5.0.0" />
-    <PackageReference Include="Volo.Abp.PermissionManagement.Application.Contracts" Version="5.0.0" />
-    <PackageReference Include="Volo.Abp.Users.Abstractions" Version="5.0.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Volo.Abp.Ddd.Application" Version="5.1.1" />
+		<PackageReference Include="Volo.Abp.Identity.Domain.Shared" Version="5.1.1" />
+		<PackageReference Include="Volo.Abp.PermissionManagement.Application.Contracts" Version="5.1.1" />
+		<PackageReference Include="Volo.Abp.Users.Abstractions" Version="5.1.1" />
+	</ItemGroup>
 	<ItemGroup>
 		<EmbeddedResource Include="Localization\SimpleAbpIdentity\*.json" />
 		<Content Remove="Localization\SimpleAbpIdentity\*.json" />
 	</ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Shared\Simple.Abp.Shared.Application.Contracts\Simple.Abp.Shared.Application.Contracts.csproj" />
-  </ItemGroup>
+	
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="6.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\Shared\Simple.Abp.Shared.Application.Contracts\Simple.Abp.Shared.Application.Contracts.csproj" />
+	</ItemGroup>
 
 </Project>

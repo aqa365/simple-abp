@@ -1,0 +1,11 @@
+﻿{
+  "culture": "zh-Hans",
+  "texts": {
+    "Query": "查询",
+    "Reset": "重置",
+    "Entries": "条目",
+    "Enter": "请输入",
+    "EnterFiled": "请输入{0}.",
+    "EnterYourFiled": "请输入您的{0}."
+  }
+}

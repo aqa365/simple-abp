@@ -1,6 +1,7 @@
 ﻿using Simple.Abp.IdentityServer.ApiResources.Dtos;
 using Simple.Abp.IdentityServer.Clients.Dtos;
 using Simple.Abp.IdentityServer.IdentityResources.Dtos;
+using Simple.Abp.Shared;
 using Volo.Abp.Application;
 using Volo.Abp.IdentityServer;
 using Volo.Abp.IdentityServer.Localization;
@@ -14,7 +15,8 @@ namespace Simple.Abp.IdentityServer
 {
     [DependsOn(
         typeof(AbpIdentityServerDomainSharedModule),
-        typeof(AbpDddApplicationContractsModule)
+        typeof(AbpDddApplicationContractsModule),
+        typeof(SimpleAbpSharedApplicationContractsModule)
     )]
     public class AbpIdentityServerApplicationContractsModule : AbpModule
     {
@@ -30,14 +32,9 @@ namespace Simple.Abp.IdentityServer
             {
                 options.Resources
                 .Get<AbpIdentityServerResource>()
+                .AddBaseTypes(typeof(SimpleAbpSharedApplicationContractsModule))
                 .AddVirtualJson("/Localization/SimpleAbpIdentityServer");
             });
-
-            //Configure<AbpLocalizationOptions>(options =>
-            //{
-            //    options.Resources.Add<ABCResource>("en")
-            //    .AddVirtualJson("Localization/ABCResource");
-            //});
 
             Configure<AbpExceptionLocalizationOptions>(options =>
                 options.MapCodeNamespace("Simple.Abp.IdentityServer", typeof(AbpIdentityServerResource)));

@@ -8,7 +8,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Volo.Abp.PermissionManagement.HttpApi" Version="5.0.0" />
+		<PackageReference Include="Volo.Abp.PermissionManagement.HttpApi" Version="5.1.1" />
 		<!--<PackageReference Include="Volo.Abp.Account.HttpApi" Version="5.0.0" />-->
 		<ProjectReference Include="..\..\modules\account\admin\Simple.Abp.Account.Admin.HttpApi\Simple.Abp.Account.Admin.HttpApi.csproj" />
 		<ProjectReference Include="..\..\modules\account\public\Simple.Abp.Account.Public.HttpApi\Simple.Abp.Account.Public.HttpApi.csproj" />
