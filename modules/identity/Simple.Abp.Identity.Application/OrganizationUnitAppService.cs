@@ -80,8 +80,6 @@ namespace Simple.Abp.Identity
 					Roles = ObjectMapper.Map<List<OrganizationUnitRole>, List<IdentityRoleDto>>(ou.Roles?.ToList()),
 				};
 
-				//var roles = ou.Roles?.ToList();
-
 				list.Add(organizationUnitWithDetailsDto);
 			}
 
