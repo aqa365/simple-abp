@@ -77,8 +77,10 @@ namespace Simple.Abp.Identity
 					ParentId = ou.ParentId,
 					Code = ou.Code,
 					DisplayName = ou.DisplayName,
-					Roles = ObjectMapper.Map<List<OrganizationUnitRole>, List<IdentityRoleDto>>(ou.Roles.ToList()),
+					Roles = ObjectMapper.Map<List<OrganizationUnitRole>, List<IdentityRoleDto>>(ou.Roles?.ToList()),
 				};
+
+				//var roles = ou.Roles?.ToList();
 
 				list.Add(organizationUnitWithDetailsDto);
 			}
