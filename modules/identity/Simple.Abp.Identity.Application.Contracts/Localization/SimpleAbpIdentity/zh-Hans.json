@@ -36,6 +36,7 @@
     "Password": "密码",
     "UserDeletionConfirmationMessage": "用户“{0}”将被删除. 你确认了吗?",
     "RoleDeletionConfirmationMessage": "角色“{0}”将被删除. 你确认了吗?",
+    "DisplayName": "显示名称",
     "DisplayName:RoleName": "角色名称",
     "DisplayName:IsDefault": "默认",
     "DisplayName:IsStatic": "静态",
@@ -83,7 +84,16 @@
     "ThisUserIsLockedOutMessage": "此用户已被锁定. 要解锁,请单击“操作”,然后单击“解锁”.",
     "UserUnlocked": "用户解锁.",
     "AddClaim": "添加声明",
+    "TwoFactorVerification": "双因素验证",
+
     "OrganizationUnits": "组织机构",
-    "TwoFactorVerification": "双因素验证"
+    "OrganizationTree": "组织机构树",
+    "Members": "成员",
+    "AddRootUnit": "添加根机构",
+    "AddSubUnit": "添加子机构",
+    "AddRole": "添加角色",
+    "AddMember": "添加成员",
+    "RemoveUserFromOuWarningMessage": "你确定要从组织机构 {0} 中删除用户 {1} 吗?",
+    "RemoveRoleFromOuWarningMessage": "您确定要从组织机构 {0} 中删除角色 {1} 吗?"
   }
 }
