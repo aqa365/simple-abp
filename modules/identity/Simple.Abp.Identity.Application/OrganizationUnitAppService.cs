@@ -72,13 +72,11 @@ namespace Simple.Abp.Identity
 			var organizationUnits = await OrganizationUnitRepository.GetListAsync();
 			foreach(var ou in organizationUnits)
             {
-				var organizationUnitWithDetailsDto = new OrganizationUnitWithDetailsDto()
-				{
-					ParentId = ou.ParentId,
-					Code = ou.Code,
-					DisplayName = ou.DisplayName,
-					Roles = ObjectMapper.Map<List<OrganizationUnitRole>, List<IdentityRoleDto>>(ou.Roles?.ToList()),
-				};
+                var organizationUnitWithDetailsDto =
+                        ObjectMapper.Map<OrganizationUnit, OrganizationUnitWithDetailsDto>(ou);
+
+                organizationUnitWithDetailsDto.Roles = 
+					ObjectMapper.Map<List<OrganizationUnitRole>, List<IdentityRoleDto>>(ou.Roles?.ToList());
 
 				list.Add(organizationUnitWithDetailsDto);
 			}
@@ -113,6 +111,7 @@ namespace Simple.Abp.Identity
 		[Authorize(IdentityPermissions.OrganizationUnits.ManageOU)]
 		public virtual async Task<OrganizationUnitWithDetailsDto> CreateAsync(OrganizationUnitCreateDto input)
 		{
+			input.DisplayName = input.DisplayName.Trim();
 			var organizationUnit = new OrganizationUnit(GuidGenerator.Create(),input.DisplayName,input.ParentId, CurrentTenant.Id);
 
 			await OrganizationUnitManager.CreateAsync(organizationUnit);
@@ -124,12 +123,7 @@ namespace Simple.Abp.Identity
 		[Authorize(IdentityPermissions.OrganizationUnits.ManageOU)]
 		public virtual async Task DeleteAsync(Guid id)
 		{
-			var flag = OrganizationUnitRepository.FindAsync(id);
-
-			if (flag != null)
-			{
-				await this.OrganizationUnitManager.DeleteAsync(id);
-			}
+			await this.OrganizationUnitManager.DeleteAsync(id);
 		}
 
 		[Authorize(IdentityPermissions.OrganizationUnits.ManageOU)]
@@ -137,6 +131,7 @@ namespace Simple.Abp.Identity
 		{
 			var ou = await OrganizationUnitRepository.FindAsync(id);
 
+			ou.DisplayName = input.DisplayName.Trim();
 			input.MapExtraPropertiesTo(ou);
 
 			await OrganizationUnitManager.UpdateAsync(ou);
