@@ -42,6 +42,13 @@ namespace Simple.Abp.Identity
 			return UserAppService.GetAssignableRolesAsync();
 		}
 
+		[HttpGet]
+		[Route("available-organization-units")]
+		public Task<ListResultDto<OrganizationUnitWithDetailsDto>> GetAvailableOrganizationUnitsAsync()
+		{
+			return UserAppService.GetAvailableOrganizationUnitsAsync();
+		}
+
 		[HttpPost]
 		public virtual Task<IdentityUserDto> CreateAsync(IdentityUserCreateDto input)
 		{
@@ -124,5 +131,5 @@ namespace Simple.Abp.Identity
 		{
 			return this.UserAppService.UpdatePasswordAsync(id, input);
 		}
-	}
+    }
 }

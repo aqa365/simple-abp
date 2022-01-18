@@ -15,6 +15,8 @@ namespace Simple.Abp.Identity
 
 		Task<ListResultDto<IdentityRoleDto>> GetAssignableRolesAsync();
 
+		Task<ListResultDto<OrganizationUnitWithDetailsDto>> GetAvailableOrganizationUnitsAsync();
+
 		Task<List<OrganizationUnitDto>> GetOrganizationUnitsAsync(Guid id);
 
 		Task UpdateRolesAsync(Guid id, IdentityUserUpdateRolesDto input);
