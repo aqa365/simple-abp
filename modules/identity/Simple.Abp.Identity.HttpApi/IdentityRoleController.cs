@@ -13,7 +13,7 @@ namespace Simple.Abp.Identity
 	[Route("api/identity/roles")]
 	[RemoteService(true, Name = IdentityProRemoteServiceConsts.RemoteServiceName)]
 	[Area("identity")]
-	public class IdentityRoleController : AbpController, IIdentityRoleAppService, IApplicationService, IRemoteService
+	public class IdentityRoleController : AbpController, IIdentityRoleAppService
 	{
 		protected IIdentityRoleAppService RoleAppService { get; }
 

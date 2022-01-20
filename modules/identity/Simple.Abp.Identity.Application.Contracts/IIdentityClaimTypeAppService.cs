@@ -4,7 +4,7 @@ using Volo.Abp.Application.Services;
 
 namespace Simple.Abp.Identity
 {
-    public interface IIdentityClaimTypeAppService : IApplicationService, IRemoteService
+    public interface IIdentityClaimTypeAppService : IApplicationService
 	{
 		Task<PagedResultDto<ClaimTypeDto>> GetListAsync(GetIdentityClaimTypesInput input);
 

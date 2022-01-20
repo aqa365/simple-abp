@@ -6,7 +6,7 @@ using Volo.Abp.Application.Services;
 
 namespace Simple.Abp.Identity
 {
-	public interface IOrganizationUnitAppService : IApplicationService, IRemoteService
+	public interface IOrganizationUnitAppService : IApplicationService
 	{
 		Task<OrganizationUnitWithDetailsDto> GetAsync(Guid id);
 

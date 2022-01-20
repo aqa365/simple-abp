@@ -96,6 +96,17 @@
     "RemoveUserFromOuWarningMessage": "你确定要从组织机构 {0} 中删除用户 {1} 吗?",
     "RemoveRoleFromOuWarningMessage": "您确定要从组织机构 {0} 中删除角色 {1} 吗?",
     "SelectAnOrganizationUnitToSeeMembers": "选择一个组织机构来查看成员",
-    "SelectAnOrganizationUnitToSeeRoles": "选择一个组织机构来查看角色"
+    "SelectAnOrganizationUnitToSeeRoles": "选择一个组织机构来查看角色",
+
+    "SecurityLogs": "安全日志",
+    "ApplicationName": "应用程序",
+    "Identity": "标识",
+    "Action": "操作",
+    "ClientId": "客户端",
+    "ClientIpAddress": "客户端IP地址",
+    "BrowserInfo": "浏览器信息",
+    "CorrelationId": "相关Id",
+    "StartDate": "开始日期",
+    "EndDate": "结束日期"
   }
 }

@@ -12,6 +12,7 @@ using Volo.Abp.AspNetCore.Serilog;
 using Volo.Abp.Auditing;
 using Volo.Abp.Autofac;
 using Volo.Abp.Identity.AspNetCore;
+using Volo.Abp.Json;
 using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Volo.Abp.Swashbuckle;
@@ -117,6 +118,8 @@ namespace Simple.Abp.Test
                 });
             });
 
+            Configure<AbpJsonOptions>(options => options.DefaultDateTimeFormat = "yyyy-MM-dd HH:mm:ss");
+
             context.Services.AddHttpClient();
         }
 
@@ -185,14 +188,8 @@ namespace Simple.Abp.Test
         {
             Configure<AbpLocalizationOptions>(options =>
             {
-                options.Languages.Add(new LanguageInfo("ar", "ar", "العربية","ar.svg"));
-                options.Languages.Add(new LanguageInfo("en", "en", "English","en.svg"));
-                options.Languages.Add(new LanguageInfo("fi", "fi", "Finnish","fi.svg"));
-                options.Languages.Add(new LanguageInfo("tr", "tr", "Türkçe","tr.svg"));
+                options.Languages.Add(new LanguageInfo("en", "en", "English", "en.svg"));
                 options.Languages.Add(new LanguageInfo("zh-Hans", "zh-Hans", "简体中文", "zh-Hans.svg"));
-                options.Languages.Add(new LanguageInfo("zh-Hant", "zh-Hant", "繁體中文", "zh-Hans.svg"));
-                options.Languages.Add(new LanguageInfo("de-DE", "de-DE", "Deutsch", "de.svg"));
-                options.Languages.Add(new LanguageInfo("es", "es", "Español","es.svg"));
             });
         }
 

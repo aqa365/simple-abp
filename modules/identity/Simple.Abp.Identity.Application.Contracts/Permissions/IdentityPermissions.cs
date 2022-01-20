@@ -69,5 +69,10 @@ namespace Simple.Abp.Identity
 
 			public const string ManageUsers = "AbpIdentity.OrganizationUnits.ManageMembers";
 		}
+
+		public static class SecurityLogs
+		{
+			public const string Default = "AbpIdentity.SecurityLogs";
+		}
 	}
 }

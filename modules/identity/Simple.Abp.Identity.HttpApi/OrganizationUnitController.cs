@@ -1,18 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Threading.Tasks;
 using Volo.Abp;
 using Volo.Abp.Application.Dtos;
-using Volo.Abp.Application.Services;
 using Volo.Abp.AspNetCore.Mvc;
 
 namespace Simple.Abp.Identity
 {
-	[Route("api/identity/organization-units")]
+    [Route("api/identity/organization-units")]
 	[ControllerName("OrganizationUnit")]
 	[RemoteService(true, Name = IdentityProRemoteServiceConsts.RemoteServiceName)]
 	[Area("identity")]
-	public class OrganizationUnitController : AbpController, IOrganizationUnitAppService, IApplicationService, IRemoteService
+	public class OrganizationUnitController : AbpController, IOrganizationUnitAppService
 	{
 		protected IOrganizationUnitAppService OrganizationUnitAppService { get; }
 

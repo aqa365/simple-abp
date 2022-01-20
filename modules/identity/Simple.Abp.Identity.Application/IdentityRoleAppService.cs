@@ -1,10 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
-using System.Threading.Tasks;
 using Volo.Abp;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
@@ -13,8 +9,8 @@ using Volo.Abp.ObjectExtending;
 
 namespace Simple.Abp.Identity
 {
-	[Authorize(IdentityPermissions.Roles.Default)]
-	public class IdentityRoleAppService : IdentityAppServiceBase, IIdentityRoleAppService, IApplicationService, IRemoteService
+    [Authorize(IdentityPermissions.Roles.Default)]
+	public class IdentityRoleAppService : IdentityAppServiceBase, IIdentityRoleAppService
 	{
 		protected IdentityRoleManager RoleManager { get; }
 

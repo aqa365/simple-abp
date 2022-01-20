@@ -1,19 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Threading.Tasks;
 using Volo.Abp;
 using Volo.Abp.Application.Dtos;
-using Volo.Abp.Application.Services;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.Users;
 
 namespace Simple.Abp.Identity
 {
-	[Area("identity")]
+    [Area("identity")]
 	[ControllerName("UserLookup")]
 	[RemoteService(true, Name = IdentityProRemoteServiceConsts.RemoteServiceName)]
 	[Route("api/identity/users/lookup")]
-	public class IdentityUserLookupController : AbpController, IIdentityUserLookupAppService, IApplicationService, IRemoteService
+	public class IdentityUserLookupController : AbpController, IIdentityUserLookupAppService
 	{
 		protected IIdentityUserLookupAppService LookupAppService { get; }
 

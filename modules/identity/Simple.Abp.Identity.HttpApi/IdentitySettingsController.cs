@@ -1,16 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 using Volo.Abp;
-using Volo.Abp.Application.Services;
 using Volo.Abp.AspNetCore.Mvc;
 
 namespace Simple.Abp.Identity
 {
-	[Route("api/identity/settings")]
+    [Route("api/identity/settings")]
 	[ControllerName("Settings")]
 	[RemoteService(true, Name = IdentityProRemoteServiceConsts.RemoteServiceName)]
 	[Area("identity")]
-	public class IdentitySettingsController : AbpController, IIdentitySettingsAppService, IApplicationService, IRemoteService
+	public class IdentitySettingsController : AbpController, IIdentitySettingsAppService
 	{
 		protected IIdentitySettingsAppService IdentitySettingsAppService { get; }
 

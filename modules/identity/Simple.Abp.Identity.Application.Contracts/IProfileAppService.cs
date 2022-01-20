@@ -4,7 +4,7 @@ using Volo.Abp.Application.Services;
 
 namespace Simple.Abp.Identity
 {
-	public interface IProfileAppService : IApplicationService, IRemoteService
+	public interface IProfileAppService : IApplicationService
 	{
 		Task<ProfileDto> GetAsync();
 

@@ -13,7 +13,7 @@ namespace Simple.Abp.Identity
 	[RemoteService(true, Name = IdentityProRemoteServiceConsts.RemoteServiceName)]
 	[ControllerName("ClaimType")]
 	[Area("identity")]
-	public class IdentityClaimTypeController : AbpController, IIdentityClaimTypeAppService, IApplicationService, IRemoteService
+	public class IdentityClaimTypeController : AbpController, IIdentityClaimTypeAppService
 	{
 		protected IIdentityClaimTypeAppService ClaimTypeAppService { get; }
 

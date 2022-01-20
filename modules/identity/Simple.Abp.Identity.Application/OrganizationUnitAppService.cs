@@ -1,18 +1,12 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Volo.Abp;
 using Volo.Abp.Application.Dtos;
-using Volo.Abp.Application.Services;
 using Volo.Abp.Identity;
 using Volo.Abp.ObjectExtending;
 
 namespace Simple.Abp.Identity
 {
     [Authorize(IdentityPermissions.OrganizationUnits.Default)]
-	public class OrganizationUnitAppService : IdentityAppServiceBase, IOrganizationUnitAppService, IApplicationService, IRemoteService
+	public class OrganizationUnitAppService : IdentityAppServiceBase, IOrganizationUnitAppService
 	{
 		protected OrganizationUnitManager OrganizationUnitManager { get; }
 

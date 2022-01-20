@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Simple.Abp.Identity.Dtos;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.Identity;
 
@@ -22,6 +23,7 @@ namespace Simple.Abp.Identity
 			CreateMap<OrganizationUnitRole, OrganizationUnitRoleDto>();
 			CreateMap<OrganizationUnit, OrganizationUnitWithDetailsDto>().ForMember(x => x.Roles, opts => opts.Ignore());
 			CreateMap<IdentityRole, OrganizationUnitRoleDto>().ForMember(dest => dest.RoleId, opt => opt.MapFrom(src => src.Id));
+			CreateMap<IdentitySecurityLog, IdentitySecurityLogDto>();
 		}
 	}
 }

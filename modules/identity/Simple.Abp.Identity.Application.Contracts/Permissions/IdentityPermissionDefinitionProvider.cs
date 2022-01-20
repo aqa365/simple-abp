@@ -34,6 +34,8 @@ namespace Simple.Abp.Identity
 			claimTypes.AddChild(IdentityPermissions.ClaimTypes.Update, L("Permission:Edit"));
 			claimTypes.AddChild(IdentityPermissions.ClaimTypes.Delete, L("Permission:Delete"));
 
+			var securityLogs = abpIdentity.AddPermission(IdentityPermissions.SecurityLogs.Default, L("Permission:SecurityLogManagement"));
+
 			abpIdentity.AddPermission(IdentityPermissions.SettingManagement, L("Permission:SettingManagement"));
 			abpIdentity.AddPermission(IdentityPermissions.UserLookup.Default, L("Permission:UserLookup")).WithProviders("C");
 		}

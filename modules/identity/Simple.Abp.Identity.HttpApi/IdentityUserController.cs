@@ -1,19 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Volo.Abp;
 using Volo.Abp.Application.Dtos;
-using Volo.Abp.Application.Services;
 using Volo.Abp.AspNetCore.Mvc;
 
 namespace Simple.Abp.Identity
 {
-	[ControllerName("User")]
+    [ControllerName("User")]
 	[Route("api/identity/users")]
 	[RemoteService(true, Name = IdentityProRemoteServiceConsts.RemoteServiceName)]
 	[Area("identity")]
-	public class IdentityUserController : AbpController, IIdentityUserAppService, ICrudAppService<IdentityUserDto, Guid, GetIdentityUsersInput, IdentityUserCreateDto, IdentityUserUpdateDto>, ICrudAppService<IdentityUserDto, IdentityUserDto, Guid, GetIdentityUsersInput, IdentityUserCreateDto, IdentityUserUpdateDto>, IApplicationService, IRemoteService
+	public class IdentityUserController : AbpController, IIdentityUserAppService
 	{
 		protected IIdentityUserAppService UserAppService { get; }
 

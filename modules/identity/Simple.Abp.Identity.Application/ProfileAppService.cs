@@ -12,7 +12,7 @@ using Volo.Abp.Users;
 namespace Simple.Abp.Identity
 {
 	[Authorize]
-	public class ProfileAppService : IdentityAppServiceBase, IProfileAppService, IApplicationService, IRemoteService
+	public class ProfileAppService : IdentityAppServiceBase, IProfileAppService
 	{
 		protected IdentityUserManager UserManager { get; }
 

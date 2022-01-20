@@ -10,7 +10,7 @@ using Volo.Abp.Settings;
 namespace Simple.Abp.Identity
 {
 	[Authorize(IdentityPermissions.SettingManagement)]
-	public class IdentitySettingsAppService : IdentityAppServiceBase, IIdentitySettingsAppService, IApplicationService, IRemoteService
+	public class IdentitySettingsAppService : IdentityAppServiceBase, IIdentitySettingsAppService
 	{
 		protected ISettingManager SettingManager { get; }
 

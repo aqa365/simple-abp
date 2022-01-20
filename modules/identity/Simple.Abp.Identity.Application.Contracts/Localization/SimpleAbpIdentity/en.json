@@ -109,6 +109,17 @@
     "DisplayName": "Display name",
     "OrganizationUnitMoveConfirmMessage": "Are you sure you want to move '{0}' under '{1}'?",
     "TwoFactorVerification": "Two factor verification",
-    "PageEntries": "entries"
+    "PageEntries": "entries",
+
+    "SecurityLogs": "Security Logs",
+    "ApplicationName": "Application",
+    "Identity": "Identity",
+    "Action": "Action",
+    "ClientId": "Client",
+    "ClientIpAddress": "Client Ip Address",
+    "BrowserInfo": "Browser",
+    "CorrelationId": "CorrelationId",
+    "StartDate": "Start Date",
+    "EndDate": "End Date"
   }
 }

@@ -7,7 +7,7 @@ using Volo.Abp.Application.Services;
 
 namespace Simple.Abp.Identity
 {
-	public interface IIdentityRoleAppService : IApplicationService, IRemoteService
+	public interface IIdentityRoleAppService : IApplicationService
 	{
 		Task<ListResultDto<IdentityRoleDto>> GetAllListAsync();
 

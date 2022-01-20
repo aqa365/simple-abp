@@ -10,7 +10,7 @@ namespace Simple.Abp.Identity
 	[ControllerName("Profile")]
 	[RemoteService(true, Name = IdentityProRemoteServiceConsts.RemoteServiceName)]
 	[Area("identity")]
-	public class ProfileController : AbpController, IProfileAppService, IApplicationService, IRemoteService
+	public class ProfileController : AbpController, IProfileAppService
 	{
 		protected IProfileAppService ProfileAppService { get; }
 

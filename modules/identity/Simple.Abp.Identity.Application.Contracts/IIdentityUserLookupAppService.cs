@@ -7,7 +7,7 @@ using Volo.Abp.Users;
 
 namespace Simple.Abp.Identity
 {
-	public interface IIdentityUserLookupAppService : IApplicationService, IRemoteService
+	public interface IIdentityUserLookupAppService : IApplicationService
 	{
 		Task<UserData> FindByIdAsync(Guid id);
 

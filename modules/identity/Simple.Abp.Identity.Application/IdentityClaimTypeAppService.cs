@@ -11,7 +11,7 @@ using Volo.Abp.ObjectExtending;
 namespace Simple.Abp.Identity
 {
 	[Authorize(IdentityPermissions.ClaimTypes.Default)]
-	public class IdentityClaimTypeAppService : ApplicationService, IIdentityClaimTypeAppService, IApplicationService, IRemoteService
+	public class IdentityClaimTypeAppService : IdentityAppServiceBase, IIdentityClaimTypeAppService
 	{
 		protected IdentityClaimTypeManager IdenityClaimTypeManager { get; }
 

@@ -1,10 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
-using System.Threading.Tasks;
 using Volo.Abp;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
@@ -13,11 +9,7 @@ using Volo.Abp.ObjectExtending;
 
 namespace Simple.Abp.Identity
 {
-    public class IdentityUserAppService : IdentityAppServiceBase,
-        IIdentityUserAppService, ICrudAppService<IdentityUserDto, Guid, GetIdentityUsersInput,
-            IdentityUserCreateDto, IdentityUserUpdateDto>, ICrudAppService<IdentityUserDto,
-                IdentityUserDto, Guid, GetIdentityUsersInput, IdentityUserCreateDto, IdentityUserUpdateDto>,
-        IApplicationService, IRemoteService
+    public class IdentityUserAppService : IdentityAppServiceBase,IIdentityUserAppService
     {
         protected IdentityUserManager UserManager { get; }
 

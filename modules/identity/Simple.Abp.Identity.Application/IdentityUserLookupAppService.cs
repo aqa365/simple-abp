@@ -11,7 +11,7 @@ using Volo.Abp.Users;
 namespace Simple.Abp.Identity
 {
 	[Authorize(IdentityPermissions.UserLookup.Default)]
-	public class IdentityUserLookupAppService : IdentityAppServiceBase, IIdentityUserLookupAppService, IApplicationService, IRemoteService
+	public class IdentityUserLookupAppService : IdentityAppServiceBase, IIdentityUserLookupAppService
 	{
 		protected IdentityUserRepositoryExternalUserLookupServiceProvider UserLookupServiceProvider { get; }
 
