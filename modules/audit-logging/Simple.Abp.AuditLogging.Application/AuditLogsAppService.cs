@@ -34,8 +34,8 @@ namespace Simple.Abp.AuditLogging
                 sorting: input.Sorting,
                 maxResultCount: input.MaxResultCount,
                 skipCount: input.SkipCount,
-                startTime: null,
-                endTime: null,
+                startTime: input.StartTime,
+                endTime: input.EndTime,
                 httpMethod: input.HttpMethod,
                 url: input.Url,
                 userName: input.UserName,
@@ -45,12 +45,13 @@ namespace Simple.Abp.AuditLogging
                 minExecutionDuration: input.MinExecutionDuration,
                 hasException: input.HasException,
                 httpStatusCode: input.HttpStatusCode,
+                clientIpAddress:input.ClientIpAddress,
                 includeDetails: false
             );
 
             long num = await AuditLogRepository.GetCountAsync(
-                startTime: null,
-                endTime: null,
+                startTime: input.StartTime,
+                endTime: input.EndTime,
                 httpMethod: input.HttpMethod,
                 url: input.Url,
                 userName: input.UserName,

@@ -7,7 +7,6 @@ using Volo.Abp;
 using Volo.Abp.AspNetCore.Authentication.JwtBearer;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Mvc.AntiForgery;
-using Volo.Abp.AspNetCore.Mvc.Localization;
 using Volo.Abp.AspNetCore.Serilog;
 using Volo.Abp.Auditing;
 using Volo.Abp.Autofac;
@@ -90,7 +89,7 @@ namespace Simple.Abp.Test
 
             Configure<AbpAuditingOptions>(options =>
             {
-                options.IsEnabledForGetRequests = true;
+                options.ApplicationName = "ka_api";
             });
 
             Configure<AppUrlOptions>(options =>

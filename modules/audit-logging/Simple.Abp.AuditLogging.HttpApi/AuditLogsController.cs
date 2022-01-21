@@ -14,7 +14,7 @@ namespace Simple.Abp.AuditLogging
 	[Route("api/audit-logging/audit-logs")]
 	[ControllerName("AuditLogs")]
 	[DisableAuditing]
-	public class AuditLogsController : AbpController, IAuditLogsAppService, IRemoteService, IApplicationService
+	public class AuditLogsController : AbpController, IAuditLogsAppService
 	{
 		protected IAuditLogsAppService AuditLogsAppService { get; }
 
