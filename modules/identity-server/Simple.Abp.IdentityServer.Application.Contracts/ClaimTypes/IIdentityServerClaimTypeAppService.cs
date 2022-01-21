@@ -6,7 +6,7 @@ using Simple.Abp.IdentityServer.ClaimTypes.Dtos;
 
 namespace Volo.Abp.IdentityServer.ClaimTypes
 {
-	public interface IIdentityServerClaimTypeAppService : IRemoteService, IApplicationService
+	public interface IIdentityServerClaimTypeAppService : IApplicationService
 	{
 		Task<List<IdentityClaimTypeDto>> GetListAsync();
 	}

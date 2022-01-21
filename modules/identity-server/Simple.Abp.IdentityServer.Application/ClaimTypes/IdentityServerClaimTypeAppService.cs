@@ -10,7 +10,7 @@ using Volo.Abp.IdentityServer.ClaimTypes;
 
 namespace Simple.Abp.IdentityServer.ClaimTypes
 {
-	public class IdentityServerClaimTypeAppService : IdentityServerAppServiceBase, IRemoteService, IApplicationService, IIdentityServerClaimTypeAppService
+	public class IdentityServerClaimTypeAppService : IdentityServerAppServiceBase, IIdentityServerClaimTypeAppService
 	{
 		protected IIdentityClaimTypeRepository ClaimTypeRepository { get; }
 

@@ -8,7 +8,7 @@ using Volo.Abp;
 
 namespace Simple.Abp.IdentityServer.IdentityResources
 {
-	public interface IIdentityResourceAppService : IRemoteService, IApplicationService
+	public interface IIdentityResourceAppService :IApplicationService
 	{
 		Task<PagedResultDto<IdentityResourceWithDetailsDto>> GetListAsync(GetIdentityResourceListInput input);
 

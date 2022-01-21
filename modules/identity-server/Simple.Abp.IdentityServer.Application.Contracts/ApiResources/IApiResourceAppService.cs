@@ -5,7 +5,7 @@ using Volo.Abp.Application.Services;
 
 namespace Simple.Abp.IdentityServer.ApiResources
 {
-    public interface IApiResourceAppService : IRemoteService, IApplicationService
+    public interface IApiResourceAppService :IApplicationService
 	{
 		Task<PagedResultDto<ApiResourceWithDetailsDto>> GetListAsync(GetApiResourceListInput input);
 

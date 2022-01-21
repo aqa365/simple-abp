@@ -5,7 +5,7 @@ using Simple.Abp.Identity;
 
 namespace Simple.Abp.Account
 {
-	public interface IAccountAppService : IApplicationService, IRemoteService
+	public interface IAccountAppService : IApplicationService
 	{
 		Task<IdentityUserDto> RegisterAsync(RegisterDto input);
 

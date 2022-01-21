@@ -10,7 +10,7 @@ using Volo.Abp.Users;
 
 namespace Simple.Abp.Account
 {
-    public class AccountAppService : ApplicationService, IAccountAppService, IApplicationService, IRemoteService
+    public class AccountAppService : ApplicationService, IAccountAppService
 	{
 		protected IIdentityRoleRepository RoleRepository { get; }
 

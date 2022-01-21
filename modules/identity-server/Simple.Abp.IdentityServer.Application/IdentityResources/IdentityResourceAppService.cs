@@ -9,7 +9,7 @@ using Volo.Abp.ObjectExtending;
 namespace Simple.Abp.IdentityServer.IdentityResources
 {
     [Authorize(AbpIdentityServerPermissions.IdentityResource.Default)]
-	public class IdentityResourceAppService : IdentityServerAppServiceBase, IRemoteService, IApplicationService, IIdentityResourceAppService
+	public class IdentityResourceAppService : IdentityServerAppServiceBase, IIdentityResourceAppService
 	{
 		protected IIdentityResourceDataSeeder IdentityResourceDataSeeder { get; }
 

@@ -1,16 +1,12 @@
 ﻿using Simple.Abp.IdentityServer.ApiScopes.Dtos;
 using Volo.Abp;
 using Volo.Abp.Application.Dtos;
-using Volo.Abp.Application.Services;
 using Volo.Abp.IdentityServer.ApiScopes;
 using Volo.Abp.ObjectExtending;
 
 namespace Simple.Abp.IdentityServer.ApiScopes
 {
-    public class ApiScopeAppService : IdentityServerAppServiceBase,
-        IRemoteService,
-        IApplicationService,
-        IApiScopeAppService
+    public class ApiScopeAppService : IdentityServerAppServiceBase,IApiScopeAppService
     {
         private IApiScopeRepository _apiScopeRepository;
 

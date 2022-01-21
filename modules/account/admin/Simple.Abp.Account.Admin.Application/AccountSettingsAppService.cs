@@ -9,7 +9,7 @@ using Volo.Abp.Settings;
 namespace Simple.Abp.Account
 {
 	[Authorize(AccountPermissions.SettingManagement)]
-	public class AccountSettingsAppService : ApplicationService, IRemoteService, IApplicationService, IAccountSettingsAppService
+	public class AccountSettingsAppService : ApplicationService, IAccountSettingsAppService
 	{
 		protected ISettingManager SettingManager { get; }
 

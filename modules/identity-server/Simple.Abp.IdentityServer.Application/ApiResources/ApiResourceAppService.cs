@@ -9,7 +9,7 @@ using Volo.Abp.ObjectExtending;
 namespace Simple.Abp.IdentityServer.ApiResources
 {
     [Authorize(AbpIdentityServerPermissions.ApiResource.Default)]
-    public class ApiResourceAppService : IdentityServerAppServiceBase, IRemoteService, IApplicationService, IApiResourceAppService
+    public class ApiResourceAppService : IdentityServerAppServiceBase, IApiResourceAppService
     {
         private IApiResourceRepository _apiResourceRepository;
 

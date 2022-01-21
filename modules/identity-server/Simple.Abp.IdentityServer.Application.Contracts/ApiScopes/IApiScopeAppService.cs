@@ -5,7 +5,7 @@ using Volo.Abp.Application.Services;
 
 namespace Simple.Abp.IdentityServer.ApiScopes
 {
-    public interface IApiScopeAppService:IRemoteService, IApplicationService
+    public interface IApiScopeAppService: IApplicationService
     {
         Task<PagedResultDto<ApiScopeDto>> GetListAsync(GetApiScopeListInput input);
 

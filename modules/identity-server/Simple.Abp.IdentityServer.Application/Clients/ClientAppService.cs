@@ -9,7 +9,7 @@ using Volo.Abp.ObjectExtending;
 namespace Simple.Abp.IdentityServer.Clients
 {
     [Authorize(AbpIdentityServerPermissions.Client.Default)]
-	public class ClientAppService : IdentityServerAppServiceBase, IRemoteService, IApplicationService, IClientAppService
+	public class ClientAppService : IdentityServerAppServiceBase,IClientAppService
 	{
 		protected IClientRepository ClientRepository { get; }
 

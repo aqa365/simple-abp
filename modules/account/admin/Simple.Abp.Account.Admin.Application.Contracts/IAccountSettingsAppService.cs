@@ -4,7 +4,7 @@ using Volo.Abp.Application.Services;
 
 namespace Simple.Abp.Account
 {
-    public interface IAccountSettingsAppService : IRemoteService, IApplicationService
+    public interface IAccountSettingsAppService : IApplicationService
 	{
 		Task<AccountSettingsDto> GetAsync();
 

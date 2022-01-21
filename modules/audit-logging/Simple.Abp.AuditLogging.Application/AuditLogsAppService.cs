@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Simple.Abp.AuditLogging.Dtos;
-using Volo.Abp;
 using Volo.Abp.Application.Dtos;
-using Volo.Abp.Application.Services;
 using Volo.Abp.Auditing;
 using Volo.Abp.AuditLogging;
 using Volo.Abp.Authorization.Permissions;
@@ -11,8 +9,8 @@ using Volo.Abp.Json;
 namespace Simple.Abp.AuditLogging
 {
     [DisableAuditing]
-    //[Authorize("AuditLogging.AuditLogs")]
-    public class AuditLogsAppService : AuditLogsAppServiceBase, IRemoteService, IApplicationService, IAuditLogsAppService
+    [Authorize("AuditLogging.AuditLogs")]
+    public class AuditLogsAppService : AuditLogsAppServiceBase, IAuditLogsAppService
     {
         protected IAuditLogRepository AuditLogRepository { get; }
 

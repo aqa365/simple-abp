@@ -1,14 +1,10 @@
 ﻿using Simple.Abp.AuditLogging.Dtos;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Volo.Abp;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 
 namespace Simple.Abp.AuditLogging
 {
-    public interface IAuditLogsAppService : IRemoteService, IApplicationService
+    public interface IAuditLogsAppService : IApplicationService
 	{
 		Task<PagedResultDto<AuditLogDto>> GetListAsync(GetAuditLogListDto input);
 
