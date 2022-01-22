@@ -31,6 +31,6 @@ namespace Simple.Abp.AuditLogging.Dtos
 
         public DateTime? EndTime { get; set; }
 
-        public string ClientIpAddress { get; set; }
+        public string? ClientIpAddress { get; set; }
     }
 }
