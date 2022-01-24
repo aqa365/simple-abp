@@ -10,6 +10,7 @@ using Volo.Abp.AspNetCore.Mvc.AntiForgery;
 using Volo.Abp.AspNetCore.Serilog;
 using Volo.Abp.Auditing;
 using Volo.Abp.Autofac;
+using Volo.Abp.Identity;
 using Volo.Abp.Identity.AspNetCore;
 using Volo.Abp.Json;
 using Volo.Abp.Localization;
@@ -90,6 +91,23 @@ namespace Simple.Abp.Test
             Configure<AbpAuditingOptions>(options =>
             {
                 options.ApplicationName = "ka_api";
+
+                options.EntityHistorySelectors.Add(
+                   new NamedTypeSelector(
+                       "UserName",
+                       type =>
+                       {
+                           if (typeof(IdentityUser).IsAssignableFrom(type))
+                           {
+                               return true;
+                           }
+                           else
+                           {
+                               return false;
+                           }
+                       }
+                   )
+               );
             });
 
             Configure<AppUrlOptions>(options =>

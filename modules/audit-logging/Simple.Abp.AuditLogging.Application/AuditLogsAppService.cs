@@ -117,9 +117,23 @@ namespace Simple.Abp.AuditLogging
 
         public virtual async Task<PagedResultDto<EntityChangeDto>> GetEntityChangesAsync(GetEntityChangesDto input)
         {
-            List<EntityChange> list = await this.AuditLogRepository.GetEntityChangeListAsync(input.Sorting, input.MaxResultCount, input.SkipCount, input.AuditLogId, input.StartDate, input.EndDate, input.EntityChangeType, input.EntityId, input.EntityTypeFullName, true);
+            List<EntityChange> list = await this.AuditLogRepository.GetEntityChangeListAsync(input.Sorting, 
+                input.MaxResultCount,
+                input.SkipCount, 
+                input.AuditLogId,
+                input.StartDate, 
+                input.EndDate,
+                input.ChangeType, 
+                input.EntityId, 
+                input.EntityTypeFullName, true);
             List<EntityChange> entityChanges = list;
-            long num = await this.AuditLogRepository.GetEntityChangeCountAsync(input.AuditLogId, input.StartDate, input.EndDate, input.EntityChangeType, input.EntityId, input.EntityTypeFullName);
+            long num = await this.AuditLogRepository.GetEntityChangeCountAsync(
+                input.AuditLogId,
+                input.StartDate,
+                input.EndDate, 
+                input.ChangeType, 
+                input.EntityId, 
+                input.EntityTypeFullName);
             List<EntityChangeDto> list2 = base.ObjectMapper.Map<List<EntityChange>, List<EntityChangeDto>>(entityChanges);
             return new PagedResultDto<EntityChangeDto>(num, list2);
         }

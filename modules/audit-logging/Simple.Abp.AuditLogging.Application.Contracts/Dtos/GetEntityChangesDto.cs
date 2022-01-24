@@ -8,7 +8,7 @@ namespace Simple.Abp.AuditLogging.Dtos
     {
         public Guid? AuditLogId { get; set; }
 
-        public EntityChangeType? EntityChangeType { get; set; }
+        public EntityChangeType? ChangeType { get; set; }
 
         public string EntityId { get; set; }
 
