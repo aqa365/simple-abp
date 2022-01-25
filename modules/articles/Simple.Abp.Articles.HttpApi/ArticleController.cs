@@ -9,7 +9,7 @@ namespace Simple.Abp.Articles
     [RemoteService]
     [Area("Articles")]
     [ControllerName("Article")]
-    [Route("api/article")]
+    [Route("api/articles/article")]
     public class ArticleController : ArticlesController, IArticleAppService
     {
         private readonly IArticleAppService _articleAppService;

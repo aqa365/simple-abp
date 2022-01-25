@@ -8,7 +8,7 @@ namespace Simple.Abp.Articles
     [RemoteService]
     [Area("Articles")]
     [ControllerName("ArticleTag")]
-    [Route("api/article-tag")]
+    [Route("api/articles/tag")]
     public class AricleTagController : ArticlesController, IArticleTagAppService
     {
 

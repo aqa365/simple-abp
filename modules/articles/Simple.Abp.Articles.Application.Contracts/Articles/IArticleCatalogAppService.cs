@@ -18,7 +18,7 @@ namespace Simple.Abp.Articles
         /// 获取类别列表(Tree)
         /// </summary>
         /// <returns></returns>
-        Task<List<ArticleCatalogDto>> GetTreesAsync();
+        Task<List<ArticleCatalogDto>> GetAllAsync();
 
         /// <summary>
         /// 获取存在文章的类别

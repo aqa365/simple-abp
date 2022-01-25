@@ -12,7 +12,5 @@ namespace Simple.Abp.Articles.Dtos
         public string Description { get; set; }
 
         public int ArticleCount { get; set; }
-
-        public List<ArticleCatalogDto> Childs { get; set; }
     }
 }

@@ -35,23 +35,6 @@ namespace Simple.Abp.Articles
             DeletePolicyName = ArticlesPermissions.Articles.Delete;
         }
 
-        private void FindChilds(ArticleCatalogDto parentCatalog, List<ArticleCatalogDto> catalogs)
-        {
-            var childs = catalogs.Where(c => c.ParentId == parentCatalog.Id).ToList();
-            if (childs == null || childs.Count <= 0)
-                return;
-
-            foreach (var child in childs)
-            {
-                if (child.Id == parentCatalog.Id)
-                    continue;
-
-                FindChilds(child, catalogs);
-            }
-
-            parentCatalog.Childs = childs;
-        }
-
         protected override async Task<IQueryable<ArticleCatalog>> CreateFilteredQueryAsync(ArticlePagedCatalogRequestDto input)
         {
             var query = await _repository.WithDetailsAsync();
@@ -61,15 +44,11 @@ namespace Simple.Abp.Articles
             return query;
         }
 
-        public async Task<List<ArticleCatalogDto>> GetTreesAsync()
+        public async Task<List<ArticleCatalogDto>> GetAllAsync()
         {
             var catalogEntities = await _repository.GetListAsync();
             var catalogs = ObjectMapper.Map<List<ArticleCatalog>, List<ArticleCatalogDto>>(catalogEntities);
-
-            var parentCatalogs = catalogs.Where(c => c.ParentId == null).ToList();
-            parentCatalogs.ForEach(c => FindChilds(c, catalogs));
-
-            return parentCatalogs;
+            return catalogs;
         }
 
         public async Task<List<ArticleCatalogDto>> GetExistArticleList()

@@ -8,7 +8,7 @@ namespace Simple.Abp.Articles
     [RemoteService]
     [Area("ArticlesArticle")]
     [ControllerName("ArticleCatalog")]
-    [Route("api/article-catalog")]
+    [Route("api/articles/catalog")]
     public class ArticleCatalogController : ArticlesController, IArticleCatalogAppService
     {
         private readonly IArticleCatalogAppService _catalogAppService;
@@ -51,10 +51,10 @@ namespace Simple.Abp.Articles
         }
 
         [HttpGet]
-        [Route("trees")]
-        public Task<List<ArticleCatalogDto>> GetTreesAsync()
+        [Route("all")]
+        public Task<List<ArticleCatalogDto>> GetAllAsync()
         {
-            return _catalogAppService.GetTreesAsync();
+            return _catalogAppService.GetAllAsync();
         }
 
         [HttpPut]
