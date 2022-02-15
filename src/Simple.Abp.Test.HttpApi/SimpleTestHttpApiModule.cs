@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Simple.Abp.Account;
 using Simple.Abp.Articles;
 using Simple.Abp.AuditLogging;
+using Simple.Abp.CloudStorage;
 using Simple.Abp.Identity;
 using Simple.Abp.IdentityServer;
 using Volo.Abp.Localization;
@@ -19,7 +20,8 @@ namespace Simple.Abp.Test
         typeof(AbpAuditLoggingHttpApiModule),
         typeof(AbpAccountAdminHttpApiModule),
         typeof(AbpAccountPublicHttpApiModule),
-        typeof(AbpArticlesHttpApiModule)
+        typeof(AbpArticlesHttpApiModule),
+        typeof(AbpCloudStorageHttpApiModule)
     )]
     public class SimpleTestHttpApiModule:AbpModule
     {

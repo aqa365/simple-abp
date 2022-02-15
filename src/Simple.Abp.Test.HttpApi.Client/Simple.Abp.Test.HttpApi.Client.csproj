@@ -14,6 +14,7 @@
     <ProjectReference Include="..\..\modules\account\public\Simple.Abp.Account.Public.HttpApi.Client\Simple.Abp.Account.Public.HttpApi.Client.csproj" />
     <ProjectReference Include="..\..\modules\articles\Simple.Abp.Articles.HttpApi.Client\Simple.Abp.Articles.HttpApi.Client.csproj" />
     <ProjectReference Include="..\..\modules\audit-logging\Simple.Abp.AuditLogging.HttpApi.Client\Simple.Abp.AuditLogging.HttpApi.Client.csproj" />
+    <ProjectReference Include="..\..\modules\cloud-storage\Simple.Abp.CloudStorage.HttpApi.Client\Simple.Abp.CloudStorage.HttpApi.Client.csproj" />
     <ProjectReference Include="..\..\modules\identity-server\Simple.Abp.IdentityServer.HttpApi.Client\Simple.Abp.IdentityServer.HttpApi.Client.csproj" />
     <ProjectReference Include="..\..\modules\identity\Simple.Abp.Identity.HttpApi.Client\Simple.Abp.Identity.HttpApi.Client.csproj" />
     <ProjectReference Include="..\Simple.Abp.Test.Application.Contracts\Simple.Abp.Test.Application.Contracts.csproj" />

@@ -105,6 +105,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.Shared.Applicati
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.Account.Public.Web", "modules\account\public\Simple.Abp.Account.Public.Web\Simple.Abp.Account.Public.Web.csproj", "{9409D7C1-DFB4-4DD3-8FDC-6058D379867F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CloudStorage", "CloudStorage", "{3ED51D14-34DC-4BAD-944B-FC26CD8513F7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.CloudStorage.Application.Contracts", "modules\cloud-storage\Simple.Abp.CloudStorage.Application.Contracts\Simple.Abp.CloudStorage.Application.Contracts.csproj", "{173D6E77-D618-4189-9E45-1C2784AABD1F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.CloudStorage.Application", "modules\cloud-storage\Simple.Abp.CloudStorage.Application\Simple.Abp.CloudStorage.Application.csproj", "{7B2CF68A-1D53-4BC8-AAD6-C6A3CCE926B1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.CloudStorage.HttpApi", "modules\cloud-storage\Simple.Abp.CloudStorage.HttpApi\Simple.Abp.CloudStorage.HttpApi.csproj", "{D66C96F3-F5A4-451B-89AF-35D9D65E503C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.CloudStorage.HttpApi.Client", "modules\cloud-storage\Simple.Abp.CloudStorage.HttpApi.Client\Simple.Abp.CloudStorage.HttpApi.Client.csproj", "{D4548B69-22FC-40CD-9A15-A938F9611393}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -275,6 +285,22 @@ Global
 		{9409D7C1-DFB4-4DD3-8FDC-6058D379867F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9409D7C1-DFB4-4DD3-8FDC-6058D379867F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9409D7C1-DFB4-4DD3-8FDC-6058D379867F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{173D6E77-D618-4189-9E45-1C2784AABD1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{173D6E77-D618-4189-9E45-1C2784AABD1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{173D6E77-D618-4189-9E45-1C2784AABD1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{173D6E77-D618-4189-9E45-1C2784AABD1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B2CF68A-1D53-4BC8-AAD6-C6A3CCE926B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B2CF68A-1D53-4BC8-AAD6-C6A3CCE926B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B2CF68A-1D53-4BC8-AAD6-C6A3CCE926B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B2CF68A-1D53-4BC8-AAD6-C6A3CCE926B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D66C96F3-F5A4-451B-89AF-35D9D65E503C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D66C96F3-F5A4-451B-89AF-35D9D65E503C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D66C96F3-F5A4-451B-89AF-35D9D65E503C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D66C96F3-F5A4-451B-89AF-35D9D65E503C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4548B69-22FC-40CD-9A15-A938F9611393}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4548B69-22FC-40CD-9A15-A938F9611393}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4548B69-22FC-40CD-9A15-A938F9611393}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4548B69-22FC-40CD-9A15-A938F9611393}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -328,6 +354,11 @@ Global
 		{C89B99B9-C07E-4182-882F-3DC38C55F29D} = {8293C2A9-363C-4ED8-9D38-C04125B6585B}
 		{C3653ED3-B783-4F64-AC3D-CA5CCDBB7534} = {71F845E3-37DC-4262-A034-FE28EDB42099}
 		{9409D7C1-DFB4-4DD3-8FDC-6058D379867F} = {65C70F8D-B3C3-41C1-AA17-7E3D0E4771AA}
+		{3ED51D14-34DC-4BAD-944B-FC26CD8513F7} = {D39DB157-1C7C-4A10-8E63-90DD9CC160F4}
+		{173D6E77-D618-4189-9E45-1C2784AABD1F} = {3ED51D14-34DC-4BAD-944B-FC26CD8513F7}
+		{7B2CF68A-1D53-4BC8-AAD6-C6A3CCE926B1} = {3ED51D14-34DC-4BAD-944B-FC26CD8513F7}
+		{D66C96F3-F5A4-451B-89AF-35D9D65E503C} = {3ED51D14-34DC-4BAD-944B-FC26CD8513F7}
+		{D4548B69-22FC-40CD-9A15-A938F9611393} = {3ED51D14-34DC-4BAD-944B-FC26CD8513F7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B358507C-4C9F-4B14-BB31-B77B1CA84670}

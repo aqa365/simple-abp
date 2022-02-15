@@ -1,6 +1,7 @@
 ﻿using Simple.Abp.Account;
 using Simple.Abp.Articles;
 using Simple.Abp.AuditLogging;
+using Simple.Abp.CloudStorage;
 using Simple.Abp.Identity;
 using Simple.Abp.IdentityServer;
 using Volo.Abp.AutoMapper;
@@ -18,6 +19,7 @@ namespace Simple.Abp.Test
         typeof(AbpAccountAdminApplicationModule),
         typeof(AbpAccountPublicApplicationModule),
         typeof(AbpArticlesApplicationModule),
+        typeof(AbpCloudStorageApplicationModule),
         typeof(AbpPermissionManagementApplicationModule)
     )]
     public class SimpleTestApplicationModule : AbpModule
