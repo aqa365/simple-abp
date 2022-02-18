@@ -5,16 +5,7 @@
 #### 基础设施
 * <a href="https://github.com/aqa365/simple-abp/tree/master/modules/audit-logging" target="_blank">AuditLogging</a>
 * <a href="https://github.com/aqa365/simple-abp/tree/master/modules/identity" target="_blank">Identity</a>
-  * Organization Units
-  * Roles
-  * Users
-  * Claim ypes
-  * Security Logs
 * <a href="https://github.com/aqa365/simple-abp/tree/master/modules/identity-server" target="_blank">IdentityServer</a>
-  * Clients
-  * Identity resources
-  * Api resources
-  * Api scopes
 * <a href="https://github.com/aqa365/simple-abp/tree/master/modules/account" target="_blank">Account</a>
 * AntDesignProTheme（开发中）
 * Language Management（开发中）
