@@ -1,0 +1,10 @@
+﻿@using Simple.Abp.Articles.Dtos
+@model List<ArticleDto>
+
+@foreach (var article in Model)
+{
+    <li class="project-item">
+        <p style="color:#666">@article.Summary</p>
+        : <a href="@article.FrontUrl">@article.Title</a>
+    </li>
+}

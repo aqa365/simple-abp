@@ -1,0 +1,9 @@
+﻿@using Volo.Abp.UI.Navigation
+@model IHasMenuItems
+
+@foreach (var menuItem in Model.Items)
+{
+    <li>
+        <a href="@menuItem.Url">@menuItem.DisplayName</a>
+    </li>
+}

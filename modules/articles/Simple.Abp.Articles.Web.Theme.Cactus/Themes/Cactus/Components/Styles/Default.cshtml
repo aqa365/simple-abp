@@ -1,0 +1,29 @@
+﻿@using Simple.Abp.Articles.Web.Theme.Cactus
+@using Simple.Abp.Articles.Web.Theme.Cactus.Components.Styles.Light
+@using Simple.Abp.Articles.Web.Theme.Cactus.Components.Styles.Dark
+@inject FrontHelper FrontHelper
+@{
+    string cdnHost = ViewBag.CdnHost;
+    var cactusTheme = FrontHelper.GetCurrentTheme();
+
+    string font = "/libs/cactus/css/font-awesome.min.css";
+}
+
+@if(cactusTheme== EnumCactusTheme.Light)
+{
+    @(await Component.InvokeAsync<MainLightStylesViewComponent>());
+}
+else
+{
+    @(await Component.InvokeAsync<MainDarkStylesViewComponent>());
+}
+
+
+@if (cdnHost.IsNullOrWhiteSpace())
+{
+    <abp-style src="@font" />
+}
+else
+{
+    <link rel="stylesheet" href="@(cdnHost+font)">
+}

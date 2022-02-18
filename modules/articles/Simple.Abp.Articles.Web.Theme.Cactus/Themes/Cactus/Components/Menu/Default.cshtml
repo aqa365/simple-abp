@@ -1,0 +1,17 @@
+﻿@using Volo.Abp.UI.Navigation
+@model ApplicationMenu
+@await Html.PartialAsync("~/Themes/Cactus/Components/Menu/_MenuItem.cshtml", Model)
+<li>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <a href="/Account/Logout">
+            <i class="far fa-id-card"></i>
+        </a>
+    }
+    else
+    {
+        <a href="/Account/Login">
+            <i class="fa fa-user"></i>
+        </a>
+    }
+</li>

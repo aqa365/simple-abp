@@ -1,0 +1,19 @@
+﻿@page
+@using Simple.Abp.Articles.Public.Web.Shared.Components.Article
+@using Simple.Abp.Articles.Public.Web.Shared.Components.Pagination
+@model Simple.Abp.Articles.Public.Web.Pages.WritingModel
+@{
+    ViewBag.Title = "Writing";
+}
+<div id="archive">
+    <ul class="post-list">
+        @foreach (var group in Model.Articles)
+        {
+            <h2>@group.Key</h2>
+            @(await Component.InvokeAsync<ArticleViewComponent>(new { modelList = group.Value }))
+        }
+    </ul>
+
+    @(await Component.InvokeAsync<PaginationViewComponent>(new { vm = Model.PaginationViewModel }))
+
+</div>

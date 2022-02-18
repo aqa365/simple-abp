@@ -1,0 +1,19 @@
+﻿@{
+    string cdnHost = ViewBag.CdnHost;
+
+    string style = "/libs/cactus/css/style.css";
+    string rtl = "/libs/cactus/css/rtl.css";
+}
+
+@if (cdnHost.IsNullOrWhiteSpace())
+{
+    <abp-style-bundle>
+        <abp-style src="@style" />
+        <abp-style src="@rtl" />
+    </abp-style-bundle>
+}
+else
+{
+    <link rel="stylesheet" href="@(cdnHost+style)">
+    <link rel="stylesheet" href="@(cdnHost+rtl)">
+}

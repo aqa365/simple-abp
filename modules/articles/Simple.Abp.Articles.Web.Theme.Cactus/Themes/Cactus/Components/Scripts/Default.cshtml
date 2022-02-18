@@ -1,0 +1,18 @@
+﻿@{
+    string cdnHost = ViewBag.CdnHost;
+}
+
+@if (cdnHost.IsNullOrWhiteSpace())
+{
+    <abp-script-bundle>
+        <abp-script src="/libs/cactus/js/jquery/jquery-3.5.1.slim.min.js" />
+        <abp-script src="/libs/cactus/js/jquery-cookie/jquery.cookie.min.js" />
+        <abp-script src="/libs/cactus/js/main.js" />
+    </abp-script-bundle>
+}
+else
+{
+    <script src="@cdnHost/libs/cactus/js/jquery/jquery-3.5.1.slim.min.js"></script>
+    <script src="@cdnHost/libs/cactus/js/jquery-cookie/jquery.cookie.min.js"></script>
+    <script src="@cdnHost/libs/cactus/js/main.js"></script>
+}

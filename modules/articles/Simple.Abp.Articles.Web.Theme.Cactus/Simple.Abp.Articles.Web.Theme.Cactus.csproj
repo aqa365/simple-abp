@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<OutputType>Library</OutputType>
+		<GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
+		<RootNamespace>Simple.Abp.Articles.Web.Theme.Cactus</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="wwwroot\**\*.*" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Remove="wwwroot\**\*.*" />
+		<Content Remove="Pages\**\*.js" />
+		<Content Remove="Pages\**\*.css" />
+	</ItemGroup>
+	
+	<ItemGroup>
+		<EmbeddedResource Include="Localization\SimpleAbpArticlesCactus\*.json" />
+		<Content Remove="Localization\SimpleAbpArticlesCactus\*.json" />
+	</ItemGroup>
+	
+	<ItemGroup>
+		<PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared" Version="5.1.1" />
+		<PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="6.0.1" />
+	</ItemGroup>
+</Project>
