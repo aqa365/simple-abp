@@ -14,5 +14,5 @@
 
 #### 博客系统(<a href="https://www.keepactive.cn" target="_blank">keepactive.cn</a>)
 * <a href="https://github.com/aqa365/simple-abp/tree/master/modules/articles" target="_blank">Articles</a>
-* <a href="https://github.com/aqa365/simple-abp/tree/master/modules/articles/Simple.Abp.Articles.Web.Theme.Cactus" target="_blank"> CactusTheme</a>
+* <a href="https://github.com/aqa365/simple-abp/tree/master/modules/cactus-theme" target="_blank"> CactusTheme</a>
 * Comments（开发中）
