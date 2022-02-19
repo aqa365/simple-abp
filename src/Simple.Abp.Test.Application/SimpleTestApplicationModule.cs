@@ -1,4 +1,5 @@
 ﻿using Simple.Abp.Account;
+using Simple.Abp.AntdTheme;
 using Simple.Abp.Articles;
 using Simple.Abp.AuditLogging;
 using Simple.Abp.CloudStorage;
@@ -20,6 +21,7 @@ namespace Simple.Abp.Test
         typeof(AbpAccountPublicApplicationModule),
         typeof(AbpArticlesApplicationModule),
         typeof(AbpCloudStorageApplicationModule),
+        typeof(AbpAntdThemeManagementApplicationModule),
         typeof(AbpPermissionManagementApplicationModule)
     )]
     public class SimpleTestApplicationModule : AbpModule

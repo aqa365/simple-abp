@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Simple.Abp.Account;
+using Simple.Abp.AntdTheme;
 using Simple.Abp.Articles;
 using Simple.Abp.AuditLogging;
 using Simple.Abp.CloudStorage;
@@ -19,6 +20,7 @@ namespace Simple.Abp.Test
         typeof(AbpAccountPublicHttpApiClientModule),
         typeof(AbpArticlesHttpApiClientModule),
         typeof(AbpCloudStorageHttpClientModule),
+        typeof(AbpAntdThemeManagementHttpApiClientModule),
         typeof(AbpPermissionManagementHttpApiClientModule)
     )]
     public class SimpleTestHttpApiClientModule:AbpModule

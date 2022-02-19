@@ -12,6 +12,7 @@
 		<!--<PackageReference Include="Volo.Abp.Account.HttpApi" Version="5.0.0" />-->
 		<ProjectReference Include="..\..\modules\account\admin\Simple.Abp.Account.Admin.HttpApi\Simple.Abp.Account.Admin.HttpApi.csproj" />
 		<ProjectReference Include="..\..\modules\account\public\Simple.Abp.Account.Public.HttpApi\Simple.Abp.Account.Public.HttpApi.csproj" />
+		<ProjectReference Include="..\..\modules\antd-theme\Simple.Abp.AntdTheme.Management.HttpApi\Simple.Abp.AntdTheme.Management.HttpApi.csproj" />
 		<ProjectReference Include="..\..\modules\articles\Simple.Abp.Articles.HttpApi\Simple.Abp.Articles.HttpApi.csproj" />
 		<ProjectReference Include="..\..\modules\audit-logging\Simple.Abp.AuditLogging.HttpApi\Simple.Abp.AuditLogging.HttpApi.csproj" />
 		<ProjectReference Include="..\..\modules\cloud-storage\Simple.Abp.CloudStorage.HttpApi\Simple.Abp.CloudStorage.HttpApi.csproj" />

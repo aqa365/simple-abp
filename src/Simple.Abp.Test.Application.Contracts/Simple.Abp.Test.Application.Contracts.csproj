@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\modules\account\admin\Simple.Abp.Account.Admin.Application.Contracts\Simple.Abp.Account.Admin.Application.Contracts.csproj" />
     <ProjectReference Include="..\..\modules\account\public\Simple.Abp.Account.Public.Application.Contracts\Simple.Abp.Account.Public.Application.Contracts.csproj" />
+    <ProjectReference Include="..\..\modules\antd-theme\Simple.Abp.AntdTheme.Management.Application.Contracts\Simple.Abp.AntdTheme.Management.Application.Contracts.csproj" />
     <ProjectReference Include="..\..\modules\articles\Simple.Abp.Articles.Application.Contracts\Simple.Abp.Articles.Application.Contracts.csproj" />
     <ProjectReference Include="..\..\modules\audit-logging\Simple.Abp.AuditLogging.Application.Contracts\Simple.Abp.AuditLogging.Application.Contracts.csproj" />
     <ProjectReference Include="..\..\modules\cloud-storage\Simple.Abp.CloudStorage.Application.Contracts\Simple.Abp.CloudStorage.Application.Contracts.csproj" />

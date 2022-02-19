@@ -1,15 +1,12 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
-using System.Threading.Tasks;
-using Volo.Abp;
-using Volo.Abp.Application.Services;
 using Volo.Abp.SettingManagement;
 using Volo.Abp.Settings;
 
 namespace Simple.Abp.Identity
 {
-	[Authorize(IdentityPermissions.SettingManagement)]
+    [Authorize(IdentityPermissions.SettingManagement)]
 	public class IdentitySettingsAppService : IdentityAppServiceBase, IIdentitySettingsAppService
 	{
 		protected ISettingManager SettingManager { get; }

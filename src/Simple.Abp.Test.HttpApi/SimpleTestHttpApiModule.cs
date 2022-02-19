@@ -1,6 +1,7 @@
 ﻿using Localization.Resources.AbpUi;
 using Microsoft.Extensions.DependencyInjection;
 using Simple.Abp.Account;
+using Simple.Abp.AntdTheme;
 using Simple.Abp.Articles;
 using Simple.Abp.AuditLogging;
 using Simple.Abp.CloudStorage;
@@ -21,7 +22,8 @@ namespace Simple.Abp.Test
         typeof(AbpAccountAdminHttpApiModule),
         typeof(AbpAccountPublicHttpApiModule),
         typeof(AbpArticlesHttpApiModule),
-        typeof(AbpCloudStorageHttpApiModule)
+        typeof(AbpCloudStorageHttpApiModule),
+        typeof(AbpAntdThemeManagementHttpApiModule)
     )]
     public class SimpleTestHttpApiModule:AbpModule
     {

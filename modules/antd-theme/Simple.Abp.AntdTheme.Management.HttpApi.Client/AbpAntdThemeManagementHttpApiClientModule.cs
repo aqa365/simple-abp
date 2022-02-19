@@ -1,19 +1,19 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.Modularity;
 
-namespace Simple.Abp.CloudStorage
+namespace Simple.Abp.AntdTheme
 {
     [DependsOn(
-        typeof(AbpCloudStorageApplicationContractsModule)
+        typeof(AbpAntdThemeManagementApplicationContractsModule)
     )]
-    public class AbpCloudStorageHttpClientModule : AbpModule
+    public class AbpAntdThemeManagementHttpApiClientModule:AbpModule
     {
-        public const string RemoteServiceName = "AbpCloudStorage";
+        public const string RemoteServiceName = "AbpAntdTheme";
 
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
             context.Services.AddHttpClientProxies(
-                typeof(AbpCloudStorageApplicationContractsModule).Assembly,
+                typeof(AbpAntdThemeManagementHttpApiClientModule).Assembly,
                 RemoteServiceName
             );
         }

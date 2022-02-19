@@ -10,7 +10,7 @@ namespace Simple.Abp.Articles
     )]
     public class AbpArticlesHttpApiClientModule:AbpModule
     {
-        public const string RemoteServiceName = "Default";
+        public const string RemoteServiceName = "AbpArticles";
 
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
