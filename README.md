@@ -7,7 +7,7 @@
 * <a href="https://github.com/aqa365/simple-abp/tree/master/modules/identity" target="_blank">Identity</a>
 * <a href="https://github.com/aqa365/simple-abp/tree/master/modules/identity-server" target="_blank">IdentityServer</a>
 * <a href="https://github.com/aqa365/simple-abp/tree/master/modules/account" target="_blank">Account</a>
-* AntDesignProTheme（开发中）
+* <a href="https://github.com/aqa365/simple-abp/tree/master/modules/antd-theme" target="_blank">AntDesignProTheme（开发中）</a>
 * Language Management（开发中）
 * Payment（开发中）
 * Saas（开发中）
