@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<RootNamespace>Simple.Abp.AntdTheme</RootNamespace>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Volo.Abp.Ddd.Application" Version="5.1.1" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\Simple.Abp.AntdTheme.Management.Application.Contracts\Simple.Abp.AntdTheme.Management.Application.Contracts.csproj" />
+	</ItemGroup>
+
+</Project>

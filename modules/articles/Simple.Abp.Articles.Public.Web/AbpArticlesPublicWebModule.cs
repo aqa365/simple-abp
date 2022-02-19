@@ -2,10 +2,9 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Simple.Abp.Articles.Public.Web.Menus;
-using Simple.Abp.Articles.Web.Theme.Cactus;
+using Simple.Abp.CactusTheme;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.Authentication.OpenIdConnect;
-using Volo.Abp.AspNetCore.Mvc.Localization;
 using Volo.Abp.Modularity;
 using Volo.Abp.UI.Navigation;
 using Volo.Abp.VirtualFileSystem;
@@ -15,7 +14,7 @@ namespace Simple.Abp.Articles.Public.Web
 
     [DependsOn(
         typeof(AbpArticlesHttpApiClientModule),
-        typeof(AbpArticlesWebThemeCactusModule),
+        typeof(AbpAspNetCoreMvcUIThemeCactusModule ),
         typeof(AbpAspNetCoreAuthenticationOpenIdConnectModule)
     )]
     public class AbpArticlesPublicWebModule : AbpModule

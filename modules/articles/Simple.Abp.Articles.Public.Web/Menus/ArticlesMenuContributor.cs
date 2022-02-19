@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
-using Simple.Abp.Articles.Web.Theme.Cactus;
+using Simple.Abp.CactusTheme;
 using System.Threading.Tasks;
 using Volo.Abp.UI.Navigation;
 

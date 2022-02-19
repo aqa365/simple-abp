@@ -17,8 +17,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.Articles.Domain.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.Articles.EntityFrameworkCore", "Simple.Abp.Articles.EntityFrameworkCore\Simple.Abp.Articles.EntityFrameworkCore.csproj", "{5F44C770-1568-4C87-8DB7-28F2251A0647}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.Articles.Web.Theme.Cactus", "Simple.Abp.Articles.Web.Theme.Cactus\Simple.Abp.Articles.Web.Theme.Cactus.csproj", "{C0AA9BCE-27AA-469E-BF12-C599A7D62E83}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simple.Abp.Articles.Public.Web", "Simple.Abp.Articles.Public.Web\Simple.Abp.Articles.Public.Web.csproj", "{51B6AF71-9D27-4AD2-BB42-BDE922DF4118}"
 EndProject
 Global

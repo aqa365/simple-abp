@@ -1,0 +1,22 @@
+﻿@using Microsoft.Extensions.Options;
+@using Simple.Abp.CactusTheme
+@using Simple.Abp.CactusTheme.Components.Footer
+
+@model FooterViewModel
+@inject IOptions<CactusOptions> Options
+<!--footer-->
+<footer id="footer">
+    <div class="footer-left">
+        <a href="@Options.Value.WebsiteFilingUrl" target="_blank" class="text-dark-75 text-hover-primary">
+            @Options.Value.WebsiteFiling</a>
+        @Html.Raw(Options.Value.WebInfo)
+    </div>
+    <div class="footer-right">
+        <nav>
+            <ul>
+                @await Html.PartialAsync("~/Themes/Cactus/Components/Menu/_MenuItem.cshtml", Model.Menu)
+            </ul>
+        </nav>
+    </div>
+
+</footer>

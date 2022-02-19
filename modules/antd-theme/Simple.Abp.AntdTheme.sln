@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.AntdTheme.Management.Application.Contracts", "Simple.Abp.AntdTheme.Management.Application.Contracts\Simple.Abp.AntdTheme.Management.Application.Contracts.csproj", "{99545701-0642-4304-971A-07470F3E03B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simple.Abp.AntdTheme.Management.Application", "Simple.Abp.AntdTheme.Management.Application\Simple.Abp.AntdTheme.Management.Application.csproj", "{909FC9CD-577A-4CCE-87FB-307A24CEDE9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simple.Abp.AntdTheme.Management.HttpApi", "Simple.Abp.AntdTheme.Management.HttpApi\Simple.Abp.AntdTheme.Management.HttpApi.csproj", "{B11B73CC-4646-40C6-AB7B-44F638911D28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simple.Abp.AntdTheme.Management.HttpApi.Client", "Simple.Abp.AntdTheme.Management.HttpApi.Client\Simple.Abp.AntdTheme.Management.HttpApi.Client.csproj", "{B012E44B-18CA-4484-B41D-C9EAB9C93D9D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{99545701-0642-4304-971A-07470F3E03B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99545701-0642-4304-971A-07470F3E03B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99545701-0642-4304-971A-07470F3E03B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99545701-0642-4304-971A-07470F3E03B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{909FC9CD-577A-4CCE-87FB-307A24CEDE9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{909FC9CD-577A-4CCE-87FB-307A24CEDE9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{909FC9CD-577A-4CCE-87FB-307A24CEDE9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{909FC9CD-577A-4CCE-87FB-307A24CEDE9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B11B73CC-4646-40C6-AB7B-44F638911D28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B11B73CC-4646-40C6-AB7B-44F638911D28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B11B73CC-4646-40C6-AB7B-44F638911D28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B11B73CC-4646-40C6-AB7B-44F638911D28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B012E44B-18CA-4484-B41D-C9EAB9C93D9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B012E44B-18CA-4484-B41D-C9EAB9C93D9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B012E44B-18CA-4484-B41D-C9EAB9C93D9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B012E44B-18CA-4484-B41D-C9EAB9C93D9D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DCE018BB-3D3B-4700-A646-E0044460FD55}
+	EndGlobalSection
+EndGlobal
