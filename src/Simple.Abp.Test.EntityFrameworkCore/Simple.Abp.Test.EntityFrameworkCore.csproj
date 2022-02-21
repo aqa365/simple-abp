@@ -1,23 +1,30 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<RootNamespace>Simple.Abp.Test</RootNamespace>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Volo.Abp.AuditLogging.EntityFrameworkCore" Version="5.1.1" />
-    <PackageReference Include="Volo.Abp.EntityFrameworkCore.MySQL" Version="5.1.1" />
-    <PackageReference Include="Volo.Abp.Identity.EntityFrameworkCore" Version="5.1.1" />
-    <PackageReference Include="Volo.Abp.IdentityServer.EntityFrameworkCore" Version="5.1.1" />
-    <PackageReference Include="Volo.Abp.PermissionManagement.EntityFrameworkCore" Version="5.1.1" />
-    <PackageReference Include="Volo.Abp.SettingManagement.EntityFrameworkCore" Version="5.1.1" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Volo.Abp.AuditLogging.EntityFrameworkCore" Version="5.1.1" />
+		<PackageReference Include="Volo.Abp.EntityFrameworkCore.MySQL" Version="5.1.1" />
+		<PackageReference Include="Volo.Abp.Identity.EntityFrameworkCore" Version="5.1.1" />
+		<PackageReference Include="Volo.Abp.IdentityServer.EntityFrameworkCore" Version="5.1.1" />
+		<PackageReference Include="Volo.Abp.PermissionManagement.EntityFrameworkCore" Version="5.1.1" />
+		<PackageReference Include="Volo.Abp.SettingManagement.EntityFrameworkCore" Version="5.1.1" />
+		<PackageReference Include="Volo.CmsKit.EntityFrameworkCore" Version="5.1.1" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\modules\articles\Simple.Abp.Articles.EntityFrameworkCore\Simple.Abp.Articles.EntityFrameworkCore.csproj" />
-    <ProjectReference Include="..\Simple.Abp.Test.Domain\Simple.Abp.Test.Domain.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Simple.Abp.Test.Domain\Simple.Abp.Test.Domain.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.1">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+			<PrivateAssets>compile; contentFiles; build; buildMultitargeting; buildTransitive; analyzers; native</PrivateAssets>
+		</PackageReference>
+	</ItemGroup>
 
 </Project>

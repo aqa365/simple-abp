@@ -6,6 +6,7 @@ using Volo.Abp.Modularity;
 using Volo.Abp.PermissionManagement.Identity;
 using Volo.Abp.PermissionManagement.IdentityServer;
 using Volo.Abp.SettingManagement;
+using Volo.CmsKit;
 
 namespace Simple.Abp.Test
 {
@@ -17,7 +18,8 @@ namespace Simple.Abp.Test
         typeof(AbpPermissionManagementDomainIdentityServerModule),
         typeof(AbpSettingManagementDomainModule),
         typeof(AbpAuditLoggingDomainModule),
-        typeof(AbpArticlesDomainModule)
+        typeof(AbpArticlesDomainModule),
+        typeof(CmsKitDomainModule)
     )]
     public class SimpleTestDomainModule: AbpModule
     {

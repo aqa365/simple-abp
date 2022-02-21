@@ -1,23 +1,26 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <RootNamespace>Simple.Abp.Test</RootNamespace>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<RootNamespace>Simple.Abp.Test</RootNamespace>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\modules\account\admin\Simple.Abp.Account.Admin.Application\Simple.Abp.Account.Admin.Application.csproj" />
-    <ProjectReference Include="..\..\modules\account\public\Simple.Abp.Account.Public.Application\Simple.Abp.Account.Public.Application.csproj" />
-    <ProjectReference Include="..\..\modules\antd-theme\Simple.Abp.AntdTheme.Management.Application\Simple.Abp.AntdTheme.Management.Application.csproj" />
-    <ProjectReference Include="..\..\modules\articles\Simple.Abp.Articles.Application\Simple.Abp.Articles.Application.csproj" />
-    <ProjectReference Include="..\..\modules\audit-logging\Simple.Abp.AuditLogging.Application\Simple.Abp.AuditLogging.Application.csproj" />
-    <ProjectReference Include="..\..\modules\cloud-storage\Simple.Abp.CloudStorage.Application\Simple.Abp.CloudStorage.Application.csproj" />
-    <ProjectReference Include="..\..\modules\identity-server\Simple.Abp.IdentityServer.Application\Simple.Abp.IdentityServer.Application.csproj" />
-    <ProjectReference Include="..\..\modules\identity\Simple.Abp.Identity.Application\Simple.Abp.Identity.Application.csproj" />
-    <ProjectReference Include="..\Simple.Abp.Test.Application.Contracts\Simple.Abp.Test.Application.Contracts.csproj" />
-    <ProjectReference Include="..\Simple.Abp.Test.Domain\Simple.Abp.Test.Domain.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Volo.CmsKit.Application" Version="5.1.1" />
+	</ItemGroup>
+	
+	<ItemGroup>
+		<ProjectReference Include="..\..\modules\account\admin\Simple.Abp.Account.Admin.Application\Simple.Abp.Account.Admin.Application.csproj" />
+		<ProjectReference Include="..\..\modules\account\public\Simple.Abp.Account.Public.Application\Simple.Abp.Account.Public.Application.csproj" />
+		<ProjectReference Include="..\..\modules\antd-theme\Simple.Abp.AntdTheme.Management.Application\Simple.Abp.AntdTheme.Management.Application.csproj" />
+		<ProjectReference Include="..\..\modules\audit-logging\Simple.Abp.AuditLogging.Application\Simple.Abp.AuditLogging.Application.csproj" />
+		<ProjectReference Include="..\..\modules\cloud-storage\Simple.Abp.CloudStorage.Application\Simple.Abp.CloudStorage.Application.csproj" />
+		<ProjectReference Include="..\..\modules\identity-server\Simple.Abp.IdentityServer.Application\Simple.Abp.IdentityServer.Application.csproj" />
+		<ProjectReference Include="..\..\modules\identity\Simple.Abp.Identity.Application\Simple.Abp.Identity.Application.csproj" />
+		<ProjectReference Include="..\Simple.Abp.Test.Application.Contracts\Simple.Abp.Test.Application.Contracts.csproj" />
+		<ProjectReference Include="..\Simple.Abp.Test.Domain\Simple.Abp.Test.Domain.csproj" />
+	</ItemGroup>
 
 </Project>

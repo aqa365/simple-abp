@@ -14,10 +14,7 @@
 		<PackageReference Include="Volo.Abp.IdentityServer.Domain.Shared" Version="5.1.1" />
 		<PackageReference Include="Volo.Abp.PermissionManagement.Domain.Shared" Version="5.1.1" />
 		<PackageReference Include="Volo.Abp.SettingManagement.Domain.Shared" Version="5.1.1" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<ProjectReference Include="..\..\modules\articles\Simple.Abp.Articles.Domain.Shared\Simple.Abp.Articles.Domain.Shared.csproj" />
+		<PackageReference Include="Volo.CmsKit.Domain.Shared" Version="5.1.1" />
 	</ItemGroup>
 	
 	<ItemGroup>

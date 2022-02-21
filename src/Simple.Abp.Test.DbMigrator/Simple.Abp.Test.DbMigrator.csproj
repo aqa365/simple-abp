@@ -24,7 +24,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\Simple.Abp.Test.Application.Contracts\Simple.Abp.Test.Application.Contracts.csproj" />
-		<ProjectReference Include="..\Simple.Abp.Test.EntityFrameworkCore.DbMigrations\Simple.Abp.Test.EntityFrameworkCore.DbMigrations.csproj" />
+		<ProjectReference Include="..\Simple.Abp.Test.EntityFrameworkCore\Simple.Abp.Test.EntityFrameworkCore.csproj" />
 	</ItemGroup>
 	
 	<ItemGroup>

@@ -10,6 +10,7 @@ using Volo.Abp.AspNetCore.Mvc.AntiForgery;
 using Volo.Abp.AspNetCore.Serilog;
 using Volo.Abp.Auditing;
 using Volo.Abp.Autofac;
+using Volo.Abp.GlobalFeatures;
 using Volo.Abp.Identity;
 using Volo.Abp.Identity.AspNetCore;
 using Volo.Abp.Json;
@@ -18,6 +19,7 @@ using Volo.Abp.Modularity;
 using Volo.Abp.Swashbuckle;
 using Volo.Abp.UI.Navigation.Urls;
 using Volo.Abp.VirtualFileSystem;
+using Volo.CmsKit.GlobalFeatures;
 
 namespace Simple.Abp.Test
 {
@@ -194,6 +196,7 @@ namespace Simple.Abp.Test
                 },
                 options =>
                 {
+                    options.CustomSchemaIds(type => type.FullName);
                     options.SwaggerDoc("v1", new OpenApiInfo { Title = "Simple Abp Test API", Version = "v1" });
                     options.DocInclusionPredicate((docName, description) => true);
                     //options.OperationFilter<SwaggerFileUploadFilter>();
@@ -212,6 +215,7 @@ namespace Simple.Abp.Test
 
         public override void OnApplicationInitialization(ApplicationInitializationContext context)
         {
+            var test =  GlobalFeatureManager.Instance.IsEnabled<CommentsFeature>();
             var app = context.GetApplicationBuilder();
             var env = context.GetEnvironment();
 
@@ -241,7 +245,7 @@ namespace Simple.Abp.Test
             app.UseUnitOfWork();
             app.UseSwagger();
             app.UseAbpSwaggerUI(options =>
-            {
+            {         
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "Simple Abp Test API");
                 var configuration = context.GetConfiguration();
 

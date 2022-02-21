@@ -1,8 +1,6 @@
 ﻿using Localization.Resources.AbpUi;
-using Microsoft.Extensions.DependencyInjection;
 using Simple.Abp.Account;
 using Simple.Abp.AntdTheme;
-using Simple.Abp.Articles;
 using Simple.Abp.AuditLogging;
 using Simple.Abp.CloudStorage;
 using Simple.Abp.Identity;
@@ -10,6 +8,7 @@ using Simple.Abp.IdentityServer;
 using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Volo.Abp.PermissionManagement.HttpApi;
+using Volo.CmsKit;
 
 namespace Simple.Abp.Test
 {
@@ -21,9 +20,9 @@ namespace Simple.Abp.Test
         typeof(AbpAuditLoggingHttpApiModule),
         typeof(AbpAccountAdminHttpApiModule),
         typeof(AbpAccountPublicHttpApiModule),
-        typeof(AbpArticlesHttpApiModule),
         typeof(AbpCloudStorageHttpApiModule),
-        typeof(AbpAntdThemeManagementHttpApiModule)
+        typeof(AbpAntdThemeManagementHttpApiModule),
+        typeof(CmsKitHttpApiModule)
     )]
     public class SimpleTestHttpApiModule:AbpModule
     {

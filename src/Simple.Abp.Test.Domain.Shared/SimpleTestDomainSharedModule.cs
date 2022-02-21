@@ -1,5 +1,4 @@
-﻿using Simple.Abp.Articles;
-using Volo.Abp.AuditLogging;
+﻿using Volo.Abp.AuditLogging;
 using Volo.Abp.Identity;
 using Volo.Abp.IdentityServer;
 using Volo.Abp.Localization;
@@ -9,6 +8,7 @@ using Volo.Abp.PermissionManagement;
 using Volo.Abp.SettingManagement;
 using Volo.Abp.Validation.Localization;
 using Volo.Abp.VirtualFileSystem;
+using Volo.CmsKit;
 
 namespace Simple.Abp.Test
 {
@@ -18,10 +18,16 @@ namespace Simple.Abp.Test
         typeof(AbpPermissionManagementDomainSharedModule),
         typeof(AbpSettingManagementDomainSharedModule),
         typeof(AbpAuditLoggingDomainSharedModule),
-        typeof(AbpArticlesDomainSharedModule)
+        typeof(CmsKitDomainSharedModule)
     )]
     public class SimpleTestDomainSharedModule : AbpModule
     {
+        public override void PreConfigureServices(ServiceConfigurationContext context)
+        {
+            SimpleTestGlobalFeatureConfigurator.Configure();
+            SimpleTestModuleExtensionConfigurator.Configure();
+        }
+
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
             Configure<AbpVirtualFileSystemOptions>(options =>
