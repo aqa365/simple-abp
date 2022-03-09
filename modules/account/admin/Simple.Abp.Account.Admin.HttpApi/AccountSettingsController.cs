@@ -7,6 +7,7 @@ namespace Simple.Abp.Account
 {
     [Route("api/account-admin/settings")]
 	[Area("accountAdmin")]
+	[ControllerName("Settings")]
 	[RemoteService(true, Name = AccountProAdminRemoteServiceConsts.RemoteServiceName)]
 	public class AccountSettingsController : AbpController, IAccountSettingsAppService, IRemoteService, IApplicationService
 	{

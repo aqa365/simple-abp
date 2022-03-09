@@ -8,14 +8,14 @@ namespace Simple.Abp.AntdTheme
 {
     [RemoteService]
     [Area("AntdTheme")]
-    [ControllerName("AntdThemeManagement")]
-    [Route("api/antd-theme/management")]
-    public class AntdThemeController : AbpController, IAntdThemeSettingsAppService
+    [ControllerName("Settings")]
+    [Route("api/antd-theme/settings")]
+    public class AntdThemeSettingsController : AbpController, IAntdThemeSettingsAppService
     {
 
         private IAntdThemeSettingsAppService _antdThemeSettingsAppService;
 
-        public AntdThemeController(IAntdThemeSettingsAppService antdThemeSettingsAppService)
+        public AntdThemeSettingsController(IAntdThemeSettingsAppService antdThemeSettingsAppService)
         {
             _antdThemeSettingsAppService = antdThemeSettingsAppService;
         }

@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Simple.Abp.AntdTheme
 {
-    public enum EnumAntdThemeMenuStyle
+    public enum EnumAntdThemeContentWidthStyle
     {
-        Left = 1,
-        Top = 2,
-        LeftAndTop = 3,
+        Default=1,
+        Flow=2,
     }
 }

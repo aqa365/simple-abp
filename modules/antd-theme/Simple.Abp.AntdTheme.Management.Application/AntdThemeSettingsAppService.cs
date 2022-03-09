@@ -29,7 +29,11 @@ namespace Simple.Abp.AntdTheme
             if (string.IsNullOrWhiteSpace(settingValue?.Value))
                 return defaultValue;
 
-            return settingValue.To<T>();
+            var type = typeof(T);
+            if (type.IsEnum)
+                return settingValue.Value.ToEnum<T>();
+
+            return settingValue.Value.To<T>();
         }
 
         public async Task<AntdThemeSettingsDto> GetAsync()
@@ -37,19 +41,48 @@ namespace Simple.Abp.AntdTheme
             var currentSettingValues = await _settingManager.GetAllForCurrentUserAsync();
 
             var antdThemeSettingsDto = new AntdThemeSettingsDto();
-            antdThemeSettingsDto.Style = this.Get(currentSettingValues, nameof(AntdThemeSettingsDto.Style), EnumAntdThemeStyle.DarkMenu);
-            antdThemeSettingsDto.Color = this.Get(currentSettingValues, nameof(AntdThemeSettingsDto.Color), EnumAntdThemeColor.Lightblue);
-            antdThemeSettingsDto.MenuStyle = this.Get(currentSettingValues, nameof(AntdThemeSettingsDto.MenuStyle), EnumAntdThemeMenuStyle.Left);
-            antdThemeSettingsDto.WidthStyle = this.Get(currentSettingValues, nameof(AntdThemeSettingsDto.WidthStyle), EnumAntdThemeWidthStyle.Default);
-            antdThemeSettingsDto.FixedHeader = this.Get(currentSettingValues, nameof(AntdThemeSettingsDto.FixedHeader), true);
-            antdThemeSettingsDto.FixedLeftMenu = this.Get(currentSettingValues, nameof(AntdThemeSettingsDto.FixedLeftMenu), true);
-            antdThemeSettingsDto.AutoCutMenu = this.Get(currentSettingValues, nameof(AntdThemeSettingsDto.AutoCutMenu), false);
-            antdThemeSettingsDto.Content = this.Get(currentSettingValues, nameof(AntdThemeSettingsDto.Content), true);
-            antdThemeSettingsDto.Top = this.Get(currentSettingValues, nameof(AntdThemeSettingsDto.Top), true);
-            antdThemeSettingsDto.Footer = this.Get(currentSettingValues, nameof(AntdThemeSettingsDto.Footer), true);
-            antdThemeSettingsDto.Menu = this.Get(currentSettingValues, nameof(AntdThemeSettingsDto.Menu), true);
-            antdThemeSettingsDto.MenuHeader = this.Get(currentSettingValues, nameof(AntdThemeSettingsDto.MenuHeader), true);
-            antdThemeSettingsDto.ColorWeakMode = this.Get(currentSettingValues, nameof(AntdThemeSettingsDto.ColorWeakMode), true);
+            antdThemeSettingsDto.PageStyleSetting.PageStyle = this.Get(
+                currentSettingValues, nameof(PageStyleSetting.PageStyle), EnumAntdThemeStyle.Dark
+            );
+            antdThemeSettingsDto.ThemeColor.Color = this.Get(
+                currentSettingValues, nameof(ThemeColor.Color), EnumAntdThemeColor.Lightblue
+            );
+
+            // NavigationMode
+            antdThemeSettingsDto.NavigationMode.SlidMenuLayout = this.Get(
+                currentSettingValues, nameof(NavigationMode.SlidMenuLayout), EnumAntdThemeSlidMenuLayout.Left
+            );
+            antdThemeSettingsDto.NavigationMode.ContentWidth = this.Get(
+                currentSettingValues, nameof(NavigationMode.ContentWidth), EnumAntdThemeContentWidthStyle.Default
+            );
+            antdThemeSettingsDto.NavigationMode.FixedHeader = this.Get(
+                currentSettingValues, nameof(NavigationMode.FixedHeader), true
+            );
+            antdThemeSettingsDto.NavigationMode.FixedSidebar = this.Get(
+                currentSettingValues, nameof(NavigationMode.FixedSidebar), true
+            );
+            antdThemeSettingsDto.NavigationMode.SplitMenus = this.Get(
+                currentSettingValues, nameof(NavigationMode.SplitMenus), false
+            );
+
+            // RegionalSettings
+            antdThemeSettingsDto.RegionalSettings.Header = this.Get(
+                currentSettingValues, nameof(RegionalSettings.Header), true
+            );
+            antdThemeSettingsDto.RegionalSettings.Footer = this.Get(
+                currentSettingValues, nameof(RegionalSettings.Footer), true
+            );
+            antdThemeSettingsDto.RegionalSettings.Menu = this.Get(
+                currentSettingValues, nameof(RegionalSettings.Menu), true
+            );
+            antdThemeSettingsDto.RegionalSettings.MenuHeader = this.Get(
+                currentSettingValues, nameof(RegionalSettings.MenuHeader), false
+            );
+
+            // OtherSettings
+            antdThemeSettingsDto.OtherSettings.WeakMode = this.Get(
+                currentSettingValues, nameof(OtherSettings.WeakMode), false
+            );
 
             return antdThemeSettingsDto;
         }
@@ -59,19 +92,21 @@ namespace Simple.Abp.AntdTheme
             if (input == null)
                 return;
 
-            await _settingManager.SetForCurrentUserAsync(GetName(nameof(AntdThemeSettingsDto.Style)), ((int)input.Style).ToString());
-            await _settingManager.SetForCurrentUserAsync(GetName(nameof(AntdThemeSettingsDto.Color)), input.Color.To<int>().ToString());
-            await _settingManager.SetForCurrentUserAsync(GetName(nameof(AntdThemeSettingsDto.MenuStyle)), input.MenuStyle.To<int>().ToString());
-            await _settingManager.SetForCurrentUserAsync(GetName(nameof(AntdThemeSettingsDto.WidthStyle)), input.WidthStyle.To<int>().ToString());
-            await _settingManager.SetForCurrentUserAsync(GetName(nameof(AntdThemeSettingsDto.FixedHeader)), input.FixedHeader.ToString());
-            await _settingManager.SetForCurrentUserAsync(GetName(nameof(AntdThemeSettingsDto.FixedLeftMenu)), input.FixedLeftMenu.ToString());
-            await _settingManager.SetForCurrentUserAsync(GetName(nameof(AntdThemeSettingsDto.AutoCutMenu)), input.AutoCutMenu.ToString());
-            await _settingManager.SetForCurrentUserAsync(GetName(nameof(AntdThemeSettingsDto.Content)), input.Content.ToString());
-            await _settingManager.SetForCurrentUserAsync(GetName(nameof(AntdThemeSettingsDto.Top)), input.Top.ToString());
-            await _settingManager.SetForCurrentUserAsync(GetName(nameof(AntdThemeSettingsDto.Footer)), input.Footer.ToString());
-            await _settingManager.SetForCurrentUserAsync(GetName(nameof(AntdThemeSettingsDto.Menu)), input.Menu.ToString());
-            await _settingManager.SetForCurrentUserAsync(GetName(nameof(AntdThemeSettingsDto.MenuHeader)), input.MenuHeader.ToString());
-            await _settingManager.SetForCurrentUserAsync(GetName(nameof(AntdThemeSettingsDto.ColorWeakMode)), input.ColorWeakMode.ToString());
+            await _settingManager.SetForCurrentUserAsync(GetName(nameof(PageStyleSetting.PageStyle)), ((int)input.PageStyleSetting.PageStyle).ToString());
+            await _settingManager.SetForCurrentUserAsync(GetName(nameof(ThemeColor.Color)), input.ThemeColor.Color.To<int>().ToString());
+
+            await _settingManager.SetForCurrentUserAsync(GetName(nameof(NavigationMode.SlidMenuLayout)), input.NavigationMode.SlidMenuLayout.To<int>().ToString());
+            await _settingManager.SetForCurrentUserAsync(GetName(nameof(NavigationMode.ContentWidth)), input.NavigationMode.ContentWidth.To<int>().ToString());
+            await _settingManager.SetForCurrentUserAsync(GetName(nameof(NavigationMode.FixedHeader)), input.NavigationMode.FixedHeader.ToString());
+            await _settingManager.SetForCurrentUserAsync(GetName(nameof(NavigationMode.FixedSidebar)), input.NavigationMode.FixedSidebar.ToString());
+            await _settingManager.SetForCurrentUserAsync(GetName(nameof(NavigationMode.SplitMenus)), input.NavigationMode.SplitMenus.ToString());
+
+            await _settingManager.SetForCurrentUserAsync(GetName(nameof(RegionalSettings.Header)), input.RegionalSettings.Header.ToString());
+            await _settingManager.SetForCurrentUserAsync(GetName(nameof(RegionalSettings.Footer)), input.RegionalSettings.Footer.ToString());
+            await _settingManager.SetForCurrentUserAsync(GetName(nameof(RegionalSettings.Menu)), input.RegionalSettings.Menu.ToString());
+            await _settingManager.SetForCurrentUserAsync(GetName(nameof(RegionalSettings.MenuHeader)), input.RegionalSettings.MenuHeader.ToString());
+
+            await _settingManager.SetForCurrentUserAsync(GetName(nameof(OtherSettings.WeakMode)), input.OtherSettings.WeakMode.ToString());
         }
     }
 }

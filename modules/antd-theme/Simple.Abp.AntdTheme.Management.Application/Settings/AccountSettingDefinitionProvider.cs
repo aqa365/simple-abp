@@ -7,19 +7,21 @@ namespace Simple.Abp.AntdTheme
     {
         public override void Define(ISettingDefinitionContext context)
         {
-            context.Add(new SettingDefinition(N(nameof(AntdThemeSettingsDto.Style)), "1", isVisibleToClients: true));
-            context.Add(new SettingDefinition(N(nameof(AntdThemeSettingsDto.Color)), "1", isVisibleToClients: true));
-            context.Add(new SettingDefinition(N(nameof(AntdThemeSettingsDto.MenuStyle)), "1", isVisibleToClients: true));
-            context.Add(new SettingDefinition(N(nameof(AntdThemeSettingsDto.WidthStyle)), "1", isVisibleToClients: true));
-            context.Add(new SettingDefinition(N(nameof(AntdThemeSettingsDto.FixedHeader)), "true", isVisibleToClients: true));
-            context.Add(new SettingDefinition(N(nameof(AntdThemeSettingsDto.FixedLeftMenu)), "true", isVisibleToClients: true));
-            context.Add(new SettingDefinition(N(nameof(AntdThemeSettingsDto.AutoCutMenu)), "false", isVisibleToClients: true));
-            context.Add(new SettingDefinition(N(nameof(AntdThemeSettingsDto.Content)), "true", isVisibleToClients: true));
-            context.Add(new SettingDefinition(N(nameof(AntdThemeSettingsDto.Top)), "true", isVisibleToClients: true));
-            context.Add(new SettingDefinition(N(nameof(AntdThemeSettingsDto.Footer)), "true", isVisibleToClients: true));
-            context.Add(new SettingDefinition(N(nameof(AntdThemeSettingsDto.Menu)), "true", isVisibleToClients: true));
-            context.Add(new SettingDefinition(N(nameof(AntdThemeSettingsDto.MenuHeader)), "true", isVisibleToClients: true));
-            context.Add(new SettingDefinition(N(nameof(AntdThemeSettingsDto.ColorWeakMode)), "true", isVisibleToClients: true));
+            context.Add(new SettingDefinition(N(nameof(PageStyleSetting.PageStyle)), "3", isVisibleToClients: true));
+            context.Add(new SettingDefinition(N(nameof(ThemeColor.Color)), "1", isVisibleToClients: true));
+
+            context.Add(new SettingDefinition(N(nameof(NavigationMode.SlidMenuLayout)), "1", isVisibleToClients: true));
+            context.Add(new SettingDefinition(N(nameof(NavigationMode.ContentWidth)), "1", isVisibleToClients: true));
+            context.Add(new SettingDefinition(N(nameof(NavigationMode.FixedHeader)), "true", isVisibleToClients: true));
+            context.Add(new SettingDefinition(N(nameof(NavigationMode.FixedSidebar)), "true", isVisibleToClients: true));
+            context.Add(new SettingDefinition(N(nameof(NavigationMode.SplitMenus)), "false", isVisibleToClients: true));
+
+            context.Add(new SettingDefinition(N(nameof(RegionalSettings.Header)), "true", isVisibleToClients: true));
+            context.Add(new SettingDefinition(N(nameof(RegionalSettings.Footer)), "true", isVisibleToClients: true));
+            context.Add(new SettingDefinition(N(nameof(RegionalSettings.Menu)), "true", isVisibleToClients: true));
+            context.Add(new SettingDefinition(N(nameof(RegionalSettings.MenuHeader)), "false", isVisibleToClients: true));
+
+            context.Add(new SettingDefinition(N(nameof(OtherSettings.WeakMode)), "false", isVisibleToClients: true));
         }
 
         private static LocalizableString L(string name)
