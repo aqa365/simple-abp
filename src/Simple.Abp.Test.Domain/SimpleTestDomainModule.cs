@@ -1,5 +1,4 @@
-﻿using Simple.Abp.Articles;
-using Volo.Abp.AuditLogging;
+﻿using Volo.Abp.AuditLogging;
 using Volo.Abp.Identity;
 using Volo.Abp.IdentityServer;
 using Volo.Abp.Modularity;
@@ -18,7 +17,6 @@ namespace Simple.Abp.Test
         typeof(AbpPermissionManagementDomainIdentityServerModule),
         typeof(AbpSettingManagementDomainModule),
         typeof(AbpAuditLoggingDomainModule),
-        typeof(AbpArticlesDomainModule),
         typeof(CmsKitDomainModule)
     )]
     public class SimpleTestDomainModule: AbpModule

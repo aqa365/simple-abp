@@ -1,13 +1,4 @@
-﻿using Simple.Abp.Articles;
-using Simple.Abp.IdentityServer;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Volo.Abp.Application.Services;
-using Volo.Abp.Auditing;
-using Volo.Abp.IdentityServer.Localization;
+﻿using Volo.Abp.Application.Services;
 
 namespace Simple.Abp.Test
 {
@@ -15,7 +6,7 @@ namespace Simple.Abp.Test
     {
         public TestAppService()
         {
-            LocalizationResource = typeof(ArticlesResource);
+            //LocalizationResource = typeof();
         }
 
         public string Get()
