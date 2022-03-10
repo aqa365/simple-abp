@@ -1,0 +1,21 @@
+﻿@page
+@model Simple.Abp.Articles.Public.Web.Pages.CatalogsModel
+@{
+    ViewBag.Title = "Catalogs";
+}
+<style type="text/css">
+    .post-list h2:before {
+        color: #d44375;
+        content: "#";
+    }
+</style>
+<div id="archive">
+    <ul class="post-list">
+        @foreach (var catalog in Model.Catalogs)
+        {
+            <h2> 
+                <a href="/writing/catalog/@catalog.Title.ToLower()">@catalog.Title (@catalog.ArticleCount)</a>
+            </h2>
+        }
+    </ul>
+</div>

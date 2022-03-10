@@ -1,0 +1,15 @@
+﻿@page
+@using Simple.Abp.Articles.Public.Web.Shared.Components.Pagination
+@using Simple.Abp.Articles.Public.Web.Shared.Components.Project
+@model Simple.Abp.Articles.Public.Web.Pages.BilibiliModel
+@{
+    ViewBag.Title = "Bilibili";
+}
+
+<div id="archive">
+    <ul class="project-list">
+        @(await Component.InvokeAsync<ProjectViewComponent>(new { modelList = Model.Videos }))
+    </ul>
+
+    @(await Component.InvokeAsync<PaginationViewComponent>(new { vm = Model.PaginationViewModel }))
+</div>

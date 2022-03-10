@@ -1,0 +1,11 @@
+﻿.content img{
+    margin:initial !important
+}
+
+.content p {
+    margin: 0 !important;
+}
+
+.content blockquote {
+    padding: 0 !important;
+}
