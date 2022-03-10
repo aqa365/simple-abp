@@ -8,7 +8,7 @@ namespace Simple.Abp.AntdTheme
         public override void Define(ISettingDefinitionContext context)
         {
             context.Add(new SettingDefinition(N(nameof(PageStyleSetting.PageStyle)), "3", isVisibleToClients: true));
-            context.Add(new SettingDefinition(N(nameof(ThemeColor.Color)), "1", isVisibleToClients: true));
+            context.Add(new SettingDefinition(N(nameof(ThemeColor.Color)), "#2F54EB", isVisibleToClients: true));
 
             context.Add(new SettingDefinition(N(nameof(NavigationMode.SlidMenuLayout)), "1", isVisibleToClients: true));
             context.Add(new SettingDefinition(N(nameof(NavigationMode.ContentWidth)), "1", isVisibleToClients: true));

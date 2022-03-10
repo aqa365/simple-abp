@@ -30,7 +30,7 @@
 
     public class ThemeColor 
     {
-        public EnumAntdThemeColor Color { get; set; }
+        public string Color { get; set; }
     }
 
     public class NavigationMode

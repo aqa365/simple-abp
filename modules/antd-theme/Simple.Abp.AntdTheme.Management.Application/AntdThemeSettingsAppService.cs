@@ -36,6 +36,14 @@ namespace Simple.Abp.AntdTheme
             return settingValue.Value.To<T>();
         }
 
+        private string Get(List<SettingValue> data, string name,string value)
+        {
+            var settingValue = data.FirstOrDefault(c => c.Name.Equals(GetName(name)));
+            return settingValue.Value ?? value;
+        }
+
+
+
         public async Task<AntdThemeSettingsDto> GetAsync()
         {
             var currentSettingValues = await _settingManager.GetAllForCurrentUserAsync();
@@ -45,7 +53,7 @@ namespace Simple.Abp.AntdTheme
                 currentSettingValues, nameof(PageStyleSetting.PageStyle), EnumAntdThemeStyle.Dark
             );
             antdThemeSettingsDto.ThemeColor.Color = this.Get(
-                currentSettingValues, nameof(ThemeColor.Color), EnumAntdThemeColor.Lightblue
+                currentSettingValues, nameof(ThemeColor.Color), "#2F54EB"
             );
 
             // NavigationMode
@@ -93,7 +101,7 @@ namespace Simple.Abp.AntdTheme
                 return;
 
             await _settingManager.SetForCurrentUserAsync(GetName(nameof(PageStyleSetting.PageStyle)), ((int)input.PageStyleSetting.PageStyle).ToString());
-            await _settingManager.SetForCurrentUserAsync(GetName(nameof(ThemeColor.Color)), input.ThemeColor.Color.To<int>().ToString());
+            await _settingManager.SetForCurrentUserAsync(GetName(nameof(ThemeColor.Color)), input.ThemeColor.Color);
 
             await _settingManager.SetForCurrentUserAsync(GetName(nameof(NavigationMode.SlidMenuLayout)), input.NavigationMode.SlidMenuLayout.To<int>().ToString());
             await _settingManager.SetForCurrentUserAsync(GetName(nameof(NavigationMode.ContentWidth)), input.NavigationMode.ContentWidth.To<int>().ToString());
