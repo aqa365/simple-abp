@@ -1,13 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Simple.Abp.Articles.Dtos;
-using Simple.Abp.Articles.Public.Web.Shared.Components.Pagination;
+using Simple.Abp.CmsKit.Public.Web.Shared.Components.Pagination;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Volo.Abp.Application.Dtos;
+using Volo.CmsKit.Public.Blogs;
 
-namespace Simple.Abp.Articles.Public.Web.Pages
+namespace Simple.Abp.CmsKit.Public.Web.Pages
 {
     public class ProjectsModel : PageModel
     {
@@ -23,23 +24,20 @@ namespace Simple.Abp.Articles.Public.Web.Pages
         /// <summary>
         /// projects
         /// </summary>
-        public List<ArticleDto> Projects { get; set; }
+        public List<BlogPostPublicDto> Projects { get; set; }
 
-        private readonly IArticleAppService _articleAppService;
+        private readonly IBlogPostPublicAppService _blogPostPublicAppService;
 
-        public ProjectsModel(IArticleAppService articleAppService)
+        public ProjectsModel(IBlogPostPublicAppService blogPostPublicAppService)
         {
-            _articleAppService = articleAppService;
-            Projects = new List<ArticleDto>();
+            _blogPostPublicAppService = blogPostPublicAppService;
+            Projects = new List<BlogPostPublicDto>();
         }
         public virtual async Task<IActionResult> OnGetAsync()
         {
-            ArticlePagedRequestDto request = new ArticlePagedRequestDto();
-            request.PageIndex = PageIndex;
-            request.Filter = Filter;
-            request.CatalogTitle = "projects";
+            PagedAndSortedResultRequestDto request = new PagedAndSortedResultRequestDto();
 
-            var pageResult = await _articleAppService.GetDefaultListAsync(request);
+            var pageResult = await _blogPostPublicAppService.GetListAsync("projects", request);
             if (pageResult == null)
                 return Page();
 

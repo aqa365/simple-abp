@@ -16,6 +16,7 @@
 		<ProjectReference Include="..\..\modules\antd-theme\Simple.Abp.AntdTheme.Management.Application.Contracts\Simple.Abp.AntdTheme.Management.Application.Contracts.csproj" />
 		<ProjectReference Include="..\..\modules\audit-logging\Simple.Abp.AuditLogging.Application.Contracts\Simple.Abp.AuditLogging.Application.Contracts.csproj" />
 		<ProjectReference Include="..\..\modules\cloud-storage\Simple.Abp.CloudStorage.Application.Contracts\Simple.Abp.CloudStorage.Application.Contracts.csproj" />
+		<ProjectReference Include="..\..\modules\cms-kit\Simple.Abp.CmsKit.Public.Application.Contracts\Simple.Abp.CmsKit.Public.Application.Contracts.csproj" />
 		<ProjectReference Include="..\..\modules\identity-server\Simple.Abp.IdentityServer.Application.Contracts\Simple.Abp.IdentityServer.Application.Contracts.csproj" />
 		<ProjectReference Include="..\..\modules\identity\Simple.Abp.Identity.Application.Contracts\Simple.Abp.Identity.Application.Contracts.csproj" />
 		<ProjectReference Include="..\Simple.Abp.Test.Domain.Shared\Simple.Abp.Test.Domain.Shared.csproj" />

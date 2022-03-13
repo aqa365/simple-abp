@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Mvc;
 
-namespace Simple.Abp.Articles.Public.Web.Shared.Components.About
+namespace Simple.Abp.CmsKit.Public.Web.Shared.Components.About
 {
     public class AboutViewComponent : AbpViewComponent
     {

@@ -3,6 +3,7 @@ using Simple.Abp.Account;
 using Simple.Abp.AntdTheme;
 using Simple.Abp.AuditLogging;
 using Simple.Abp.CloudStorage;
+using Simple.Abp.CmsKit.Public;
 using Simple.Abp.Identity;
 using Simple.Abp.IdentityServer;
 using Volo.Abp.Modularity;
@@ -21,7 +22,8 @@ namespace Simple.Abp.Test
         typeof(AbpCloudStorageHttpClientModule),
         typeof(AbpAntdThemeManagementHttpApiClientModule),
         typeof(AbpPermissionManagementHttpApiClientModule),
-        typeof(CmsKitHttpApiClientModule)
+        typeof(CmsKitHttpApiClientModule),
+        typeof(SimpleCmsKitPublicHttpApiClientModule)
     )]
     public class SimpleTestHttpApiClientModule:AbpModule
     {

@@ -1,0 +1,18 @@
+﻿@using Volo.CmsKit.Public.Blogs
+@model List<BlogPostPublicDto>
+
+@foreach (var blogPost in Model)
+{
+    <li class="post-item">
+        <div class="meta">
+            <time datetime="@blogPost.CreationTime" itemprop="datePublished">
+                @blogPost.CreationTime
+            </time>
+        </div>
+        <span>
+            <a href="@blogPost.Slug">
+                @blogPost.Title
+            </a>
+        </span>
+    </li>
+}

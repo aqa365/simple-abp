@@ -3,7 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simple.Abp.CmsKit.Public.Web", "Simple.Abp.CmsKit.Public.Web\Simple.Abp.CmsKit.Public.Web.csproj", "{66E22FE6-9979-41ED-B40B-17E3E8D70BF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.CmsKit.Public.Web", "Simple.Abp.CmsKit.Public.Web\Simple.Abp.CmsKit.Public.Web.csproj", "{66E22FE6-9979-41ED-B40B-17E3E8D70BF3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.AspNetCore.Mvc.UI.Theme.Cactus", "..\cactus-theme\Simple.Abp.Articles.Web.Theme.Cactus\Simple.Abp.AspNetCore.Mvc.UI.Theme.Cactus.csproj", "{97CB2FB0-45D6-46B3-914A-AB2D7EE012F2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CactusTheme", "CactusTheme", "{0616806F-4880-43CA-91AC-048BC77EC99E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simple.Abp.CmsKit.Public.Application.Contracts", "Simple.Abp.CmsKit.Public.Application.Contracts\Simple.Abp.CmsKit.Public.Application.Contracts.csproj", "{727BF784-4834-492D-9939-0B5C54EC7F8B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simple.Abp.CmsKit.Public.Application", "Simple.Abp.CmsKit.Public.Application\Simple.Abp.CmsKit.Public.Application.csproj", "{EAC72F7B-FB17-4F00-B471-795350825532}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simple.Abp.CmsKit.Public.HttpApi", "Simple.Abp.CmsKit.Public.HttpApi\Simple.Abp.CmsKit.Public.HttpApi.csproj", "{DE1757AE-9633-48C2-A204-86F03695C6F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simple.Abp.CmsKit.Public.HttpApi.Client", "Simple.Abp.CmsKit.Public.HttpApi.Client\Simple.Abp.CmsKit.Public.HttpApi.Client.csproj", "{780A53BF-1C64-4E7C-A0B8-0D07C57B5F67}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +27,32 @@ Global
 		{66E22FE6-9979-41ED-B40B-17E3E8D70BF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66E22FE6-9979-41ED-B40B-17E3E8D70BF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66E22FE6-9979-41ED-B40B-17E3E8D70BF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97CB2FB0-45D6-46B3-914A-AB2D7EE012F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97CB2FB0-45D6-46B3-914A-AB2D7EE012F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97CB2FB0-45D6-46B3-914A-AB2D7EE012F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97CB2FB0-45D6-46B3-914A-AB2D7EE012F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{727BF784-4834-492D-9939-0B5C54EC7F8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{727BF784-4834-492D-9939-0B5C54EC7F8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{727BF784-4834-492D-9939-0B5C54EC7F8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{727BF784-4834-492D-9939-0B5C54EC7F8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAC72F7B-FB17-4F00-B471-795350825532}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAC72F7B-FB17-4F00-B471-795350825532}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAC72F7B-FB17-4F00-B471-795350825532}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAC72F7B-FB17-4F00-B471-795350825532}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE1757AE-9633-48C2-A204-86F03695C6F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE1757AE-9633-48C2-A204-86F03695C6F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE1757AE-9633-48C2-A204-86F03695C6F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE1757AE-9633-48C2-A204-86F03695C6F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{780A53BF-1C64-4E7C-A0B8-0D07C57B5F67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{780A53BF-1C64-4E7C-A0B8-0D07C57B5F67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{780A53BF-1C64-4E7C-A0B8-0D07C57B5F67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{780A53BF-1C64-4E7C-A0B8-0D07C57B5F67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{97CB2FB0-45D6-46B3-914A-AB2D7EE012F2} = {0616806F-4880-43CA-91AC-048BC77EC99E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6B2A6DFE-F432-4165-90E5-E2F3E3A27704}

@@ -1,11 +1,11 @@
 ﻿@page
-@using Simple.Abp.Articles.Public.Web.Shared.Components.Article
-@using Simple.Abp.Articles.Public.Web.Shared.Components.Pagination
-@model Simple.Abp.Articles.Public.Web.Pages.WritingModel
+@using Simple.Abp.CmsKit.Public.Web.Shared.Components.BlogPosts
+@using Simple.Abp.CmsKit.Public.Web.Shared.Components.Pagination
+@model Simple.Abp.CmsKit.Public.Web.Pages.WritingModel
 @{
     ViewBag.Title = "Writing";
 }
-<div id="archive">
+@*<div id="archive">
     <ul class="post-list">
         @foreach (var group in Model.Articles)
         {
@@ -16,4 +16,4 @@
 
     @(await Component.InvokeAsync<PaginationViewComponent>(new { vm = Model.PaginationViewModel }))
 
-</div>
+</div>*@

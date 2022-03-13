@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Simple.Abp.Articles.Public.Web.Shared.Components.Pagination
+namespace Simple.Abp.CmsKit.Public.Web.Shared.Components.Pagination
 {
     public class PaginationViewModel
     {

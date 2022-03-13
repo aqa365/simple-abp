@@ -2,6 +2,7 @@
 using Simple.Abp.AntdTheme;
 using Simple.Abp.AuditLogging;
 using Simple.Abp.CloudStorage;
+using Simple.Abp.CmsKit.Public;
 using Simple.Abp.Identity;
 using Simple.Abp.IdentityServer;
 using Volo.Abp.Modularity;
@@ -23,7 +24,8 @@ namespace Simple.Abp.Test
         typeof(AbpCloudStorageApplicationContractsModule),
         typeof(AbpAntdThemeManagementApplicationContractsModule),
         typeof(AbpObjectExtendingModule),
-        typeof(CmsKitApplicationContractsModule)
+        typeof(CmsKitApplicationContractsModule),
+        typeof(SimpleCmsKitPublicApplicationContractsModule)
     )]
     public class SimpleTestApplicationContractsModule:AbpModule
     {

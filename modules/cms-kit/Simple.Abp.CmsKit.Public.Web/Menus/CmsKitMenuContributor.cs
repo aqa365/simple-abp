@@ -3,13 +3,13 @@ using Simple.Abp.CactusTheme;
 using System.Threading.Tasks;
 using Volo.Abp.UI.Navigation;
 
-namespace Simple.Abp.Articles.Public.Web.Menus
+namespace Simple.Abp.CmsKit.Public.Web.Menu
 {
-    public class ArticlesMenuContributor : IMenuContributor
+    public class CmsKitMenuContributor : IMenuContributor
     {
         private readonly IConfiguration _configuration;
 
-        public ArticlesMenuContributor(IConfiguration configuration)
+        public CmsKitMenuContributor(IConfiguration configuration)
         {
             _configuration = configuration;
         }

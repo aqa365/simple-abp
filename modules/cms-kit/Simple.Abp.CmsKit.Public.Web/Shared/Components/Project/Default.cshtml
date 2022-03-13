@@ -1,10 +1,10 @@
-﻿@using Simple.Abp.Articles.Dtos
-@model List<ArticleDto>
+﻿@using Volo.CmsKit.Admin.Blogs
+@model List<BlogPostDto>
 
 @foreach (var article in Model)
 {
     <li class="project-item">
-        <p style="color:#666">@article.Summary</p>
-        : <a href="@article.FrontUrl">@article.Title</a>
+        <p style="color:#666">@article.ShortDescription</p>
+        : <a href="@article.Slug">@article.Title</a>
     </li>
 }

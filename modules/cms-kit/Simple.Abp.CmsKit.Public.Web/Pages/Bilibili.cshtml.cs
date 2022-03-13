@@ -1,13 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Simple.Abp.Articles.Dtos;
-using Simple.Abp.Articles.Public.Web.Shared.Components.Pagination;
+using Simple.Abp.CmsKit.Public.Web.Shared.Components.Pagination;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Volo.Abp.Application.Dtos;
+using Volo.CmsKit.Public.Blogs;
 
-namespace Simple.Abp.Articles.Public.Web.Pages
+namespace Simple.Abp.CmsKit.Public.Web.Pages
 {
     public class BilibiliModel : PageModel
     {
@@ -23,23 +24,19 @@ namespace Simple.Abp.Articles.Public.Web.Pages
         /// <summary>
         /// bilibili
         /// </summary>
-        public List<ArticleDto> Videos { get; set; }
+        public List<BlogPostPublicDto> Videos { get; set; }
 
-        private readonly IArticleAppService _articleAppService;
+        private readonly IBlogPostPublicAppService _blogPostPublicAppService;
 
-        public BilibiliModel(IArticleAppService articleAppService)
+        public BilibiliModel(IBlogPostPublicAppService blogPostPublicAppService)
         {
-            _articleAppService = articleAppService;
-            Videos = new List<ArticleDto>();
+            _blogPostPublicAppService = blogPostPublicAppService;
+            Videos = new List<BlogPostPublicDto>();
         }
         public virtual async Task<IActionResult> OnGetAsync()
         {
-            ArticlePagedRequestDto request = new ArticlePagedRequestDto();
-            request.PageIndex = PageIndex;
-            request.Filter = Filter;
-            request.CatalogTitle = "bilibili";
-
-            var pageResult = await _articleAppService.GetDefaultListAsync(request);
+            PagedAndSortedResultRequestDto request = new PagedAndSortedResultRequestDto();
+            var pageResult = await _blogPostPublicAppService.GetListAsync("bilibili", request);
             if (pageResult == null)
                 return Page();
 

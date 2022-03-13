@@ -1,30 +1,32 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Simple.Abp.Articles.Public.Web.Menus;
 using Simple.Abp.CactusTheme;
+using Simple.Abp.CmsKit.Public.Web.Menu;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.Authentication.OpenIdConnect;
 using Volo.Abp.Modularity;
 using Volo.Abp.UI.Navigation;
 using Volo.Abp.VirtualFileSystem;
+using Volo.CmsKit.Public;
 
-namespace Simple.Abp.Articles.Public.Web
+namespace Simple.Abp.CmsKit.Public.Web
 {
 
     [DependsOn(
-        typeof(AbpArticlesHttpApiClientModule),
+        typeof(CmsKitPublicHttpApiClientModule),
         typeof(AbpAspNetCoreMvcUIThemeCactusModule ),
-        typeof(AbpAspNetCoreAuthenticationOpenIdConnectModule)
+        typeof(AbpAspNetCoreAuthenticationOpenIdConnectModule),
+        typeof(SimpleCmsKitPublicHttpApiClientModule)
     )]
-    public class AbpArticlesPublicWebModule : AbpModule
+    public class SimpleCmsKitPublicWebModule : AbpModule
     {
         public override void PreConfigureServices(ServiceConfigurationContext context)
         {         
             PreConfigure<IMvcBuilder>(mvcBuilder =>
             {
                 mvcBuilder.AddApplicationPartIfNotExists(
-                    typeof(AbpArticlesPublicWebModule).Assembly);
+                    typeof(SimpleCmsKitPublicWebModule).Assembly);
             });
         }
 
@@ -36,7 +38,7 @@ namespace Simple.Abp.Articles.Public.Web
 
             Configure<AbpVirtualFileSystemOptions>(options =>
             {
-                options.FileSets.AddEmbedded<AbpArticlesPublicWebModule>("Simple.Abp.Articles.Public.Web");
+                options.FileSets.AddEmbedded<SimpleCmsKitPublicWebModule>("Simple.Abp.CmsKit.Public.Web");
             });
 
             ConfigureNavigationServices(configuration);
@@ -65,7 +67,7 @@ namespace Simple.Abp.Articles.Public.Web
         {
             Configure<AbpNavigationOptions>(options =>
             {
-                options.MenuContributors.Add(new ArticlesMenuContributor(configuration));
+                options.MenuContributors.Add(new CmsKitMenuContributor(configuration));
             });
         }
 
