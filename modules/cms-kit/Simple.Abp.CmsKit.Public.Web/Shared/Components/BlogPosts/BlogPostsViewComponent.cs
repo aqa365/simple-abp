@@ -7,9 +7,10 @@ namespace Simple.Abp.CmsKit.Public.Web.Shared.Components.BlogPosts
 {
     public class BlogPostsViewComponent: AbpViewComponent
     {
-        public IViewComponentResult Invoke(List<BlogPostPublicDto> modelList)
+
+        public IViewComponentResult Invoke(string blogSlug, List<BlogPostPublicDto> modelList)
         {
-            return View("~/Shared/Components/BlogPosts/Default.cshtml", modelList);
+            return View("~/Shared/Components/BlogPosts/Default.cshtml", new { BlogSlug = blogSlug, BlogPosts = modelList });
         }
     }
 }

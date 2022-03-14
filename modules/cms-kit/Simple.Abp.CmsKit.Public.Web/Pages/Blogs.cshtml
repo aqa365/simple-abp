@@ -1,0 +1,21 @@
+﻿@page
+@model Simple.Abp.CmsKit.Public.Web.Pages.BlogsModel
+@{
+    ViewBag.Title = "Blogs";
+}
+<style type="text/css">
+    .post-list h2:before {
+        color: #d44375;
+        content: "#";
+    }
+</style>
+<div id="archive">
+    <ul class="post-list">
+        @foreach (var blog in Model.Blogs)
+        {
+            <h2> 
+                <a href="/blogs/@blog.Slug.ToLower()">@blog.Name </a>
+            </h2>
+        }
+    </ul>
+</div>

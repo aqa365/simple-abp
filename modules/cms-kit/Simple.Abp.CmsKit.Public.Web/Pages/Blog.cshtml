@@ -1,19 +1,19 @@
 ﻿@page
 @using Simple.Abp.CmsKit.Public.Web.Shared.Components.BlogPosts
 @using Simple.Abp.CmsKit.Public.Web.Shared.Components.Pagination
-@model Simple.Abp.CmsKit.Public.Web.Pages.WritingModel
+@model Simple.Abp.CmsKit.Public.Web.Pages.BlogModel
 @{
-    ViewBag.Title = "Writing";
+    ViewBag.Title = "Blog";
 }
-@*<div id="archive">
+<div id="archive">
     <ul class="post-list">
-        @foreach (var group in Model.Articles)
+        @foreach (var group in Model.BlogPosts)
         {
             <h2>@group.Key</h2>
-            @(await Component.InvokeAsync<ArticleViewComponent>(new { modelList = group.Value }))
+            @(await Component.InvokeAsync<BlogPostsViewComponent>(new { BlogSlug = Model.BlogSlug , modelList = group.Value }))
         }
     </ul>
 
     @(await Component.InvokeAsync<PaginationViewComponent>(new { vm = Model.PaginationViewModel }))
 
-</div>*@
+</div>

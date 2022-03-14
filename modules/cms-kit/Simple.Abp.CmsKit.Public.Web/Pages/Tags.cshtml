@@ -3,13 +3,13 @@
 @{
     ViewBag.Title = "Tags";
 }
-@*<div id="archive">
+<div id="archive">
     <ul class="post-list">
         @foreach (var tag in Model.Tags)
         {
             <h2>
-                <a href="/writing/tag/@(tag.Name.ToLower())">@tag.Name (@tag.ArticleCount)</a>
+                <a href="/tags/@(tag.Name.ToLower())">@tag.Name</a>
             </h2>
         }
     </ul>
-</div>*@
+</div>

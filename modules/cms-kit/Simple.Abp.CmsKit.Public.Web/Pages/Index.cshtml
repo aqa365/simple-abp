@@ -15,7 +15,7 @@
             <a href="/blog/@blog.Slug">@blog.Name</a>
         </span>
         <ul class="post-list">
-            @(await Component.InvokeAsync<BlogPostsViewComponent>(new { modelList = Model.BlogPosts.Where(c=>c.BlogId==blog.Id).ToList() }))
+            @(await Component.InvokeAsync<BlogPostsViewComponent>(new { BlogSlug = blog.Slug,modelList = Model.BlogPosts.Where(c=>c.BlogId==blog.Id).ToList() }))
         </ul>
     </section>
 }
