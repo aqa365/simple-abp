@@ -17,10 +17,10 @@
 
 @section actions{
     <ul>
-      @*  @if (Model.Article.Previous != null)
+       @if (Model.BlogPost.Previous != null)
         {
             <li>
-                <a class="icon" href="@Model.Article.Previous.FrontUrl">
+                <a class="icon" href="/blogs/@Model.BlogSlug/@Model.BlogPost.Previous.Slug">
                     <i class="fas fa-chevron-left" aria-hidden="true"
                        onmouseover="$('#i-prev').toggle();"
                        onmouseout="$('#i-prev').toggle();">
@@ -29,17 +29,17 @@
             </li>
         }
 
-        @if (Model.Article.Next != null)
+        @if (Model.BlogPost.Next != null)
         {
             <li>
-                <a class="icon" href="@Model.Article.Next.FrontUrl">
+                <a class="icon" href="/blogs/@Model.BlogSlug/@Model.BlogPost.Next.Slug">
                     <i class="fas fa-chevron-right" aria-hidden="true"
                        onmouseover="$('#i-next').toggle();"
                        onmouseout="$('#i-next').toggle();">
                     </i>
                 </a>
             </li>
-        }*@
+        }
         <li>
             <a class="icon" href="#"
                onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');">
@@ -83,27 +83,30 @@
 
         <div class="meta">
 
-            @*<span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-                    <span itemprop="name">Cactus Dark</span>
-                </span>*@
+            <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+                    <span itemprop="name">@Model.BlogPost.Author.Name</span>
+                </span>
 
             <div class="postdate">
                 <time datetime="@Model.BlogPost.CreationTime" itemprop="datePublished">
-                    @Model.BlogPost.CreationTime
+                    @Model.BlogPost.CreationTime.ToString("MMM dd, yyyy", new System.Globalization.CultureInfo("en-us"))
                 </time>
             </div>
 
           <div class="article-tag">
                 <i class="fas fa-tag"></i>
                 <a class="tag-link" href="/blogs/@Model.BlogSlug">
-                    @Model.BlogPost.BlogId
-                </a>,
-              @*  @if (!Model.BlogPost.Tag.IsNullOrWhiteSpace())
+                    @Model.BlogPost.Blog.Name.ToLower()
+                </a>|
+                @if (Model.BlogPost.Tags!=null)
                 {
-                    <a class="tag-link" href="/writing/tag/@Model.Article.Tag.ToLower()">
-                        @Model.Article.Tag
-                    </a>
-                }*@
+                    foreach (var tag in Model.BlogPost.Tags)
+                    {
+                        <a class="tag-link" href="#">
+                        @tag.Name
+                        </a>   
+                    }
+                }
 
             </div>
         </div>

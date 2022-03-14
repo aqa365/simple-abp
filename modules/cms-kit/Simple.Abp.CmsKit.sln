@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.CmsKit.Public.Web", "Simple.Abp.CmsKit.Public.Web\Simple.Abp.CmsKit.Public.Web.csproj", "{66E22FE6-9979-41ED-B40B-17E3E8D70BF3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.AspNetCore.Mvc.UI.Theme.Cactus", "..\cactus-theme\Simple.Abp.Articles.Web.Theme.Cactus\Simple.Abp.AspNetCore.Mvc.UI.Theme.Cactus.csproj", "{97CB2FB0-45D6-46B3-914A-AB2D7EE012F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.AspNetCore.Mvc.UI.Theme.Cactus", "..\cactus-theme\Simple.Abp.AspNetCore.Mvc.UI.Theme.Cactus\Simple.Abp.AspNetCore.Mvc.UI.Theme.Cactus.csproj", "{97CB2FB0-45D6-46B3-914A-AB2D7EE012F2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CactusTheme", "CactusTheme", "{0616806F-4880-43CA-91AC-048BC77EC99E}"
 EndProject

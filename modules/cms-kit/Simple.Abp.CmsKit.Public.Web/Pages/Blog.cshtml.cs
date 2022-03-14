@@ -38,7 +38,7 @@ namespace Simple.Abp.CmsKit.Public.Web.Pages
         public virtual async Task<IActionResult> OnGetAsync()
         {
             PagedAndSortedResultRequestDto input =new PagedAndSortedResultRequestDto();
-            input.SkipCount = PageIndex;
+            input.SkipCount = (PageIndex - 1) * input.MaxResultCount;
 
             var pageResult = await _blogPostPublicAppService.GetListAsync(BlogSlug, input);
             if (pageResult == null)

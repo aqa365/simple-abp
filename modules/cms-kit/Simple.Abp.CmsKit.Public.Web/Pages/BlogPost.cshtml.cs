@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Simple.Abp.CmsKit.Public.Dtos;
 using System.Threading.Tasks;
 using System.Web;
 using Volo.Abp.AspNetCore.Mvc.UI.RazorPages;
@@ -15,11 +16,11 @@ namespace Simple.Abp.CmsKit.Public.Web.Pages
         [BindProperty(SupportsGet = true)]
         public string BlogPostSlug { get; set; }
 
-        public BlogPostPublicDto BlogPost { get; set; }
+        public SimpleBlogPostDto BlogPost { get; set; }
 
-        private readonly IBlogPostPublicAppService _blogPostPublicAppService;
+        private readonly ISimpleBlogPostPublicAppService _blogPostPublicAppService;
 
-        public BlogPostModel(IBlogPostPublicAppService blogPostPublicAppService)
+        public BlogPostModel(ISimpleBlogPostPublicAppService blogPostPublicAppService)
         {
             _blogPostPublicAppService = blogPostPublicAppService;
         }
