@@ -2,13 +2,7 @@
   "culture": "zh-Hans",
   "texts": {
     "Menu:Home": "首页",
-    "Welcome": "欢迎",
-    "Menu:Writing": "Writing",
-    "Menu:Catalogs": "Catalogs",
-    "Menu:Tags": "Tags",
-    "Menu:Bilibili": "Bilibili",
-    "Menu:Projects": "Projects",
-    "Menu:About": "About",
+    "Menu:About": "关于",
 
     "LongWelcomeMessage": "欢迎来到该应用程序. 这是一个基于ABP框架的启动项目. 有关更多信息, 请访问 abp.io."
   }

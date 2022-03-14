@@ -1,12 +1,24 @@
-﻿using Simple.Abp.CmsKit.Public.Web;
+﻿using Simple.Abp.CmsKit.Public;
+using Simple.Abp.CmsKit.Public.Web;
 using Simple.Abp.Test;
 using Volo.Abp;
+using Volo.Abp.AspNetCore.Authentication.OAuth;
+using Volo.Abp.AspNetCore.Authentication.OpenIdConnect;
+using Volo.Abp.AspNetCore.Mvc;
+using Volo.Abp.Autofac;
+using Volo.Abp.Http.Client.Web;
+using Volo.Abp.Json;
 using Volo.Abp.Modularity;
 
 namespace Simple.Abp.CmsKit.Web
 {
 
     [DependsOn(
+        typeof(AbpAutofacModule),
+        typeof(AbpAspNetCoreMvcModule),
+        typeof(AbpHttpClientWebModule),
+        typeof(AbpAspNetCoreAuthenticationOAuthModule),
+        typeof(AbpAspNetCoreAuthenticationOpenIdConnectModule),
         typeof(SimpleCmsKitPublicWebModule),
         typeof(SimpleTestHttpApiClientModule)
     )]
@@ -27,6 +39,7 @@ namespace Simple.Abp.CmsKit.Web
             var hostingEnvironment = context.Services.GetHostingEnvironment();
             var configuration = context.Services.GetConfiguration();
 
+            Configure<AbpJsonOptions>(options => options.DefaultDateTimeFormat = "yyyy-MM-dd HH:mm:ss");
 
         }
 

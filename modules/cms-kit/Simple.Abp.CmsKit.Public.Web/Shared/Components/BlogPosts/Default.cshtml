@@ -3,10 +3,11 @@
 
 @foreach (var blogPost in Model)
 {
+    string creationTime = blogPost.CreationTime.ToString("MMM dd, yyyy", new System.Globalization.CultureInfo("en-us"));
     <li class="post-item">
         <div class="meta">
-            <time datetime="@blogPost.CreationTime" itemprop="datePublished">
-                @blogPost.CreationTime
+            <time datetime="@creationTime" itemprop="datePublished">
+                @creationTime
             </time>
         </div>
         <span>

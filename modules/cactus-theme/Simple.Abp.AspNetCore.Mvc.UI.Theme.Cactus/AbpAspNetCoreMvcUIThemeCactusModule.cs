@@ -35,7 +35,7 @@ namespace Simple.Abp.CactusTheme
 
             Configure<AbpVirtualFileSystemOptions>(options =>
             {
-                options.FileSets.AddEmbedded<AbpAspNetCoreMvcUIThemeCactusModule>("Simple.Abp.Articles.Web.Theme.Cactus");
+                options.FileSets.AddEmbedded<AbpAspNetCoreMvcUIThemeCactusModule>("Simple.Abp.CactusTheme");
             });
 
             Configure<AbpLocalizationOptions>(options =>
@@ -43,11 +43,11 @@ namespace Simple.Abp.CactusTheme
                 options.Resources
                 .Add<CactusResource>("en")
                 .AddBaseTypes(typeof(AbpValidationResource))
-                .AddVirtualJson("Localization/SimpleAbpArticlesCactus");
+                .AddVirtualJson("Localization/CactusTheme");
             });
 
             Configure<AbpExceptionLocalizationOptions>(options =>
-                options.MapCodeNamespace("Simple.Abp.Articles.Web.Theme.Cactus", typeof(CactusResource)));
+                options.MapCodeNamespace("Simple.Abp.CactusTheme", typeof(CactusResource)));
         }
 
     }

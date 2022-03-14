@@ -4,7 +4,7 @@
 		<TargetFramework>net6.0</TargetFramework>
 		<OutputType>Library</OutputType>
 		<GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
-		<RootNamespace>Simple.Abp.Articles.Web.Theme.Cactus</RootNamespace>
+		<RootNamespace>Simple.Abp.CactusTheme</RootNamespace>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -18,8 +18,8 @@
 	</ItemGroup>
 	
 	<ItemGroup>
-		<EmbeddedResource Include="Localization\SimpleAbpCactusTheme\*.json" />
-		<Content Remove="Localization\SimpleAbpCactusTheme\*.json" />
+		<EmbeddedResource Include="Localization\CactusTheme\*.json" />
+		<Content Remove="Localization\CactusTheme\*.json" />
 	</ItemGroup>
 	
 	<ItemGroup>

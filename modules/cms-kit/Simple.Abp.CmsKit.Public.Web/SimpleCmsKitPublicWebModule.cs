@@ -5,31 +5,36 @@ using Simple.Abp.CactusTheme;
 using Simple.Abp.CmsKit.Public.Web.Menu;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.Authentication.OpenIdConnect;
+using Volo.Abp.GlobalFeatures;
+using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Volo.Abp.UI.Navigation;
+using Volo.Abp.Validation;
 using Volo.Abp.VirtualFileSystem;
+using Volo.CmsKit.GlobalFeatures;
+using Volo.CmsKit.Pages;
 using Volo.CmsKit.Public;
 
 namespace Simple.Abp.CmsKit.Public.Web
 {
 
     [DependsOn(
+        typeof(AbpValidationModule),
         typeof(CmsKitPublicHttpApiClientModule),
-        typeof(AbpAspNetCoreMvcUIThemeCactusModule ),
+        typeof(AbpAspNetCoreMvcUIThemeCactusModule),
         typeof(AbpAspNetCoreAuthenticationOpenIdConnectModule),
         typeof(SimpleCmsKitPublicHttpApiClientModule)
     )]
     public class SimpleCmsKitPublicWebModule : AbpModule
     {
         public override void PreConfigureServices(ServiceConfigurationContext context)
-        {         
+        {
             PreConfigure<IMvcBuilder>(mvcBuilder =>
             {
                 mvcBuilder.AddApplicationPartIfNotExists(
                     typeof(SimpleCmsKitPublicWebModule).Assembly);
             });
         }
-
 
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
@@ -41,7 +46,14 @@ namespace Simple.Abp.CmsKit.Public.Web
                 options.FileSets.AddEmbedded<SimpleCmsKitPublicWebModule>("Simple.Abp.CmsKit.Public.Web");
             });
 
-            ConfigureNavigationServices(configuration);
+            Configure<AbpLocalizationOptions>(options =>
+            {
+                options.Resources.Get<CactusResource>().AddVirtualJson("Localization/SimpleCmsKit");
+            });
+
+
+            ConfigureNavigationServices(context);
+
             Configure<CactusOptions>(options =>
             {
                 options.WebsiteFiling = "鲁ICP备19044904号-1";
@@ -51,23 +63,23 @@ namespace Simple.Abp.CmsKit.Public.Web
             });
 
 
-            Configure<RazorPagesOptions>(options =>
+            if (GlobalFeatureManager.Instance.IsEnabled<PagesFeature>())
             {
-                options.Conventions.AddPageRoute("/Writing", "/writing/page/{pageIndex:int}");
-
-                options.Conventions.AddPageRoute("/Writing", "/writing/catalog/{catalogTitle}");
-                options.Conventions.AddPageRoute("/Writing", "/writing/catalog/{catalogTitle}/page/{pageIndex:int}");
-
-                options.Conventions.AddPageRoute("/Writing", "/writing/tag/{tagName}");
-                options.Conventions.AddPageRoute("/Writing", "/writing/tag/{tagName}/page/{pageIndex:int}");
-            });
+                Configure<RazorPagesOptions>(options =>
+                {
+                    options.Conventions.AddPageRoute("/Pages/Pages/Index", PageConsts.UrlPrefix + "{slug:minlength(1)}");
+                    options.Conventions.AddPageRoute("/Blogs/Index", @"/blogs/{blogSlug:minlength(1)}");
+                    options.Conventions.AddPageRoute("/Blogs/BlogPost", @"/blogs/{blogSlug}/{blogPostSlug:minlength(1)}");
+                });
+            }
         }
 
-        private void ConfigureNavigationServices(IConfiguration configuration)
+        private void ConfigureNavigationServices(ServiceConfigurationContext context)
         {
+
             Configure<AbpNavigationOptions>(options =>
             {
-                options.MenuContributors.Add(new CmsKitMenuContributor(configuration));
+                options.MenuContributors.Add(new CmsKitMenuContributor(context));
             });
         }
 

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.Modularity;
+using Volo.CmsKit.Public;
 
 namespace Simple.Abp.CmsKit.Public
 {
@@ -8,14 +9,17 @@ namespace Simple.Abp.CmsKit.Public
     )]
     public class SimpleCmsKitPublicHttpApiClientModule : AbpModule
     {
-        public const string RemoteServiceName = "SimpleCmsKitPublic";
-
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
             context.Services.AddHttpClientProxies(
-                typeof(SimpleCmsKitPublicHttpApiClientModule).Assembly,
-                RemoteServiceName
+                typeof(SimpleCmsKitPublicApplicationContractsModule).Assembly,
+                CmsKitPublicRemoteServiceConsts.RemoteServiceName
             );
+
+            //context.Services.AddHttpClientProxies(
+            //    typeof(SimpleCmsKitPublicHttpApiClientModule).Assembly,
+            //    RemoteServiceName
+            //);
         }
     }
 }

@@ -99,7 +99,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.CloudStorage.Htt
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CactusTheme", "CactusTheme", "{2309E39D-E44B-4535-9A00-C7452AC4C67A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.AspNetCore.Mvc.UI.Theme.Cactus", "modules\cactus-theme\Simple.Abp.Articles.Web.Theme.Cactus\Simple.Abp.AspNetCore.Mvc.UI.Theme.Cactus.csproj", "{B7400812-46D8-49B5-B211-CFFD2501D39D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.Abp.AspNetCore.Mvc.UI.Theme.Cactus", "modules\cactus-theme\Simple.Abp.AspNetCore.Mvc.UI.Theme.Cactus\Simple.Abp.AspNetCore.Mvc.UI.Theme.Cactus.csproj", "{B7400812-46D8-49B5-B211-CFFD2501D39D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AntdTheme", "AntdTheme", "{8455863C-88C6-40D6-9CE9-47AD0A3E2EEF}"
 EndProject

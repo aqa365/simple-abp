@@ -2,7 +2,7 @@
 
 namespace Simple.Abp.CactusTheme
 {
-    [LocalizationResourceName("SimpleAbpCactusTheme")]
+    [LocalizationResourceName("CactusTheme")]
     public class CactusResource
     {
     }
