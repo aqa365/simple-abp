@@ -4,12 +4,12 @@ using Volo.Abp.DependencyInjection;
 
 namespace Simple.Abp.Test.EntityFrameworkCore
 {
-    public class EntityFrameworkCoretestDbSchemaMigrator
+    public class EntityFrameworkCoreSimpleTestDbSchemaMigrator
         : ISimpleTestDbSchemaMigrator, ITransientDependency
     {
         private readonly IServiceProvider _serviceProvider;
 
-        public EntityFrameworkCoretestDbSchemaMigrator(
+        public EntityFrameworkCoreSimpleTestDbSchemaMigrator(
             IServiceProvider serviceProvider)
         {
             _serviceProvider = serviceProvider;
