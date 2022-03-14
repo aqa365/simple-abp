@@ -32,7 +32,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\cactus-theme\Simple.Abp.Articles.Web.Theme.Cactus\Simple.Abp.AspNetCore.Mvc.UI.Theme.Cactus.csproj" />
+		<ProjectReference Include="..\..\cactus-theme\Simple.Abp.AspNetCore.Mvc.UI.Theme.Cactus\Simple.Abp.AspNetCore.Mvc.UI.Theme.Cactus.csproj" />
 		<ProjectReference Include="..\Simple.Abp.CmsKit.Public.HttpApi.Client\Simple.Abp.CmsKit.Public.HttpApi.Client.csproj" />
 	</ItemGroup>
 

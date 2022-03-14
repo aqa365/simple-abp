@@ -9,7 +9,7 @@ namespace Simple.Abp.CmsKit.Public
 {
     [RequiresGlobalFeature(typeof(BlogsFeature))]
     [RemoteService(Name = CmsKitAdminRemoteServiceConsts.RemoteServiceName)]
-    [Area("cms-kit-Public")]
+    [Area("cms-kit-public")]
     [Route("api/cms-kit-public/blogs")]
     public class BlogPublicController : SimpleCmsKitPublicControllerBase, IBlogPublicAppService
     {
