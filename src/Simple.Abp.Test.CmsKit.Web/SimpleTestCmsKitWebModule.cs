@@ -1,4 +1,4 @@
-﻿using Simple.Abp.CmsKit.Public;
+﻿using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Simple.Abp.CmsKit.Public.Web;
 using Simple.Abp.Test;
 using Volo.Abp;
@@ -38,9 +38,40 @@ namespace Simple.Abp.CmsKit.Web
         {
             var hostingEnvironment = context.Services.GetHostingEnvironment();
             var configuration = context.Services.GetConfiguration();
+            ConfigureAuthentication(context, configuration);
 
             Configure<AbpJsonOptions>(options => options.DefaultDateTimeFormat = "yyyy-MM-dd HH:mm:ss");
 
+        }
+
+        private void ConfigureAuthentication(ServiceConfigurationContext context, IConfiguration configuration)
+        {
+            context.Services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = "Cookies";
+                options.DefaultChallengeScheme = "oidc";
+            })
+            .AddCookie("Cookies", options =>
+            {
+                options.ExpireTimeSpan = TimeSpan.FromDays(365);
+            })
+            .AddAbpOpenIdConnect("oidc", options =>
+            {
+                options.Authority = configuration["AuthServer:Authority"];
+                options.RequireHttpsMetadata = Convert.ToBoolean(configuration["AuthServer:RequireHttpsMetadata"]);
+                options.ResponseType = OpenIdConnectResponseType.CodeIdToken;
+
+                options.ClientId = configuration["AuthServer:ClientId"];
+                options.ClientSecret = configuration["AuthServer:ClientSecret"];
+
+                options.SaveTokens = true;
+                options.GetClaimsFromUserInfoEndpoint = true;
+
+                options.Scope.Add("role");
+                options.Scope.Add("email");
+                options.Scope.Add("phone");
+                options.Scope.Add("ka_api");
+            });
         }
 
         public override void OnApplicationInitialization(ApplicationInitializationContext context)
@@ -56,6 +87,11 @@ namespace Simple.Abp.CmsKit.Web
             app.UseAbpRequestLocalization();
             app.UseStaticFiles();
             app.UseRouting();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
+            app.UseAuditing();
+
             app.UseConfiguredEndpoints();
         }
     }
