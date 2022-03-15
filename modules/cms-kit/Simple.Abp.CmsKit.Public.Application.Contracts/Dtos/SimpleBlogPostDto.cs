@@ -11,7 +11,5 @@ namespace Simple.Abp.CmsKit.Public.Dtos
         public BlogPostPublicDto? Next { get; set; }
 
         public BlogDto? Blog { get; set; }
-
-        public List<TagDto> Tags { get; set; }
     }
 }

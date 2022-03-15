@@ -1,5 +1,6 @@
 ﻿@page
 @model Simple.Abp.CmsKit.Public.Web.Pages.BlogPostModel
+@using System.Text
 @using Volo.Abp.AspNetCore.Mvc.UI.Theming
 @inject ITheme Theme
 @{
@@ -8,71 +9,71 @@
     //ViewBag.Content = Model.Article.Summary;
 }
 @section styles{
-    <abp-style src="/libs/css/detail.css" />
+<abp-style src="/libs/css/detail.css" />
 }
 @section scripts{
-    <abp-script src="/libs/js/detail.js" />
+<abp-script src="/libs/js/detail.js" />
 }
 
 
 @section actions{
-    <ul>
-       @if (Model.BlogPost.Previous != null)
-        {
-            <li>
-                <a class="icon" href="/blogs/@Model.BlogSlug/@Model.BlogPost.Previous.Slug">
-                    <i class="fas fa-chevron-left" aria-hidden="true"
-                       onmouseover="$('#i-prev').toggle();"
-                       onmouseout="$('#i-prev').toggle();">
-                    </i>
-                </a>
-            </li>
-        }
+<ul>
+    @if (Model.BlogPost.Previous != null)
+    {
+    <li>
+        <a class="icon" href="/blogs/@Model.BlogSlug/@Model.BlogPost.Previous.Slug">
+            <i class="fas fa-chevron-left" aria-hidden="true"
+               onmouseover="$('#i-prev').toggle();"
+               onmouseout="$('#i-prev').toggle();">
+            </i>
+        </a>
+    </li>
+    }
 
-        @if (Model.BlogPost.Next != null)
-        {
-            <li>
-                <a class="icon" href="/blogs/@Model.BlogSlug/@Model.BlogPost.Next.Slug">
-                    <i class="fas fa-chevron-right" aria-hidden="true"
-                       onmouseover="$('#i-next').toggle();"
-                       onmouseout="$('#i-next').toggle();">
-                    </i>
-                </a>
-            </li>
-        }
-        <li>
-            <a class="icon" href="#"
-               onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');">
-                <i class="fas fa-chevron-up" aria-hidden="true"
-                   onmouseover="$('#i-top').toggle();"
-                   onmouseout="$('#i-top').toggle();">
-                </i>
-            </a>
-        </li>
-        <li>
-            <a class="icon" href="#">
-                <i class="fas fa-share-alt" aria-hidden="true"
-                   onmouseover="$('#i-share').toggle();"
-                   onmouseout="$('#i-share').toggle();"
-                   onclick="$('#share').toggle();return false;">
-                </i>
-            </a>
-        </li>
-    </ul>
-    <span id="i-prev" class="info" style="display:none;">
-        Previous post
-    </span>
+    @if (Model.BlogPost.Next != null)
+    {
+    <li>
+        <a class="icon" href="/blogs/@Model.BlogSlug/@Model.BlogPost.Next.Slug">
+            <i class="fas fa-chevron-right" aria-hidden="true"
+               onmouseover="$('#i-next').toggle();"
+               onmouseout="$('#i-next').toggle();">
+            </i>
+        </a>
+    </li>
+    }
+    <li>
+        <a class="icon" href="#"
+           onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');">
+            <i class="fas fa-chevron-up" aria-hidden="true"
+               onmouseover="$('#i-top').toggle();"
+               onmouseout="$('#i-top').toggle();">
+            </i>
+        </a>
+    </li>
+    <li>
+        <a class="icon" href="#">
+            <i class="fas fa-share-alt" aria-hidden="true"
+               onmouseover="$('#i-share').toggle();"
+               onmouseout="$('#i-share').toggle();"
+               onclick="$('#share').toggle();return false;">
+            </i>
+        </a>
+    </li>
+</ul>
+<span id="i-prev" class="info" style="display:none;">
+    Previous post
+</span>
 
-    <span id="i-next" class="info" style="display:none;">
-        Next post
-    </span>
+<span id="i-next" class="info" style="display:none;">
+    Next post
+</span>
 
-    <span id="i-top" class="info" style="display:none;">
-        Back to top
-    </span>
-    <span id="i-share" class="info" style="display:none;">
-        Share post
-    </span>
+<span id="i-top" class="info" style="display:none;">
+    Back to top
+</span>
+<span id="i-share" class="info" style="display:none;">
+    Share post
+</span>
 }
 <article class="post">
     <header>
@@ -84,8 +85,8 @@
         <div class="meta">
 
             <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-                    <span itemprop="name">@Model.BlogPost.Author.Name</span>
-                </span>
+                <span itemprop="name">@Model.BlogPost.Author.Name</span>
+            </span>
 
             <div class="postdate">
                 <time datetime="@Model.BlogPost.CreationTime" itemprop="datePublished">
@@ -93,30 +94,39 @@
                 </time>
             </div>
 
-          <div class="article-tag">
-                <i class="fas fa-tag"></i>
+            <div class="article-tag">
+
                 <a class="tag-link" href="/blogs/@Model.BlogSlug">
                     @Model.BlogPost.Blog.Name.ToLower()
-                </a>|
-                @if (Model.BlogPost.Tags!=null)
+                </a>
+
+                @if (Model.Tags.Count > 0)
                 {
-                    foreach (var tag in Model.BlogPost.Tags)
-                    {
-                        <a class="tag-link" href="#">
-                        @tag.Name
-                        </a>   
-                    }
+                    <temp>|</temp>
+                    <i class='fas fa-tag'>  </i>
                 }
 
+               @Html.Raw(HandelTags())
             </div>
         </div>
     </header>
 
 
-  <div class="content" itemprop="articleBody">
+    <div class="content" itemprop="articleBody">
         <p>
             @Model.BlogPost.ShortDescription
         </p>
         @Html.Raw(Model.BlogPost.Content)
     </div>
 </article>
+
+@functions {
+    string HandelTags()
+    {
+        List<string> tags = new List<string>();
+        foreach (var tag in Model.Tags)
+            tags.Add($"<a class='tag-link' href='#'>{tag.Name}</a>");
+
+        return string.Join(",",tags);
+    }
+}

@@ -14,8 +14,7 @@ namespace Simple.Abp.CmsKit.Public
             CreateMap<BlogPost, SimpleBlogPostDto>()
                 .ForMember(c => c.Previous, c => c.Ignore())
                 .ForMember(c => c.Next, c => c.Ignore())
-                .ForMember(c => c.Blog, c => c.Ignore())
-                .ForMember(c => c.Tags, c => c.Ignore());
+                .ForMember(c => c.Blog, c => c.Ignore());
         }
     }
 }

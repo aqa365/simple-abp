@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Simple.Abp.CmsKit.Public.Dtos;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web;
 using Volo.Abp.AspNetCore.Mvc.UI.RazorPages;
 using Volo.CmsKit.Public.Blogs;
+using Volo.CmsKit.Tags;
 
 namespace Simple.Abp.CmsKit.Public.Web.Pages
 {
@@ -18,11 +20,16 @@ namespace Simple.Abp.CmsKit.Public.Web.Pages
 
         public SimpleBlogPostDto BlogPost { get; set; }
 
+        public List<TagDto> Tags { get; set; }
+
         private readonly ISimpleBlogPostPublicAppService _blogPostPublicAppService;
 
-        public BlogPostModel(ISimpleBlogPostPublicAppService blogPostPublicAppService)
+        private readonly ITagAppService _tagAppService;
+
+        public BlogPostModel(ISimpleBlogPostPublicAppService blogPostPublicAppService, ITagAppService tagAppService)
         {
             _blogPostPublicAppService = blogPostPublicAppService;
+            _tagAppService = tagAppService;
         }
 
         public virtual async Task<IActionResult> OnGetAsync()
@@ -31,6 +38,8 @@ namespace Simple.Abp.CmsKit.Public.Web.Pages
             if (BlogPost == null)
                 return NotFound();
 
+            Tags = await _tagAppService.GetAllRelatedTagsAsync("BlogPost", BlogPost.Id.ToString())
+                ?? new List<TagDto>();
             return Page();
         }
     }

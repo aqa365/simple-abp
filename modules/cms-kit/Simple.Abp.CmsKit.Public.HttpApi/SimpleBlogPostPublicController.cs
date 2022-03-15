@@ -5,6 +5,7 @@ using Volo.Abp.Application.Dtos;
 using Volo.Abp.GlobalFeatures;
 using Volo.CmsKit.GlobalFeatures;
 using Volo.CmsKit.Public;
+using Volo.CmsKit.Public.Blogs;
 
 namespace Simple.Abp.CmsKit.Public
 {
@@ -15,24 +16,38 @@ namespace Simple.Abp.CmsKit.Public
     [Route("api/cms-kit-public/blog-posts")]
     public class SimpleBlogPostPublicController : SimpleCmsKitPublicControllerBase, ISimpleBlogPostPublicAppService
     {
-        protected ISimpleBlogPostPublicAppService _blogPostPublicController { get; }
-        public SimpleBlogPostPublicController(ISimpleBlogPostPublicAppService blogPostPublicController)
+        protected ISimpleBlogPostPublicAppService _blogPostPublicAppService { get; }
+        public SimpleBlogPostPublicController(ISimpleBlogPostPublicAppService blogPostPublicAppService)
         {
-            _blogPostPublicController = blogPostPublicController;
+            _blogPostPublicAppService = blogPostPublicAppService;
+        }
+
+        [HttpGet]
+        [Route("previous/{blogId}/{blogPostId}")]
+        public Task<BlogPostPublicDto> GetPreviousAsync(Guid blogId, Guid blogPostId, DateTime creationTime)
+        {
+            return _blogPostPublicAppService.GetPreviousAsync(blogId, blogPostId, creationTime);
+        }
+
+        [HttpGet]
+        [Route("next/{blogId}/{blogPostId}")]
+        public Task<BlogPostPublicDto> GetNextAsync(Guid blogId, Guid blogPostId, DateTime creationTime)
+        {
+           return _blogPostPublicAppService.GetNextAsync(blogId, blogPostId,creationTime);
         }
 
         [HttpGet]
         [Route("with-detail/{blogSlug}/{blogPostSlug}")]
         public Task<SimpleBlogPostDto> GetAsync(string blogSlug, string blogPostSlug)
         {
-            return _blogPostPublicController.GetAsync(blogSlug, blogPostSlug);
+            return _blogPostPublicAppService.GetAsync(blogSlug, blogPostSlug);
         }
 
         [HttpGet]
         [Route("with-query/{blogSlug}")]
         public Task<PagedResultDto<SimpleBlogPostDto>> GetListAsync(string blogSlug, SimpleBlogPostGetListInput input)
         {
-           return _blogPostPublicController.GetListAsync(blogSlug, input);
+           return _blogPostPublicAppService.GetListAsync(blogSlug, input);
         }
     }
 }
