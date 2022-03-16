@@ -25,7 +25,10 @@
 	</ItemGroup>
 	
 	<ItemGroup>
-	  <Folder Include="wwwroot\" />
+	  <Content Update="wwwroot\tinymce\tinymce.min.js">
+	    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+	  </Content>
 	</ItemGroup>
 
 </Project>
