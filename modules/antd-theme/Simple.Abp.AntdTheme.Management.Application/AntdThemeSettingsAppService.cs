@@ -120,7 +120,7 @@ namespace Simple.Abp.AntdTheme
 
             await _settingManager.SetForCurrentUserAsync(GetName(nameof(OtherSettings.WeakMode)), input.OtherSettings.WeakMode.ToString());
 
-            await _settingManager.SetForCurrentUserAsync(GetName(nameof(AntdThemeSettingsDto.SourceUrl)), input.SourceUrl);
+            await _settingManager.SetGlobalAsync(GetName(nameof(AntdThemeSettingsDto.SourceUrl)), input.SourceUrl);
         }
     }
 }
