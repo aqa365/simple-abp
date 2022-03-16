@@ -92,6 +92,10 @@ namespace Simple.Abp.AntdTheme
                 currentSettingValues, nameof(OtherSettings.WeakMode), false
             );
 
+            antdThemeSettingsDto.SourceUrl = this.Get(
+                currentSettingValues, nameof(AntdThemeSettingsDto.SourceUrl), ""
+            );
+ 
             return antdThemeSettingsDto;
         }
 
@@ -115,6 +119,8 @@ namespace Simple.Abp.AntdTheme
             await _settingManager.SetForCurrentUserAsync(GetName(nameof(RegionalSettings.MenuHeader)), input.RegionalSettings.MenuHeader.ToString());
 
             await _settingManager.SetForCurrentUserAsync(GetName(nameof(OtherSettings.WeakMode)), input.OtherSettings.WeakMode.ToString());
+
+            await _settingManager.SetForCurrentUserAsync(GetName(nameof(AntdThemeSettingsDto.SourceUrl)), input.SourceUrl);
         }
     }
 }

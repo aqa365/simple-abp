@@ -22,6 +22,8 @@ namespace Simple.Abp.AntdTheme
             context.Add(new SettingDefinition(N(nameof(RegionalSettings.MenuHeader)), "false", isVisibleToClients: true));
 
             context.Add(new SettingDefinition(N(nameof(OtherSettings.WeakMode)), "false", isVisibleToClients: true));
+
+            context.Add(new SettingDefinition(N(nameof(AntdThemeSettingsDto.SourceUrl)), "", isVisibleToClients: true));
         }
 
         private static LocalizableString L(string name)

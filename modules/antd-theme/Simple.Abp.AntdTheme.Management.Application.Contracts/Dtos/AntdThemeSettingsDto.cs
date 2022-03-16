@@ -11,6 +11,8 @@
         public RegionalSettings RegionalSettings { get; set; }
 
         public OtherSettings OtherSettings { get; set; }
+        
+        public string SourceUrl { get; set; }
 
         public AntdThemeSettingsDto()
         {
