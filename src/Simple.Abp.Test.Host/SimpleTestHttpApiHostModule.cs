@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.OpenApi.Models;
 using Simple.Abp.Account.Public.Web;
 using Simple.Abp.Test.EntityFrameworkCore;
+using System.Security.Cryptography.X509Certificates;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.Authentication.JwtBearer;
 using Volo.Abp.AspNetCore.Mvc;
@@ -13,6 +14,7 @@ using Volo.Abp.Autofac;
 using Volo.Abp.GlobalFeatures;
 using Volo.Abp.Identity;
 using Volo.Abp.Identity.AspNetCore;
+using Volo.Abp.IdentityServer;
 using Volo.Abp.Json;
 using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
@@ -46,18 +48,7 @@ namespace Simple.Abp.Test
                 options.ConfigureAuthentication = false;
             });
 
-            //context.Services.PreConfigure<AbpMvcDataAnnotationsLocalizationOptions>(options =>
-            //{
-            //    options.AddAssemblyResource(
-            //        typeof(SimpleTestResource),
-            //        typeof(SimpleTestDomainModule).Assembly,
-            //        typeof(SimpleTestDomainSharedModule).Assembly,
-            //        typeof(SimpleTestApplicationModule).Assembly,
-            //        typeof(SimpleTestApplicationContractsModule).Assembly,
-            //        typeof(SimpleTestHttpApiHostModule).Assembly
-            //    );
-            //});
-            //PreConfigureCertificates(configuration);
+            PreConfigureCertificates(configuration);
         }
 
 
@@ -215,7 +206,7 @@ namespace Simple.Abp.Test
 
         public override void OnApplicationInitialization(ApplicationInitializationContext context)
         {
-            var test =  GlobalFeatureManager.Instance.IsEnabled<CommentsFeature>();
+            var test = GlobalFeatureManager.Instance.IsEnabled<CommentsFeature>();
             var app = context.GetApplicationBuilder();
             var env = context.GetEnvironment();
 
@@ -231,7 +222,7 @@ namespace Simple.Abp.Test
             //    app.UseErrorPage();
             //}
 
-            //ConfigureEndpointHttps(app);
+            ConfigureEndpointHttps(app);
 
             app.UseCorrelationId();
             app.UseStaticFiles();
@@ -245,7 +236,7 @@ namespace Simple.Abp.Test
             app.UseUnitOfWork();
             app.UseSwagger();
             app.UseAbpSwaggerUI(options =>
-            {         
+            {
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "Simple Abp Test API");
                 var configuration = context.GetConfiguration();
 
@@ -259,6 +250,25 @@ namespace Simple.Abp.Test
 
             app.UseAuditing();
             app.UseConfiguredEndpoints();
+        }
+        private void PreConfigureCertificates(IConfiguration configuration)
+        {
+            var filePath = Path.Combine(AppContext.BaseDirectory, configuration["Certificates:CerPath"] ?? "");
+            if (!File.Exists(filePath))
+                return;
+
+            //禁止生成开发的id4证书
+            PreConfigure<AbpIdentityServerBuilderOptions>(options =>
+            {
+                options.AddDeveloperSigningCredential = false;
+
+            });
+
+            PreConfigure<IIdentityServerBuilder>(opt =>
+            {
+                var certificate2 = new X509Certificate2(filePath, configuration["Certificates:Password"]);
+                opt.AddSigningCredential(certificate2);
+            });
         }
 
         private void ConfigureEndpointHttps(IApplicationBuilder app)

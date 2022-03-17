@@ -1,4 +1,5 @@
-﻿using Microsoft.IdentityModel.Protocols.OpenIdConnect;
+﻿using Microsoft.AspNetCore.HttpOverrides;
+using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Simple.Abp.CmsKit.Public.Web;
 using Simple.Abp.Test;
 using Volo.Abp;
@@ -83,7 +84,7 @@ namespace Simple.Abp.CmsKit.Web
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            ConfigureEndpointHttps(app);
             app.UseAbpRequestLocalization();
             app.UseStaticFiles();
             app.UseRouting();
@@ -93,6 +94,21 @@ namespace Simple.Abp.CmsKit.Web
             app.UseAuditing();
 
             app.UseConfiguredEndpoints();
+        }
+
+        private void ConfigureEndpointHttps(IApplicationBuilder app)
+        {
+            var forwardOptions = new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto,
+                RequireHeaderSymmetry = false
+            };
+
+            forwardOptions.KnownNetworks.Clear();
+            forwardOptions.KnownProxies.Clear();
+
+            // ref: https://github.com/aspnet/Docs/issues/2384
+            app.UseForwardedHeaders(forwardOptions);
         }
     }
 }

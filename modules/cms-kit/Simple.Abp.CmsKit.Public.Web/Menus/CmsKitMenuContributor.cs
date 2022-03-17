@@ -45,7 +45,6 @@ namespace Simple.Abp.CmsKit.Public.Web.Menu
             var subAppMenuItems = FindSubItems(null, menuItems);
             subAppMenuItems.ForEach(subAppMenuItem => context.Menu.Items.Add(subAppMenuItem));
 
-            context.Menu.Items.Add(new ApplicationMenuItem("Tags", l["Menu:Tags"], "/tags"));
             context.Menu.Items.Add(new ApplicationMenuItem("About", l["Menu:About"], "/about"));
         }
 
