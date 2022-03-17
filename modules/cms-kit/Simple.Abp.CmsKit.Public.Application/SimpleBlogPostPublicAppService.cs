@@ -34,7 +34,7 @@ namespace Simple.Abp.CmsKit.Public
             _tagRepository  = tagRepository;
         }
 
-        public async Task<SimpleBlogPostDto> GetPreviousAsync(Guid blogId, Guid blogPostId, DateTime creationTime)
+        public async Task<SimpleBlogPostDto?> GetPreviousAsync(Guid blogId, Guid blogPostId, DateTime creationTime)
         {
             var query = await _blogPostRepository.WithDetailsAsync();
 
@@ -49,7 +49,7 @@ namespace Simple.Abp.CmsKit.Public
             return previousDto;
         }
 
-        public async Task<SimpleBlogPostDto> GetNextAsync(Guid blogId, Guid blogPostId, DateTime creationTime)
+        public async Task<SimpleBlogPostDto?> GetNextAsync(Guid blogId, Guid blogPostId, DateTime creationTime)
         {
             var query = await _blogPostRepository.WithDetailsAsync();
             var nextQuery = query.Where(c =>
@@ -63,10 +63,18 @@ namespace Simple.Abp.CmsKit.Public
             return nextDto;
         }
 
-        public async Task<SimpleBlogPostDto> GetAsync(string blogSlug, string blogPostSlug)
+        public async Task<SimpleBlogPostDto?> GetAsync(string blogSlug, string blogPostSlug)
         {
+            var existBlogSlug = await BlogRepository.SlugExistsAsync(blogSlug);
+            if (!existBlogSlug)
+                return null;
+
             var blog = await BlogRepository.GetBySlugAsync(blogSlug);
             var blogDto = ObjectMapper.Map<Blog, BlogDto>(blog);
+
+            var existBlogPostSlug = await BlogPostRepository.SlugExistsAsync(blog.Id, blogPostSlug);
+            if (!existBlogPostSlug)
+                return null;
 
             var blogPost = await BlogPostRepository.GetBySlugAsync(blog.Id, blogPostSlug);
             var blogPostDto = ObjectMapper.Map<BlogPost, SimpleBlogPostDto>(blogPost);
@@ -80,13 +88,18 @@ namespace Simple.Abp.CmsKit.Public
 
         public async Task<PagedResultDto<SimpleBlogPostDto>> GetListAsync(string blogSlug, SimpleBlogPostGetListInput input)
         {
+            var pageResult = new PagedResultDto<SimpleBlogPostDto>(0, new List<SimpleBlogPostDto>());
+
+            var existBlogSlug = await BlogRepository.SlugExistsAsync(blogSlug);
+            if (!existBlogSlug)
+                return pageResult; 
+
             var blog = await BlogRepository.GetBySlugAsync(blogSlug);
-
             var blogPosts = await BlogPostRepository.GetListAsync(input.Filter, blog.Id, input.MaxResultCount, input.SkipCount, input.Sorting);
-            var count = await BlogPostRepository.GetCountAsync(input.Filter, blog.Id);
 
-            var blogPostDtos = ObjectMapper.Map<List<BlogPost>, List<SimpleBlogPostDto>>(blogPosts);
-            return new PagedResultDto<SimpleBlogPostDto>(count, blogPostDtos);
+            pageResult.TotalCount = await BlogPostRepository.GetCountAsync(input.Filter, blog.Id);
+            pageResult.Items = ObjectMapper.Map<List<BlogPost>, List<SimpleBlogPostDto>>(blogPosts);
+            return pageResult;
         }
 
         public async Task<PagedResultDto<SimpleBlogPostDto>> GetListByTagAsync(string tagName,SimpleBlogPostGetListInput input)

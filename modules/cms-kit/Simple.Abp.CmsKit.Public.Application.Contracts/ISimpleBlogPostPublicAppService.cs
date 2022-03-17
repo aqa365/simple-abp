@@ -7,11 +7,11 @@ namespace Simple.Abp.CmsKit.Public
 {
     public interface ISimpleBlogPostPublicAppService : IApplicationService, ITransientDependency
     {
-        Task<SimpleBlogPostDto> GetPreviousAsync(Guid blogId, Guid blogPostId, DateTime creationTime);
+        Task<SimpleBlogPostDto?> GetPreviousAsync(Guid blogId, Guid blogPostId, DateTime creationTime);
 
-        Task<SimpleBlogPostDto> GetNextAsync(Guid blogId, Guid blogPostId,DateTime creationTime);
+        Task<SimpleBlogPostDto?> GetNextAsync(Guid blogId, Guid blogPostId,DateTime creationTime);
 
-        Task<SimpleBlogPostDto> GetAsync(string blogSlug,string blogPostSlug);
+        Task<SimpleBlogPostDto?> GetAsync(string blogSlug,string blogPostSlug);
 
         Task<PagedResultDto<SimpleBlogPostDto>> GetListAsync(string blogSlug, SimpleBlogPostGetListInput input);
 

@@ -24,21 +24,21 @@ namespace Simple.Abp.CmsKit.Public
 
         [HttpGet]
         [Route("previous/{blogId}/{blogPostId}")]
-        public Task<SimpleBlogPostDto> GetPreviousAsync(Guid blogId, Guid blogPostId, DateTime creationTime)
+        public Task<SimpleBlogPostDto?> GetPreviousAsync(Guid blogId, Guid blogPostId, DateTime creationTime)
         {
             return _blogPostPublicAppService.GetPreviousAsync(blogId, blogPostId, creationTime);
         }
 
         [HttpGet]
         [Route("next/{blogId}/{blogPostId}")]
-        public Task<SimpleBlogPostDto> GetNextAsync(Guid blogId, Guid blogPostId, DateTime creationTime)
+        public Task<SimpleBlogPostDto?> GetNextAsync(Guid blogId, Guid blogPostId, DateTime creationTime)
         {
            return _blogPostPublicAppService.GetNextAsync(blogId, blogPostId,creationTime);
         }
 
         [HttpGet]
         [Route("with-detail/{blogSlug}/{blogPostSlug}")]
-        public Task<SimpleBlogPostDto> GetAsync(string blogSlug, string blogPostSlug)
+        public Task<SimpleBlogPostDto?> GetAsync(string blogSlug, string blogPostSlug)
         {
             return _blogPostPublicAppService.GetAsync(blogSlug, blogPostSlug);
         }
