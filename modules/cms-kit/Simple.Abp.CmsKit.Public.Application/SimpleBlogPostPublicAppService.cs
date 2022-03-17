@@ -3,7 +3,6 @@ using Volo.Abp.Application.Dtos;
 using Volo.Abp.Domain.Repositories;
 using Volo.CmsKit.Admin.Blogs;
 using Volo.CmsKit.Blogs;
-using Volo.CmsKit.Public.Blogs;
 using Volo.CmsKit.Tags;
 
 namespace Simple.Abp.CmsKit.Public
