@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Simple.Abp.CmsKit.Public.Dtos;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Volo.Abp.Application.Dtos;
@@ -11,7 +12,7 @@ namespace Simple.Abp.CmsKit.Public.Web.Pages
     public class IndexModel : AbpPageModel
     {
         private readonly IBlogPublicAppService _blogPublicAppService;
-        private readonly IBlogPostPublicAppService _blogPostPublicAppService;
+        private readonly ISimpleBlogPostPublicAppService _blogPostPublicAppService;
 
         /// <summary>
         ///  Blogs
@@ -21,20 +22,20 @@ namespace Simple.Abp.CmsKit.Public.Web.Pages
         /// <summary>
         /// BlogPosts
         /// </summary>
-        public List<BlogPostPublicDto> BlogPosts { get; set; }
+        public List<SimpleBlogPostDto> BlogPosts { get; set; }
 
 
 
-        public IndexModel(IBlogPublicAppService blogPublicAppService, IBlogPostPublicAppService blogPostPublicAppService)
+        public IndexModel(IBlogPublicAppService blogPublicAppService, ISimpleBlogPostPublicAppService blogPostPublicAppService)
         {
             _blogPublicAppService = blogPublicAppService;
             _blogPostPublicAppService = blogPostPublicAppService;
-            BlogPosts = new List<BlogPostPublicDto>();
+            BlogPosts = new List<SimpleBlogPostDto>();
         }
 
-        private PagedAndSortedResultRequestDto CreateDefaultSearchInput()
+        private SimpleBlogPostGetListInput CreateDefaultSearchInput()
         {
-            PagedAndSortedResultRequestDto request = new PagedAndSortedResultRequestDto();
+            SimpleBlogPostGetListInput request = new SimpleBlogPostGetListInput();
             request.SkipCount = 0;
             request.MaxResultCount = 5;
             return request;
@@ -47,7 +48,7 @@ namespace Simple.Abp.CmsKit.Public.Web.Pages
 
         private async Task InitBlogPosts()
         {
-            List<Task<PagedResultDto<BlogPostPublicDto>>> tasks = new List<Task<PagedResultDto<BlogPostPublicDto>>>();
+            List<Task<PagedResultDto<SimpleBlogPostDto>>> tasks = new List<Task<PagedResultDto<SimpleBlogPostDto>>>();
 
             foreach (var blog in Blogs)
             {

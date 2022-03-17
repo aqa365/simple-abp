@@ -1,36 +1,28 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Simple.Abp.CmsKit.Public.Dtos;
 using Simple.Abp.CmsKit.Public.Web.Shared.Components.Pagination;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Volo.Abp.Application.Dtos;
-using Volo.Abp.AspNetCore.Mvc.UI.RazorPages;
-using Volo.CmsKit.Public.Blogs;
 
 namespace Simple.Abp.CmsKit.Public.Web.Pages
 {
-    public class BlogModel : AbpPageModel
+    public class TagModel : PageModel
     {
-        [BindProperty(SupportsGet = true)]
-        public string BlogSlug { get; set; }
-
         [BindProperty(SupportsGet = true)]
         public int PageIndex { get; set; } = 1;
 
         [BindProperty(SupportsGet = true)]
-        public string Filter { get; set; }
-
+        public string TagName { get; set; }
 
         public Dictionary<int, List<SimpleBlogPostDto>> BlogPosts { get; set; }
 
         public PaginationViewModel PaginationViewModel { get; set; }
 
-
         private readonly ISimpleBlogPostPublicAppService _blogPostPublicAppService;
 
-        public BlogModel(ISimpleBlogPostPublicAppService blogPostPublicAppService)
+        public TagModel(ISimpleBlogPostPublicAppService blogPostPublicAppService)
         {
             _blogPostPublicAppService = blogPostPublicAppService;
             BlogPosts = new Dictionary<int, List<SimpleBlogPostDto>>();
@@ -38,10 +30,10 @@ namespace Simple.Abp.CmsKit.Public.Web.Pages
 
         public virtual async Task<IActionResult> OnGetAsync()
         {
-            SimpleBlogPostGetListInput input =new SimpleBlogPostGetListInput();
+            SimpleBlogPostGetListInput input = new SimpleBlogPostGetListInput();
             input.SkipCount = (PageIndex - 1) * input.MaxResultCount;
 
-            var pageResult = await _blogPostPublicAppService.GetListAsync(BlogSlug, input);
+            var pageResult = await _blogPostPublicAppService.GetListByTagAsync(TagName, input);
             if (pageResult == null)
                 return Page();
 
@@ -54,10 +46,7 @@ namespace Simple.Abp.CmsKit.Public.Web.Pages
                 BlogPosts.Add(year, items);
             }
 
-            string urlTemplate = $"/blogs/{BlogSlug}/page/{{pageindex}}";
-            if (!Filter.IsNullOrWhiteSpace())
-                urlTemplate += $"?filter={Filter}";
-
+            string urlTemplate = $"/tags/{TagName}/page/{{pageindex}}";
             PaginationViewModel = new PaginationViewModel(PageIndex,
                 input.MaxResultCount, pageResult.TotalCount, urlTemplate);
 

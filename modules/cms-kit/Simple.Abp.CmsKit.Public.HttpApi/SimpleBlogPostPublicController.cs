@@ -24,14 +24,14 @@ namespace Simple.Abp.CmsKit.Public
 
         [HttpGet]
         [Route("previous/{blogId}/{blogPostId}")]
-        public Task<BlogPostPublicDto> GetPreviousAsync(Guid blogId, Guid blogPostId, DateTime creationTime)
+        public Task<SimpleBlogPostDto> GetPreviousAsync(Guid blogId, Guid blogPostId, DateTime creationTime)
         {
             return _blogPostPublicAppService.GetPreviousAsync(blogId, blogPostId, creationTime);
         }
 
         [HttpGet]
         [Route("next/{blogId}/{blogPostId}")]
-        public Task<BlogPostPublicDto> GetNextAsync(Guid blogId, Guid blogPostId, DateTime creationTime)
+        public Task<SimpleBlogPostDto> GetNextAsync(Guid blogId, Guid blogPostId, DateTime creationTime)
         {
            return _blogPostPublicAppService.GetNextAsync(blogId, blogPostId,creationTime);
         }
@@ -48,6 +48,13 @@ namespace Simple.Abp.CmsKit.Public
         public Task<PagedResultDto<SimpleBlogPostDto>> GetListAsync(string blogSlug, SimpleBlogPostGetListInput input)
         {
            return _blogPostPublicAppService.GetListAsync(blogSlug, input);
+        }
+
+        [HttpGet]
+        [Route("with-query-tag/{tagName}")]
+        public Task<PagedResultDto<SimpleBlogPostDto>> GetListByTagAsync(string tagName, SimpleBlogPostGetListInput input)
+        {
+            return _blogPostPublicAppService.GetListByTagAsync(tagName, input);
         }
     }
 }

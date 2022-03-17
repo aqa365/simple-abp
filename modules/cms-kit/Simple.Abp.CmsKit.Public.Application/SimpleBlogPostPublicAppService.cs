@@ -4,6 +4,7 @@ using Volo.Abp.Domain.Repositories;
 using Volo.CmsKit.Admin.Blogs;
 using Volo.CmsKit.Blogs;
 using Volo.CmsKit.Public.Blogs;
+using Volo.CmsKit.Tags;
 
 namespace Simple.Abp.CmsKit.Public
 {
@@ -13,18 +14,27 @@ namespace Simple.Abp.CmsKit.Public
 
         protected IBlogPostRepository BlogPostRepository { get; }
 
+        private IRepository<Blog> _blogRepository;
         private IRepository<BlogPost> _blogPostRepository;
+        private IRepository<EntityTag> _entityTagRepository;
+        private ITagRepository _tagRepository;
 
         public SimpleBlogPostPublicAppService(IBlogRepository blogRepository,
+            IRepository<Blog> __blogRepository,
             IBlogPostRepository blogPostRepository,
-            IRepository<BlogPost> __blogPostRepository)
+            IRepository<BlogPost> __blogPostRepository,
+            IRepository<EntityTag> entityTagRepository,
+            ITagRepository tagRepository)
         {
             BlogRepository = blogRepository;
+            _blogRepository = __blogRepository;
             BlogPostRepository = blogPostRepository;
             _blogPostRepository = __blogPostRepository;
+            _entityTagRepository = entityTagRepository;
+            _tagRepository  = tagRepository;
         }
 
-        public async Task<BlogPostPublicDto> GetPreviousAsync(Guid blogId, Guid blogPostId, DateTime creationTime)
+        public async Task<SimpleBlogPostDto> GetPreviousAsync(Guid blogId, Guid blogPostId, DateTime creationTime)
         {
             var query = await _blogPostRepository.WithDetailsAsync();
 
@@ -35,11 +45,11 @@ namespace Simple.Abp.CmsKit.Public
                                 ).OrderBy(c => c.CreationTime);
 
             var previousEntity = await AsyncExecuter.FirstOrDefaultAsync(previousQuery);
-            var previousDto = ObjectMapper.Map<BlogPost, BlogPostPublicDto>(previousEntity);
+            var previousDto = ObjectMapper.Map<BlogPost, SimpleBlogPostDto>(previousEntity);
             return previousDto;
         }
 
-        public async Task<BlogPostPublicDto> GetNextAsync(Guid blogId, Guid blogPostId, DateTime creationTime)
+        public async Task<SimpleBlogPostDto> GetNextAsync(Guid blogId, Guid blogPostId, DateTime creationTime)
         {
             var query = await _blogPostRepository.WithDetailsAsync();
             var nextQuery = query.Where(c =>
@@ -49,7 +59,7 @@ namespace Simple.Abp.CmsKit.Public
                             ).OrderByDescending(c => c.CreationTime);
 
             var nextEntity = await AsyncExecuter.FirstOrDefaultAsync(nextQuery);
-            var nextDto = ObjectMapper.Map<BlogPost, BlogPostPublicDto>(nextEntity);
+            var nextDto = ObjectMapper.Map<BlogPost, SimpleBlogPostDto>(nextEntity);
             return nextDto;
         }
 
@@ -77,6 +87,38 @@ namespace Simple.Abp.CmsKit.Public
 
             var blogPostDtos = ObjectMapper.Map<List<BlogPost>, List<SimpleBlogPostDto>>(blogPosts);
             return new PagedResultDto<SimpleBlogPostDto>(count, blogPostDtos);
+        }
+
+        public async Task<PagedResultDto<SimpleBlogPostDto>> GetListByTagAsync(string tagName,SimpleBlogPostGetListInput input)
+        {
+            var pageResult = new PagedResultDto<SimpleBlogPostDto>(0, new List<SimpleBlogPostDto>());
+
+            var tag = await _tagRepository.FindAsync("BlogPost", tagName);
+            if (tag == null)
+                return pageResult;
+
+            var queryEntityTags = await _entityTagRepository.GetQueryableAsync();
+            queryEntityTags = queryEntityTags.Where(c => c.TagId == tag.Id).Skip(input.SkipCount).Take(input.MaxResultCount);
+
+            var blogPostIds = queryEntityTags.Select(c => c.EntityId).ToList();
+
+            var blogPostQuery = await _blogPostRepository.GetQueryableAsync();
+            var blogPosts = blogPostQuery.Where(c => blogPostIds.Contains(c.Id.ToString())).ToList();
+
+            var blogQuery = await _blogRepository.GetQueryableAsync();
+            var blogIds = blogPosts.Select(c => c.BlogId).ToList();
+            var blogs = blogQuery.Where(c => blogIds.Contains(c.Id)).ToList();
+
+            var blogPostDtos = ObjectMapper.Map<List<BlogPost>, List<SimpleBlogPostDto>>(blogPosts);
+            blogPostDtos.ForEach(blogPost =>
+            {
+                var blog = blogs.First(blog => blog.Id == blogPost.BlogId);
+                blogPost.Blog = ObjectMapper.Map<Blog, BlogDto>(blog);
+            });
+
+            pageResult.TotalCount = queryEntityTags.Count();
+            pageResult.Items = blogPostDtos;
+            return pageResult;
         }
     }
 }

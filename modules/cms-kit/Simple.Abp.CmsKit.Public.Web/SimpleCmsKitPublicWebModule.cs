@@ -54,12 +54,13 @@ namespace Simple.Abp.CmsKit.Public.Web
 
             ConfigureNavigationServices(context);
 
+            var cactusOptions =  configuration.GetSection("CactusTheme").Get<CactusOptions>();
             Configure<CactusOptions>(options =>
             {
-                options.WebsiteFiling = "鲁ICP备19044904号-1";
-                options.WebsiteFilingUrl = "http://beian.miit.gov.cn";
-                options.WebInfo = "Copyright &copy; 2019-2022";
-                //options.CdnHost = "https://ka-1252696628.cos.ap-beijing.myqcloud.com";
+                options.WebsiteFiling = cactusOptions?.WebsiteFiling; //"鲁ICP备19044904号-1";
+                options.WebsiteFilingUrl = cactusOptions?.WebsiteFilingUrl; //"http://beian.miit.gov.cn";
+                options.WebInfo = cactusOptions?.WebInfo; //"Copyright &copy; 2019-2022";
+                options.CdnHost = cactusOptions?.CdnHost; //"https://ka-1252696628.cos.ap-beijing.myqcloud.com";
             });
 
 
@@ -71,6 +72,9 @@ namespace Simple.Abp.CmsKit.Public.Web
 
                     options.Conventions.AddPageRoute("/Blog", @"/blogs/{blogSlug:minlength(1)}");
                     options.Conventions.AddPageRoute("/Blog", "/blogs/{blogSlug:minlength(1)}/page/{pageIndex:int}");
+
+                    options.Conventions.AddPageRoute("/Tag", @"/tags/{tagName:minlength(1)}");
+                    options.Conventions.AddPageRoute("/Tag", @"/tags/{tagName:minlength(1)}/page/{pageIndex:int}");
 
                     options.Conventions.AddPageRoute("/BlogPost", @"/blogs/{blogSlug}/{blogPostSlug:minlength(1)}");
                 });

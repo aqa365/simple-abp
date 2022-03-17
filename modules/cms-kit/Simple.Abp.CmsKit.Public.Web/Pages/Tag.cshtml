@@ -1,0 +1,19 @@
+﻿@page
+@using Simple.Abp.CmsKit.Public.Web.Shared.Components.BlogPosts
+@using Simple.Abp.CmsKit.Public.Web.Shared.Components.Pagination
+@model Simple.Abp.CmsKit.Public.Web.Pages.TagModel
+@{
+     ViewBag.Title = "Tag";
+}
+<div id="archive">
+    <ul class="post-list">
+        @foreach (var group in Model.BlogPosts)
+        {
+            <h2>@group.Key</h2>
+            @(await Component.InvokeAsync<BlogPostsViewComponent>(new { BlogSlug = group.Value?.FirstOrDefault()?.Blog?.Slug , modelList = group.Value }))
+        }
+    </ul>
+
+    @(await Component.InvokeAsync<PaginationViewComponent>(new { vm = Model.PaginationViewModel }))
+
+</div>
