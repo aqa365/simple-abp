@@ -6,6 +6,7 @@ using Volo.Abp.Application.Dtos;
 using Volo.Abp.AspNetCore.Mvc.UI.RazorPages;
 using Volo.CmsKit.Admin.Blogs;
 using Volo.CmsKit.Public.Blogs;
+using Volo.CmsKit.Public.Pages;
 
 namespace Simple.Abp.CmsKit.Public.Web.Pages
 {
@@ -13,6 +14,9 @@ namespace Simple.Abp.CmsKit.Public.Web.Pages
     {
         private readonly IBlogPublicAppService _blogPublicAppService;
         private readonly ISimpleBlogPostPublicAppService _blogPostPublicAppService;
+        private readonly IPagePublicAppService _pagePublicAppService;
+
+        public PageDto About { get; set; }
 
         /// <summary>
         ///  Blogs
@@ -24,12 +28,13 @@ namespace Simple.Abp.CmsKit.Public.Web.Pages
         /// </summary>
         public List<SimpleBlogPostDto> BlogPosts { get; set; }
 
-
-
-        public IndexModel(IBlogPublicAppService blogPublicAppService, ISimpleBlogPostPublicAppService blogPostPublicAppService)
+        public IndexModel(IBlogPublicAppService blogPublicAppService, 
+            ISimpleBlogPostPublicAppService blogPostPublicAppService,
+            IPagePublicAppService pagePublicAppService)
         {
             _blogPublicAppService = blogPublicAppService;
             _blogPostPublicAppService = blogPostPublicAppService;
+            _pagePublicAppService = pagePublicAppService;
             BlogPosts = new List<SimpleBlogPostDto>();
         }
 
@@ -39,6 +44,11 @@ namespace Simple.Abp.CmsKit.Public.Web.Pages
             request.SkipCount = 0;
             request.MaxResultCount = 5;
             return request;
+        }
+
+        private async Task InitAbout()
+        {
+            About = await _pagePublicAppService.FindBySlugAsync("about");
         }
 
         private async Task InitBlogs()
@@ -64,6 +74,7 @@ namespace Simple.Abp.CmsKit.Public.Web.Pages
 
         public virtual async Task<IActionResult> OnGetAsync()
         {
+            await InitAbout();
             await InitBlogs();
             await InitBlogPosts();
             return Page();

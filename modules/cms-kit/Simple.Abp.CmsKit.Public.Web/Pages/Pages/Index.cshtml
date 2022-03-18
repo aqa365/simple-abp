@@ -1,0 +1,15 @@
+﻿@page
+@model Simple.Abp.CmsKit.Public.Web.Pages.CmsKitPages.IndexModel
+@{
+    ViewBag.Title = Model.PageModel.Title;
+    ViewBag.Description  =Model.PageModel.Title;
+}
+@section styles{
+     @Html.Raw(Model.PageModel.Style)
+}
+<section id="Page">
+    @Html.Raw(Model.PageModel.Content)
+</section>
+@section scripts{
+     @Html.Raw(Model.PageModel.Script)
+}

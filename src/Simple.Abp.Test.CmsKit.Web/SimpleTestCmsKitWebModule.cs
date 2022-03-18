@@ -6,6 +6,7 @@ using Volo.Abp;
 using Volo.Abp.AspNetCore.Authentication.OAuth;
 using Volo.Abp.AspNetCore.Authentication.OpenIdConnect;
 using Volo.Abp.AspNetCore.Mvc;
+using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared;
 using Volo.Abp.Autofac;
 using Volo.Abp.Http.Client.Web;
 using Volo.Abp.Json;
@@ -84,7 +85,12 @@ namespace Simple.Abp.CmsKit.Web
             {
                 app.UseDeveloperExceptionPage();
             }
-            ConfigureEndpointHttps(app);
+
+            if (!env.IsDevelopment())
+            {
+                app.UseErrorPage();
+                ConfigureEndpointHttps(app);      
+            }
             app.UseAbpRequestLocalization();
             app.UseStaticFiles();
             app.UseRouting();

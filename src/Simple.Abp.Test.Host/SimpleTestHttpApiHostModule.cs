@@ -217,12 +217,13 @@ namespace Simple.Abp.Test
 
             app.UseAbpRequestLocalization();
 
-            //if (!env.IsDevelopment())
-            //{
-            //    app.UseErrorPage();
-            //}
+            if (!env.IsDevelopment())
+            {
+                ConfigureEndpointHttps(app);
+                //app.UseErrorPage();
+            }
 
-            ConfigureEndpointHttps(app);
+        
 
             app.UseCorrelationId();
             app.UseStaticFiles();

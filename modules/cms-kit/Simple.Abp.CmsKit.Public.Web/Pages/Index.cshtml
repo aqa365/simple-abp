@@ -1,18 +1,22 @@
 ﻿@page
-@using Simple.Abp.CmsKit.Public.Web.Shared.Components.About
 @using Simple.Abp.CmsKit.Public.Web.Shared.Components.BlogPosts
 @using Simple.Abp.CmsKit.Public.Web.Shared.Components.Project
 @model Simple.Abp.CmsKit.Public.Web.Pages.IndexModel
 @{
 }
 
-@(await Component.InvokeAsync<AboutViewComponent>())
+@section styles{
+    @Html.Raw(Model.About?.Style??"")
+}
+
+
+@Html.Raw(Model.About?.Content??"")
 
 @foreach (var blog in Model.Blogs)
 {
     <section id="@blog.Name">
         <span class="h1">
-            <a href="/blog/@blog.Slug">@blog.Name</a>
+            <a href="/blogs/@blog.Slug">@blog.Name</a>
         </span>
         <ul class="post-list">
             @(await Component.InvokeAsync<BlogPostsViewComponent>(new { BlogSlug = blog.Slug,modelList = Model.BlogPosts.Where(c=>c.BlogId==blog.Id).ToList() }))
@@ -21,23 +25,24 @@
 }
 
 @section scripts{
-<abp-script src="/libs/typed/typed.min.js"></abp-script>
-<script type="text/javascript">
-    var line = 'Find me on ';
+    @Html.Raw(Model.About?.Script??"")
+    <abp-script src="/libs/typed/typed.min.js"></abp-script>
+    <script type="text/javascript">
+        var line = 'Find me on ';
 
-    var line2= '<a class="icon" target="_blank" rel="noopener" href="https://github.com/aqa365">';
-    line2 += '<i class="fab fa-github"></i>';
-    line2 += '</a> , ';
+        var line2= '<a class="icon" target="_blank" rel="noopener" href="https://github.com/aqa365">';
+        line2 += '<i class="fab fa-github"></i>';
+        line2 += '</a> , ';
 
-    var line3 = '<a class="icon" target="_blank" rel="noopener" href="mailto:aqa.china@outlook.com">'
-    line3 += '<i class="fas fa-envelope"></i>';
-    line3 += '</a> .';
-    var typed = new Typed('#description', {
-        strings: [line + line2, line + line3, line + line2 + line3],
-        cursorChar: '_',
-        typeSpeed: 50,   //打印速度
-        backSpeed: 50,
-        backDelay: 1000,
-    });
-</script>
+        var line3 = '<a class="icon" target="_blank" rel="noopener" href="mailto:aqa.china@outlook.com">'
+        line3 += '<i class="fas fa-envelope"></i>';
+        line3 += '</a> .';
+        var typed = new Typed('#description', {
+            strings: [line + line2, line + line3, line + line2 + line3],
+            cursorChar: '_',
+            typeSpeed: 50,   //打印速度
+            backSpeed: 50,
+            backDelay: 1000,
+        });
+    </script>
 }

@@ -68,7 +68,7 @@ namespace Simple.Abp.CmsKit.Public.Web
             {
                 Configure<RazorPagesOptions>(options =>
                 {
-                    options.Conventions.AddPageRoute("/Pages/Pages/Index", PageConsts.UrlPrefix + "{slug:minlength(1)}");
+                    options.Conventions.AddPageRoute("/Pages/Index", PageConsts.UrlPrefix + "{slug:minlength(1)}");
 
                     options.Conventions.AddPageRoute("/Blog", @"/blogs/{blogSlug:minlength(1)}");
                     options.Conventions.AddPageRoute("/Blog", "/blogs/{blogSlug:minlength(1)}/page/{pageIndex:int}");

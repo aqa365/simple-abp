@@ -5,8 +5,8 @@
 @inject ITheme Theme
 @{
     Layout = Theme.GetLayout("Application2");
-    //ViewBag.Title = Model.Article.Title;
-    //ViewBag.Content = Model.Article.Summary;
+    ViewBag.Title = Model.BlogPost.Title;
+    ViewBag.Description  =Model.BlogPost.ShortDescription;
 }
 @section styles{
 <abp-style src="/libs/css/detail.css" />
@@ -125,7 +125,7 @@
     {
         List<string> tags = new List<string>();
         foreach (var tag in Model.Tags)
-            tags.Add($"<a class='tag-link' href='#'>{tag.Name}</a>");
+            tags.Add($"<a class='tag-link' href='/tags/{tag.Name.ToLower()}'> {tag.Name}</a>");
 
         return string.Join(",",tags);
     }

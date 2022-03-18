@@ -3,7 +3,8 @@
 @using Simple.Abp.CmsKit.Public.Web.Shared.Components.Pagination
 @model Simple.Abp.CmsKit.Public.Web.Pages.TagModel
 @{
-     ViewBag.Title = "Tag";
+     ViewBag.Title = "Tags - " + Model.TagName;
+     ViewBag.Description  = Model.TagName;
 }
 <div id="archive">
     <ul class="post-list">

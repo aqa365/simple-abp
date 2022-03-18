@@ -39,27 +39,39 @@ namespace Simple.Abp.CmsKit.Public.Web.Menu
 
         private async Task ConfigureMainMenuAsync(MenuConfigurationContext context)
         {
-            context.Menu.Items.Add(new ApplicationMenuItem("Home", l["Menu:Home"], "/"));
+            //context.Menu.Items.Add(new ApplicationMenuItem("Home", l["Menu:Home"], "/"));
 
             var menuItems = await _menuItemPublicAppService.GetListAsync();
-            var subAppMenuItems = FindSubItems(null, menuItems);
-            subAppMenuItems.ForEach(subAppMenuItem => context.Menu.Items.Add(subAppMenuItem));
+            menuItems = menuItems.OrderBy(c => c.Order).ToList();
 
-            context.Menu.Items.Add(new ApplicationMenuItem("About", l["Menu:About"], "/about"));
+            var headerMenu =  menuItems.FirstOrDefault(c => c.DisplayName.Equals("HeaderMenu"));
+            if (headerMenu == null)
+                return;
+
+            var subAppMenuItems = FindSubItems(headerMenu.Id, menuItems);
+            subAppMenuItems.ForEach(subAppMenuItem => context.Menu.Items.Add(subAppMenuItem));
         }
 
-        private Task ConfigureFooterMenuAsync(MenuConfigurationContext context)
+        private async Task ConfigureFooterMenuAsync(MenuConfigurationContext context)
         {
+            var menuItems = await _menuItemPublicAppService.GetListAsync();
+            menuItems = menuItems.OrderBy(c => c.Order).ToList();
 
-            context.Menu.Items.Insert(0, new ApplicationMenuItem("Home", l["Menu:Home"], "/", "fa fa-home"));
+            var footerMenu = menuItems.FirstOrDefault(c => c.DisplayName.Equals("FooterMenu"));
+            if (footerMenu == null)
+                return;
 
-            context.Menu.Items.Add(
-                new ApplicationMenuItem("Blogs", l["Menu:Blogs"], "/blogs"));
+            var subAppMenuItems = FindSubItems(footerMenu.Id, menuItems);
 
-            context.Menu.Items.Add(
-                new ApplicationMenuItem("About", l["Menu:About"], "/about"));
+            var firstSubAppMenuItem = subAppMenuItems.FirstOrDefault();
+            if(firstSubAppMenuItem!= null) 
+            {
+                //"fa fa-home"
+                context.Menu.Items.Insert(0, firstSubAppMenuItem);
+                subAppMenuItems.Remove(firstSubAppMenuItem);
+            }  
 
-            return Task.CompletedTask;
+            subAppMenuItems.ForEach(subAppMenuItem => context.Menu.Items.Add(subAppMenuItem));
         }
 
 
@@ -73,7 +85,7 @@ namespace Simple.Abp.CmsKit.Public.Web.Menu
             items.ForEach(subMenuItem =>
             {
                 var subAppItem = new ApplicationMenuItem(subMenuItem.DisplayName,
-                    l[$"Menu:{subMenuItem.DisplayName}"], $"/{subMenuItem.Url}", subMenuItem.Icon);
+                    l[$"Menu:{subMenuItem.DisplayName}"], $"{subMenuItem.Url}", subMenuItem.Icon);
                 var subAppMenuItems = FindSubItems(subMenuItem.Id, data);
                 subAppMenuItems.ForEach(appMenuItem => subAppItem.Items.Add(appMenuItem));
 
