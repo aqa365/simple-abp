@@ -114,7 +114,8 @@ $(document).ready(function () {
     $('#theme-switch').click(function () {
 
         var cookieOptions = {
-            expires: 365
+            expires: 365,
+            path:'/',
         }
 
         var toggle = $('.fa-toggle-off', this).length;

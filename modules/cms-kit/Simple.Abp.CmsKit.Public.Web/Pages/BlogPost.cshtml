@@ -7,12 +7,29 @@
     Layout = Theme.GetLayout("Application2");
     ViewBag.Title = Model.BlogPost.Title;
     ViewBag.Description  =Model.BlogPost.ShortDescription;
+
+    string cdnHost = ViewBag.CdnHost;
 }
 @section styles{
-<abp-style src="/libs/css/detail.css" />
+    @if (cdnHost.IsNullOrWhiteSpace())
+    {
+        <abp-style src="/libs/css/detail.css" />
+    }
+    else
+    {
+        <link rel="stylesheet" href="@(cdnHost+"/libs/css/detail.css")">
+    }
+
 }
 @section scripts{
-<abp-script src="/libs/js/detail.js" />
+    @if (cdnHost.IsNullOrWhiteSpace())
+    {
+        <abp-script src="/libs/js/detail.js" />
+    }
+    else
+    {
+        <script src="@(cdnHost+"/libs/js/detail.js")"></script>
+    }
 }
 
 

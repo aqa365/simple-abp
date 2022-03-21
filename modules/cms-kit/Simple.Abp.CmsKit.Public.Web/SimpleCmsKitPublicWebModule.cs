@@ -1,8 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.WebEncoders;
 using Simple.Abp.CactusTheme;
 using Simple.Abp.CmsKit.Public.Web.Menu;
+using System.Text.Encodings.Web;
+using System.Text.Unicode;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.Authentication.OpenIdConnect;
 using Volo.Abp.GlobalFeatures;
@@ -53,6 +56,8 @@ namespace Simple.Abp.CmsKit.Public.Web
 
 
             ConfigureNavigationServices(context);
+
+            Configure<WebEncoderOptions>(options => options.TextEncoderSettings = new TextEncoderSettings(UnicodeRanges.All));
 
             var cactusOptions =  configuration.GetSection("CactusTheme").Get<CactusOptions>();
             Configure<CactusOptions>(options =>

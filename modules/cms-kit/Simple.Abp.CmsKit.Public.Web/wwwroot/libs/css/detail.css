@@ -9,3 +9,9 @@
 .content blockquote {
     padding: 0 !important;
 }
+
+@media screen and (max-width: 480px) {
+    .content img,iframe {
+        width:100%
+    }
+}
