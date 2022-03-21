@@ -1,14 +1,18 @@
 ﻿@page
 @model Simple.Abp.CmsKit.Public.Web.Pages.BlogPostModel
 @using System.Text
+@using Microsoft.Extensions.Options
 @using Volo.Abp.AspNetCore.Mvc.UI.Theming
+@using Simple.Abp.CactusTheme
+
 @inject ITheme Theme
+@inject IOptions<CactusOptions> Options
 @{
     Layout = Theme.GetLayout("Application2");
     ViewBag.Title = Model.BlogPost.Title;
     ViewBag.Description  =Model.BlogPost.ShortDescription;
 
-    string cdnHost = ViewBag.CdnHost;
+    string cdnHost = Options?.Value?.CdnHost;
 }
 @section styles{
     @if (cdnHost.IsNullOrWhiteSpace())

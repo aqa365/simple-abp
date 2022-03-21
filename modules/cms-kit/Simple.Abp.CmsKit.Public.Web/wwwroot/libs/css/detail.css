@@ -12,6 +12,6 @@
 
 @media screen and (max-width: 480px) {
     .content img,iframe {
-        width:100%
+        width:100% !important;
     }
 }

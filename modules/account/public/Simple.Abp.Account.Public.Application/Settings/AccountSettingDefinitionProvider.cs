@@ -13,7 +13,7 @@ namespace Simple.Abp.Account
                     AccountSettingNames.IsSelfRegistrationEnabled, 
                     "true", 
                     L("DisplayName:Abp.Account.IsSelfRegistrationEnabled"), 
-                    L("Description:Abp.Account.IsSelfRegistrationEnabled"), isVisibleToClients : true)
+                    L("Description:Abp.Account.IsSelfRegistrationEnabled"), isVisibleToClients : false)
             );
 
             context.Add(
