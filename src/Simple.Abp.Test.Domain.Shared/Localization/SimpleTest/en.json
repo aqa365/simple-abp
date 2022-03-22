@@ -2,30 +2,11 @@
   "culture": "en",
   "texts": {
 
-    "Menu:Home": "Home",
-    "Menu:Writing": "Writing",
-    "Menu:Catalogs": "Catalogs",
-    "Menu:Tags": "Tags",
-    "Menu:Bilibili": "Bilibili",
-    "Menu:Projects": "Projects",
-    "Menu:About": "About",
-
-    "Welcome": "Welcome",
-    "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information, visit abp.io.",
-
-    "Permission:English": "English management",
-    "Permission:Blog": "Blog management",
-    "Permission:Articles": "Articles management",
-    "Permission:Words": "Words management",
-    "Permission:Create": "Create",
-    "Permission:Update": "Edit",
-    "Permission:Delete": "Delete",
-
-    "Permission:ApiResources": "Api Resources",
-    "Permission:IdentityResources": "Identity Resources",
-    "Permission:Clients": "Clients",
-    "Permission:ManagePermissions": "Manage Permissions",
-    "Permission:IdentityServer": "Identity Server",
-    "Permission:ViewChangeHistory": "View change history"
+    "Permission:Vemon": "Vemon management",
+    "Permission:Aim": "Aim management",
+    "Permission:Rcs": "Rcs management",
+    "Permission:Radar": "Radar management",
+    "Permission:Trigger": "Trigger management",
+    "Permission:Sonar": "Sonar management"
   }
 }
