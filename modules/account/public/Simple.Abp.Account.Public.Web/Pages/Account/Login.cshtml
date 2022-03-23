@@ -27,7 +27,7 @@
 
 <div class="content-body">
     <div class="form-wrapper">
-        <form method="post">
+        <form method="post" id='loginForm'>
             <input asp-for="ReturnUrl" />
             <input asp-for="ReturnUrlHash" />
 
@@ -98,3 +98,16 @@
 <abp-script src="/libs/jquery/jquery.js" />
 <abp-script src="/libs/jquery/jquery-validation/jquery.validate.js" />
 <abp-script src="/libs/jquery/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js" />
+<script type="text/javascript">
+  $(function () {
+      $('#loginForm').submit(function(){
+         var flag = $(this).valid();
+         if(flag){
+            $('.btn-submit').attr('disabled',true)
+            $('.btn-submit').val('正在登录...');
+         }
+
+      })
+  })
+
+</script>
